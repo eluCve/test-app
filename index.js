@@ -2,6 +2,7 @@ const express = require('express');
 const axios = require('axios');
 const OpenAI = require('openai');
 const ejs_layouts = require('express-ejs-layouts');
+require('dotenv').config();
 const app = express();
 // middleware
 app.use(express.json());
