@@ -10,7 +10,8 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(ejs_layouts);
 
-
+const Riot_API_KEY = process.env.RIOT_API_KEY;
+const OpenAI_API_KEY = process.env.OPENAI_API_KEY;
 
 const openai = new OpenAI({
   apiKey: OpenAI_API_KEY,
