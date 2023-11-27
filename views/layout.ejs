@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poromentor.gg - League of Legends strategic game analysis</title>
+    <link rel="icon" type="image/png" href="/assets/favicon.png">
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/<%= page %>.css">
+</head>
+<body>
+    <div class="content">
+        <div id="info-bar">
+            <div id="info-left"></div>
+            <div id="info-middle"><a href="https://discord.gg/bwEd3eYfmC" target="_blank" style="text-decoration: underline;">Join our Discord</a></div>
+            <div id="info-right" style="display: flex; flex-direction: row; align-items: center; gap: 8px;">
+                <svg id="app-status-icon" width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="4.5" cy="4.5" r="4.5" fill="#39FF14"/>
+                </svg>
+                <p id="app-status-text">App Online</p>
+                <p id="app-version">v1.01.3</p>
+            </div>
+        </div>
+        <header>
+            <div id="logo"><a href="/"><img src="/assets/logo.svg" width="250"></a></div>
+            <div id="summoner-info">
+                <p id="summoner-name"></p>
+                <p id="region" style="color: #28A9E1; text-transform: uppercase;"></p>
+            </div>
+        </header>
+    </div>
+    <%- body %>
+    <footer>
+        <h5>© 2023 POROMENTOR.GG. POROMENTOR.GG isn't endorsed by Riot Games and doesn't reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends. League of Legends and Riot Games are trademarks or registered trademarks of Riot Games, Inc. League of Legends © Riot Games, Inc.</h5>
+    </footer>
+    <script src="/js/<%= page %>.js"></script>
+</body>
+</html>
