@@ -13,10 +13,10 @@
   },
   "name": "poromentor.gg",
   "version": "1.0.0",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node app",
-    "dev": "nodemon app"
+    "start": "node index",
+    "dev": "nodemon index"
   },
   "author": "",
   "license": "ISC",
