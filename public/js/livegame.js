@@ -305,7 +305,7 @@ function typewriterEffect(elementId, text, speed) {
 document.getElementById("btn-share").addEventListener("click", () => {
   let buttonText = document.getElementById("btn-share-text");
   navigator.clipboard
-    .writeText(`http://localhost:3000/live/shared/${region}/${summonerId}`)
+    .writeText(`https://poromentor.gg/live/shared/${region}/${summonerId}`)
     .then(function () {
       buttonText.innerText = "COPIED";
       setTimeout(function () {
