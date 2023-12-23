@@ -6,8 +6,9 @@
     "ejs": "^3.1.9",
     "express": "^4.18.2",
     "express-ejs-layouts": "^2.5.1",
-    "needle": "^3.2.0",
-    "nodemon": "^3.0.1",
+    "express-rate-limit": "^7.1.5",
+    "helmet": "^7.1.0",
+    "mongoose": "^8.0.3",
     "openai": "^4.15.4",
     "redis": "^4.6.10"
   },
@@ -15,10 +16,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index",
-    "dev": "nodemon index"
+    "start": "node index"
   },
-  "author": "",
-  "license": "ISC",
+  "author": {
+    "name": "eluCve",
+    "email": "contact@poromentor.gg"
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eluCve/test-app.git"
+  },
+  "bugs": {
+    "url": "https://github.com/eluCve/test-app/issues"
+  },
+  "homepage": "https://github.com/eluCve/test-app#readme",
   "description": ""
 }
