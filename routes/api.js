@@ -155,8 +155,9 @@ router.post('/search-game', async (req, res) => {
 
 router.post('/generate-analysis', async (req, res) => {
     try {
+      console.log('start')
       const { red_team, blue_team , team_color, enemy_color, jungler_blue, jungler_red, gameId, region } = req.body;
-      const prompt = `Analyze me this league of legends game: We are playing on team ${team_color}. Red Team: ${red_team.join(', ')}. Blue Team: ${blue_team.join(', ')}. Red Team Jungler: ${jungler_red}. Blue Team Jungler: ${jungler_blue}. Always write champion names EXACTLY the way I just typed them. For composition_type STRICTLY use ONLY ONE of the following team composition values for EACH TEAM: Charge, Capture, Split push, Poke, Protect. For power_spikes can only take the values of 0, 1, and 2 where 0 is weak 1 is moderate, and 2 is strong. Strictly respond with a JSON in this format and first team color is our team color:{\"${team_color}\":{\"positions\":{\"top\":,\"jungle\":,\"mid\":,\"bot\":,\"support\":},\"composition_type\":,\"power_spikes\":{\"early\":,\"early_mid\":,\"mid\":,\"mid_late\":,\"late\":},\"earlygame_strategy\":,\"earlygame_objectives\":,\"midgame_objectives\":,\"lategame_strategy\":,\"general_warnings\":,\"general_game_strategy\":},\"${enemy_color}\":{\"positions\":{\"top\":,\"jungle\":,\"mid\":,\"bot\":,\"support\":},\"composition_type\":,\"power_spikes\":{\"early\":,\"early_mid\":,\"mid\":,\"mid_late\":,\"late\":}}}`;
+      const prompt = `Analyze me this league of legends game: We are playing on team ${team_color}. Red Team: ${red_team.join(', ')}. Blue Team: ${blue_team.join(', ')}. Red Team Jungler: ${jungler_red}. Blue Team Jungler: ${jungler_blue}. Respond in JSON format. Always write champion names exactly the way I do. For composition_type STRICTLY use ONLY ONE of the following team composition values for EACH TEAM: Charge, Capture, Split push, Poke, Protect. For power_spikes can only take the values of 0, 1, and 2 where 0 is weak 1 is moderate, and 2 is strong. Strictly respond with a JSON in this format and first team color is our team color:{\"${team_color}\":{\"positions\":{\"top\":,\"jungle\":,\"mid\":,\"bot\":,\"support\":},\"composition_type\":,\"power_spikes\":{\"early\":,\"early_mid\":,\"mid\":,\"mid_late\":,\"late\":},\"earlygame_strategy\":,\"earlygame_objectives\":,\"midgame_objectives\":,\"lategame_strategy\":,\"general_warnings\":,\"general_game_strategy\":},\"${enemy_color}\":{\"positions\":{\"top\":,\"jungle\":,\"mid\":,\"bot\":,\"support\":},\"composition_type\":,\"power_spikes\":{\"early\":,\"early_mid\":,\"mid\":,\"mid_late\":,\"late\":}}}`;
       const openAIResponse = await openai.chat.completions.create({
         messages: [
           {
@@ -179,6 +180,7 @@ router.post('/generate-analysis', async (req, res) => {
         await liveGame.save();
         res.json(jsonContent);
     } catch (error) {
+      console.log(error)
       res.send('An error occurred: ' + error.message);
     }
 })
