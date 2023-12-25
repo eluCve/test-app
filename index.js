@@ -24,8 +24,22 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-      "script-src": ["'self'", 'https://www.googletagmanager.com', 'https://region1.google-analytics.com', 'https://www.paypalobjects.com','https://cdn.jsdelivr.net/npm/chart.js'],
-      'img-src': ["'self'", 'data:', 'https://ddragon.leagueoflegends.com'],
+      "script-src": [
+        "'self'",
+        'https://www.googletagmanager.com',
+        'https://region1.google-analytics.com',
+        'https://www.paypalobjects.com',
+        'https://cdn.jsdelivr.net/npm/chart.js'
+      ],
+      'img-src': [
+        "'self'",
+        'data:',
+        'https://ddragon.leagueoflegends.com'
+      ],
+      'connect-src': [
+        "'self'",
+        'https://region1.google-analytics.com',
+      ],
     }
   }
 }));
