@@ -24,7 +24,7 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-      "script-src": ["'self'", 'https://www.paypalobjects.com','https://cdn.jsdelivr.net/npm/chart.js'],
+      "script-src": ["'self'", 'https://www.googletagmanager.com', 'https://www.paypalobjects.com','https://cdn.jsdelivr.net/npm/chart.js'],
       'img-src': ["'self'", 'data:', 'https://ddragon.leagueoflegends.com'],
     }
   }
