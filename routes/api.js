@@ -228,6 +228,6 @@ router.get('/id/:summonerId/:region', async (req, res) => {
     }
   }
   fetchGame();
-}}
+}});
 
 module.exports = router;
