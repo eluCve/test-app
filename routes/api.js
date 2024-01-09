@@ -217,13 +217,14 @@ router.get('/id/:summonerId/:region', async (req, res) => {
               }
           }
       }
-  } catch (error) {
-      if (error.response.status === 404 && attempts < maxAttempts) {
-          attempts++;
-          setTimeout(fetchGame, 2000);
-      } else {
-          res.send('An error occurred: ' + error.message);
-      }
+ } catch (error) {
+    if (error.response && error.response.status === 404 && attempts < maxAttempts) {
+        attempts++;
+        setTimeout(fetchGame, 2000);
+    } else {
+        // Handle other types of errors
+        const errorMessage = error.response ? error.response.data : error.message;
+        res.status(500).send('An error occurred: ' + errorMessage);
     }
   }
   fetchGame();
