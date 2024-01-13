@@ -8,7 +8,7 @@ async function searchLiveGame() {
   document.getElementById('status').innerText = "Searching...";
   document.getElementById('loading-animation').style.display = 'flex';
   try {
-    const response = await fetch(`/api/id/${summonerName}/${region}/${tag}`, { method: 'GET'});
+    const response = await fetch(`/api/id/${region}/${summonerName}/${tag}`, { method: 'GET'});
 
     if (!response.ok) {
       if (response.status === 408) {
