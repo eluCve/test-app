@@ -18,7 +18,6 @@ mongoose.connect(mongoURI)
   .catch(err => console.error('Could not connect to MongoDB:', err));
 
 const app = express();
-app.set('trust proxy', true);  // Enable 'trust proxy'
 
 // middleware
 app.use(helmet({

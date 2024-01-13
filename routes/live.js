@@ -71,7 +71,7 @@ router.get('/summoner/:region/:summoner/:tag', async (req, res) => {
 });
 
 router.get('/:region/:summonerName/:tag', async (req, res) => {
-    const {summonerName, region, tag} = req.params;
+    const {region, summonerName, tag} = req.params;
     res.render('shareGame', {
         page: 'shareGame',
         summonerName: summonerName,
