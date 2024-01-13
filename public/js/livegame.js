@@ -2,6 +2,7 @@ const summonerInfo = document.getElementById("summonerInfo");
 const region = summonerInfo.getAttribute("data-region");
 const summonerId = summonerInfo.getAttribute("data-summoner-id");
 const summonerName = summonerInfo.getAttribute("data-summoner-name");
+const tag = summonerInfo.getAttribute("data-tag");
 const summonerLevel = summonerInfo.getAttribute("data-summoner-level");
 const profileIconId = summonerInfo.getAttribute("data-profile-icon-id");
 document.getElementById("summoner-name").innerHTML = summonerName;
@@ -144,170 +145,48 @@ function showAnalysis(analysis, team_color) {
     div.appendChild(img);
     blueTeamContainer.appendChild(div);
   });
-  const redEarly = document.getElementById("red-early");
-  const redEarlyMid = document.getElementById("red-early-mid");
-  const redMid = document.getElementById("red-mid");
-  const redMidLate = document.getElementById("red-mid-late");
-  const redLate = document.getElementById("red-late");
-  const blueEarly = document.getElementById("blue-early");
-  const blueEarlyMid = document.getElementById("blue-early-mid");
-  const blueMid = document.getElementById("blue-mid");
-  const blueMidLate = document.getElementById("blue-mid-late");
-  const blueLate = document.getElementById("blue-late");
-  if (analysis.red.power_spikes.early === 0) {
-    redEarly.style.backgroundColor = "#c8453c";
-  } else if (analysis.red.power_spikes.early === 1) {
-    redEarly.style.backgroundColor = "#c89c3c";
-  } else if (analysis.red.power_spikes.early === 2) {
-    redEarly.style.backgroundColor = "#3cc848";
-  } else {
-    redEarly.style.backgroundColor = "#000";
+  const powerSpikeColors = {
+    0: "#c8453c",
+    1: "#c89c3c",
+    2: "#3cc848",
+    default: "#000"
+  };
+  
+  function setPowerSpikeColor(element, value) {
+    element.style.backgroundColor = powerSpikeColors[value] || powerSpikeColors.default;
   }
-  if (analysis.red.power_spikes.early_mid === 0) {
-    redEarlyMid.style.backgroundColor = "#c8453c";
-  } else if (analysis.red.power_spikes.early_mid === 1) {
-    redEarlyMid.style.backgroundColor = "#c89c3c";
-  } else if (analysis.red.power_spikes.early_mid === 2) {
-    redEarlyMid.style.backgroundColor = "#3cc848";
-  } else {
-    redEarlyMid.style.backgroundColor = "#000";
-  }
-  if (analysis.red.power_spikes.mid === 0) {
-    redMid.style.backgroundColor = "#c8453c";
-  } else if (analysis.red.power_spikes.mid === 1) {
-    redMid.style.backgroundColor = "#c89c3c";
-  } else if (analysis.red.power_spikes.mid === 2) {
-    redMid.style.backgroundColor = "#3cc848";
-  } else {
-    redMid.style.backgroundColor = "#000";
-  }
-  if (analysis.red.power_spikes.mid_late === 0) {
-    redMidLate.style.backgroundColor = "#c8453c";
-  } else if (analysis.red.power_spikes.mid_late === 1) {
-    redMidLate.style.backgroundColor = "#c89c3c";
-  } else if (analysis.red.power_spikes.mid_late === 2) {
-    redMidLate.style.backgroundColor = "#3cc848";
-  } else {
-    redMidLate.style.backgroundColor = "#000";
-  }
-  if (analysis.red.power_spikes.late === 0) {
-    redLate.style.backgroundColor = "#c8453c";
-  } else if (analysis.red.power_spikes.late === 1) {
-    redLate.style.backgroundColor = "#c89c3c";
-  } else if (analysis.red.power_spikes.late === 2) {
-    redLate.style.backgroundColor = "#3cc848";
-  } else {
-    redLate.style.backgroundColor = "#000";
-  }
-  if (analysis.blue.power_spikes.early === 0) {
-    blueEarly.style.backgroundColor = "#c8453c";
-  } else if (analysis.blue.power_spikes.early === 1) {
-    blueEarly.style.backgroundColor = "#c89c3c";
-  } else if (analysis.blue.power_spikes.early === 2) {
-    blueEarly.style.backgroundColor = "#3cc848";
-  } else {
-    blueEarly.style.backgroundColor = "#000";
-  }
-  if (analysis.blue.power_spikes.early_mid === 0) {
-    blueEarlyMid.style.backgroundColor = "#c8453c";
-  } else if (analysis.blue.power_spikes.early_mid === 1) {
-    blueEarlyMid.style.backgroundColor = "#c89c3c";
-  } else if (analysis.blue.power_spikes.early_mid === 2) {
-    blueEarlyMid.style.backgroundColor = "#3cc848";
-  } else {
-    blueEarlyMid.style.backgroundColor = "#000";
-  }
-  if (analysis.blue.power_spikes.mid === 0) {
-    blueMid.style.backgroundColor = "#c8453c";
-  } else if (analysis.blue.power_spikes.mid === 1) {
-    blueMid.style.backgroundColor = "#c89c3c";
-  } else if (analysis.blue.power_spikes.mid === 2) {
-    blueMid.style.backgroundColor = "#3cc848";
-  } else {
-    blueMid.style.backgroundColor = "#000";
-  }
-  if (analysis.blue.power_spikes.mid_late === 0) {
-    blueMidLate.style.backgroundColor = "#c8453c";
-  } else if (analysis.blue.power_spikes.mid_late === 1) {
-    blueMidLate.style.backgroundColor = "#c89c3c";
-  } else if (analysis.blue.power_spikes.mid_late === 2) {
-    blueMidLate.style.backgroundColor = "#3cc848";
-  } else {
-    blueMidLate.style.backgroundColor = "#000";
-  }
-  if (analysis.blue.power_spikes.late === 0) {
-    blueLate.style.backgroundColor = "#c8453c";
-  } else if (analysis.blue.power_spikes.late === 1) {
-    blueLate.style.backgroundColor = "#c89c3c";
-  } else if (analysis.blue.power_spikes.late === 2) {
-    blueLate.style.backgroundColor = "#3cc848";
-  } else {
-    blueLate.style.backgroundColor = "#000";
-  }
-  document.getElementById("red-comp").innerHTML = "";
-  document.getElementById("blue-comp").innerHTML = "";
-  document.getElementById("general-strategy").innerHTML = "";
-  document.getElementById("warnings").innerHTML = "";
-  document.getElementById("earlygame-strategy").innerHTML = "";
-  document.getElementById("earlygame-objectives").innerHTML = "";
-  document.getElementById("midgame-objectives").innerHTML = "";
-  document.getElementById("lategame-strategy").innerHTML = "";
-  typewriterEffect("red-comp", analysis.red.composition_type, 50);
-  typewriterEffect("blue-comp", analysis.blue.composition_type, 50);
-  typewriterEffect(
-    "general-strategy",
-    analysis[team_color].general_game_strategy,
-    10
-  );
-  typewriterEffect(
-    "warnings",
-    analysis[team_color].general_warnings,
-    10
-  );
-  typewriterEffect(
-    "earlygame-strategy",
-    analysis[team_color].earlygame_strategy,
-    10
-  );
-  typewriterEffect(
-    "earlygame-objectives",
-    analysis[team_color].earlygame_objectives,
-    10
-  );
-  typewriterEffect(
-    "midgame-objectives",
-    analysis[team_color].midgame_objectives,
-    10
-  );
-  typewriterEffect(
-    "lategame-strategy",
-    analysis[team_color].lategame_strategy,
-    10
-  );
-}
+  
+  const redElements = ["red-early", "red-early-mid", "red-mid", "red-mid-late", "red-late"];
+  const blueElements = ["blue-early", "blue-early-mid", "blue-mid", "blue-mid-late", "blue-late"];
+  
+  redElements.forEach(id => {
+    const element = document.getElementById(id);
+    const value = analysis.red.power_spikes[id.split('-')[1]];
+    setPowerSpikeColor(element, value);
+  });
+  
+  blueElements.forEach(id => {
+    const element = document.getElementById(id);
+    const value = analysis.blue.power_spikes[id.split('-')[1]];
+    setPowerSpikeColor(element, value);
+  });
 
-function typewriterEffect(elementId, text, speed) {
-  let index = 0;
-  let element = document.getElementById(elementId);
-  let words = text.split(' '); // Split the text by spaces into an array of words
-  let interval = setInterval(function () {
-    if (index < words.length) {
-      let nextWord = words[index];
-        // Add the next word with a space
-        element.innerHTML += nextWord + " ";
-        index++;
-    } else {
-      clearInterval(interval);
-    }
-  }, speed);
+  document.getElementById("red-comp").innerHTML = analysis.red.composition_type;
+  document.getElementById("blue-comp").innerHTML = analysis.blue.composition_type;
+  document.getElementById("general-strategy").innerHTML = analysis[team_color].general_game_strategy;
+  document.getElementById("warnings").innerHTML = analysis[team_color].general_warnings;
+  document.getElementById("earlygame-strategy").innerHTML = analysis[team_color].earlygame_strategy;
+  document.getElementById("earlygame-objectives").innerHTML = analysis[team_color].earlygame_objectives;
+  document.getElementById("midgame-objectives").innerHTML = analysis[team_color].midgame_objectives;
+  document.getElementById("lategame-strategy").innerHTML = analysis[team_color].lategame_strategy;
 }
 
 document.getElementById("btn-share").addEventListener("click", () => {
   let buttonText = document.getElementById("btn-share-text");
   navigator.clipboard
-    .writeText(`https://poromentor.gg/live/shared/${region}/${summonerId}`)
+    .writeText(`${window.location.origin}/live/${region}/${summonerName}/${tag}`)
     .then(function () {
-      buttonText.innerText = "COPIED";
+      buttonText.innerText = "LINK COPIED";
       setTimeout(function () {
         buttonText.innerText = "SHARE";
       }, 2000);

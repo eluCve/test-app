@@ -54,7 +54,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 app.use(ejs_layouts);
 
-const live = require('./routes/live');
+const live = require('./routes/live.js');
 const api = require('./routes/api.js')
 
 app.get('/', (req, res) => {

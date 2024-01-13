@@ -6,5 +6,5 @@ document.getElementById('search-summoner').addEventListener('submit', async func
     const trimmedsummoner = summoner.trim();
     const trimmedTag = tag.trim();
     const cleanedTag = trimmedTag.startsWith('#') ? trimmedTag.slice(1) : trimmedTag;
-    window.location.href = `/live/${region}/${trimmedsummoner}/${cleanedTag}`;
+    window.location.href = `/live/summoner/${region}/${trimmedsummoner}/${cleanedTag}`;
 });

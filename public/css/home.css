@@ -82,14 +82,14 @@ select {
     z-index: 0;
 }
 .box1 .box-background-image{
-    background-image: url('/assets/box1.png');
+    background-image: url('/assets/box1.jpg');
     
 }
 .box2 .box-background-image{
-    background-image: url('/assets/box2.png');
+    background-image: url('/assets/box2.jpg');
 }
 .box3 .box-background-image{
-    background-image: url('/assets/box3.png');
+    background-image: url('/assets/box3.jpg');
 }
 .tint {
     position: absolute;

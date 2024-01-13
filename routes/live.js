@@ -5,16 +5,7 @@ const Summoner = require('../models/summoner');
 
 const RIOT_API_KEY = process.env.RIOT_API_KEY;
 
-router.get('/shared/:region/:summonerId', async (req, res) => {
-    const { region, summonerId} = req.params;
-    res.render('shareGame', {
-        page: 'shareGame',
-        region: region,
-        summonerId: summonerId
-    });
-})
-
-router.get('/:region/:summoner/:tag', async (req, res) => {
+router.get('/summoner/:region/:summoner/:tag', async (req, res) => {
     try {
         const { region, summoner, tag } = req.params;
         const encodedSummoner = encodeURIComponent(summoner);
@@ -28,6 +19,7 @@ router.get('/:region/:summoner/:tag', async (req, res) => {
                 region: encodedRegion,
                 summonerId: existingSummoner.summonerId,
                 summonerName: summoner,
+                tag: tag,
                 summonerLevel: existingSummoner.summonerLevel,
                 profileIconId: existingSummoner.profileIconId,
             });
@@ -52,6 +44,7 @@ router.get('/:region/:summoner/:tag', async (req, res) => {
                         region: encodedRegion,
                         summonerId: searchSummoner.data.id,
                         summonerName: searchSummoner.data.name,
+                        tag: encodedTag,
                         summonerLevel: searchSummoner.data.summonerLevel,
                         profileIconId: searchSummoner.data.profileIconId,
                     });
@@ -76,5 +69,15 @@ router.get('/:region/:summoner/:tag', async (req, res) => {
         }
     }
 });
+
+router.get('/:summonerName/:region/:tag', async (req, res) => {
+    const {summonerName, region, tag} = req.params;
+    res.render('shareGame', {
+        page: 'shareGame',
+        summonerName: summonerName,
+        region: region,
+        tag: tag
+    });
+})
 
 module.exports = router;

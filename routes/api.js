@@ -86,7 +86,6 @@ router.post('/search-game', async (req, res) => {
           red_team_power[i] = red_team_power[i] / 5;
           red_team_power[i] = Math.round(red_team_power[i]);
         }
-        console.log(blue_team_power, red_team_power)
 
         let liveGame = await LiveGame.findOne({
           gameId: searchGame.data.gameId,
@@ -155,7 +154,6 @@ router.post('/search-game', async (req, res) => {
 
 router.post('/generate-analysis', async (req, res) => {
     try {
-      console.log('start')
       const { red_team, blue_team , team_color, enemy_color, jungler_blue, jungler_red, gameId, region } = req.body;
       const prompt = `Analyze me this league of legends game: We are playing on team ${team_color}. Red Team: ${red_team.join(', ')}. Blue Team: ${blue_team.join(', ')}. Red Team Jungler: ${jungler_red}. Blue Team Jungler: ${jungler_blue}. Respond in JSON format. Always write champion names exactly the way I do, for example Lee Sin should be typed LeeSin and not Lee Sin like you're used to, so type the champion names in your JSON response exactly like I've typed them. For composition_type STRICTLY use ONLY ONE of the following team composition values for EACH TEAM: Charge, Capture, Split push, Poke, Protect. For power_spikes can only take the values of 0, 1, and 2 where 0 is weak 1 is moderate, and 2 is strong. Strictly respond with a JSON in this format and first team color is our team color:{\"${team_color}\":{\"positions\":{\"top\":,\"jungle\":,\"mid\":,\"bot\":,\"support\":},\"composition_type\":,\"power_spikes\":{\"early\":,\"early_mid\":,\"mid\":,\"mid_late\":,\"late\":},\"earlygame_strategy\":,\"earlygame_objectives\":,\"midgame_objectives\":,\"lategame_strategy\":,\"general_warnings\":,\"general_game_strategy\":},\"${enemy_color}\":{\"positions\":{\"top\":,\"jungle\":,\"mid\":,\"bot\":,\"support\":},\"composition_type\":,\"power_spikes\":{\"early\":,\"early_mid\":,\"mid\":,\"mid_late\":,\"late\":}}}`;
       const openAIResponse = await openai.chat.completions.create({
@@ -185,16 +183,19 @@ router.post('/generate-analysis', async (req, res) => {
     }
 })
 
-router.get('/id/:summonerId/:region', async (req, res) => {
-  const { summonerId, region } = req.params;
+router.get('/id/:region/:summonerName/:tag', async (req, res) => {
+  const { region, summonerName, tag } = req.params;
   const maxAttempts = 5;
   let attempts = 0;
-  
   const fetchGame = async () => {
     try {
-      const searchGame = await axios.get(`https://${region}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${summonerId}?api_key=${RIOT_API_KEY}`);
+      let summoner = await Summoner.findOne({ 
+        summonerName: summonerName, 
+        region: region, 
+        tag: tag
+    }).exec();
+      const searchGame = await axios.get(`https://${region}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${summoner.summonerId}?api_key=${RIOT_API_KEY}`);
       if (searchGame && searchGame.status === 200) {
-          let summoner = await Summoner.findOne({ summonerId: summonerId});
           if(summoner && summoner.liveGame) {
               let liveGame = await LiveGame.findById(summoner.liveGame)
               if (liveGame && liveGame.analysis) {
@@ -218,7 +219,8 @@ router.get('/id/:summonerId/:region', async (req, res) => {
           }
       }
  } catch (error) {
-    if (error.response && error.response.status === 404 && attempts < maxAttempts) {
+  console.log(error)
+    if (attempts < maxAttempts) {
         attempts++;
         setTimeout(fetchGame, 2000);
     } else {
@@ -227,7 +229,8 @@ router.get('/id/:summonerId/:region', async (req, res) => {
         res.status(500).send('An error occurred: ' + errorMessage);
     }
   }
-  fetchGame();
-}});
+}
+fetchGame();
+});
 
 module.exports = router;
