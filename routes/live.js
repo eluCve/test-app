@@ -70,7 +70,7 @@ router.get('/summoner/:region/:summoner/:tag', async (req, res) => {
     }
 });
 
-router.get('/:summonerName/:region/:tag', async (req, res) => {
+router.get('/:region/:summonerName/:tag', async (req, res) => {
     const {summonerName, region, tag} = req.params;
     res.render('shareGame', {
         page: 'shareGame',
