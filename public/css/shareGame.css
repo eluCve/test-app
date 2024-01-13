@@ -11,10 +11,10 @@
     max-height: 650px;
 }
 .banner-ad-left {
-    background: url('/assets/ad-banner-left.png') no-repeat center center / cover;
+    background: url('/assets/ad-led.png') no-repeat top center / cover;
 }
 .banner-ad-right {
-    background: url('/assets/ad-banner-right.png') no-repeat center center / cover;
+    background: url('/assets/ad-wall-panels.png') no-repeat top center / cover;
 }
 
 .board {

@@ -189,13 +189,11 @@ router.get('/id/:region/:summonerName/:tag', async (req, res) => {
   let attempts = 0;
   const fetchGame = async () => {
     try {
-      console.log(region, summonerName, tag)
       let summoner = await Summoner.findOne({ 
         summonerName: summonerName, 
         region: region, 
         tag: tag
     }).exec();
-    console.log(summoner)
       const searchGame = await axios.get(`https://${region}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${summoner.summonerId}?api_key=${RIOT_API_KEY}`);
       if (searchGame && searchGame.status === 200) {
           if(summoner && summoner.liveGame) {
