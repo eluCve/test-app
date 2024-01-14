@@ -178,19 +178,19 @@ router.post('/generate-analysis', async (req, res) => {
         await liveGame.save();
         res.json(jsonContent);
     } catch (error) {
-      console.log(error)
       res.send('An error occurred: ' + error.message);
     }
 })
 
 router.get('/id/:region/:summonerName/:tag', async (req, res) => {
   const { region, summonerName, tag } = req.params;
+  const encodedSummoner = encodeURIComponent(summonerName)
   const maxAttempts = 5;
   let attempts = 0;
   const fetchGame = async () => {
     try {
       let summoner = await Summoner.findOne({ 
-        summonerName: summonerName, 
+        summonerName: encodedSummoner, 
         region: region, 
         tag: tag
     }).exec();
@@ -219,7 +219,6 @@ router.get('/id/:region/:summonerName/:tag', async (req, res) => {
           }
       }
  } catch (error) {
-  console.log(error)
     if (attempts < maxAttempts) {
         attempts++;
         setTimeout(fetchGame, 2000);

@@ -7,14 +7,16 @@ async function searchLiveGame() {
   document.getElementById('search-game-btn').style.display = 'none';
   document.getElementById('status').innerText = "Searching...";
   document.getElementById('loading-animation').style.display = 'flex';
+  document.getElementById('waiting').style.display = 'none';
   try {
     const response = await fetch(`/api/id/${region}/${summonerName}/${tag}`, { method: 'GET'});
 
     if (!response.ok) {
       if (response.status === 408) {
-        document.getElementById('status').innerText = "Match starting soon. Try again when the Loading Screen appears.";
+        document.getElementById('status').innerText = "Try again when the Loading Screen appears.";
         document.getElementById('search-game-btn').style.display = 'flex';
         document.getElementById('loading-animation').style.display = 'none';
+        document.getElementById('waiting').style.display = 'block';
       } else {
         throw new Error(`HTTP error: ${response.status}`);
       }
@@ -26,16 +28,17 @@ async function searchLiveGame() {
       if (response.status === 202) {
         showAnalysis(JSON.parse(liveGameJSON.analysis), liveGameJSON.team_color);
       } else {
-        document.getElementById('status').innerText = "Match starting soon. Try again when the Loading Screen appears.";
+        document.getElementById('status').innerText = "Try again when the Loading Screen appears.";
         document.getElementById('search-game-btn').style.display = 'flex';
         document.getElementById('loading-animation').style.display = 'none';
+        document.getElementById('waiting').style.display = 'block';
       }
     }
   } catch (error) {
-    console.error('Fetch error: ', error);
-    document.getElementById('status').innerText = "Match starting soon. Try again when the Loading Screen appears.";
+    document.getElementById('status').innerText = "Try again when the Loading Screen appears.";
     document.getElementById('search-game-btn').style.display = 'flex';
     document.getElementById('loading-animation').style.display = 'none';
+    document.getElementById('waiting').style.display = 'block';
   }
 }
 

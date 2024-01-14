@@ -186,7 +186,7 @@ document.getElementById("btn-share").addEventListener("click", () => {
   navigator.clipboard
     .writeText(`${window.location.origin}/live/${region}/${summonerName}/${tag}`)
     .then(function () {
-      buttonText.innerText = "LINK COPIED";
+      buttonText.innerText = "COPIED";
       setTimeout(function () {
         buttonText.innerText = "SHARE";
       }, 2000);

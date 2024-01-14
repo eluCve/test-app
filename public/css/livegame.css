@@ -60,11 +60,13 @@
 .btn-reload:hover {
     background-color: #475792;
 }
-.btn-share {
-    background-color: #28A9E1;
+#btn-share {
+    background-color: #fb7600;
+    border-color: #fb7600;
 }
-.btn-share:hover {
-    background-color: #32b3eb;
+#btn-share:hover {
+    background-color: #ff861d;
+    border-color: #fb7600;
 }
 
 .contact {
