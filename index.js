@@ -55,15 +55,20 @@ app.set('view engine', 'ejs');
 app.use(ejs_layouts);
 
 const live = require('./routes/live');
-const api = require('./routes/api.js')
+const searchGame = require('./routes/searchGame');
+const teamsPower = require('./routes/teamsPower');
+const items = require('./routes/items');
+const gameAnalysis = require('./routes/gameAnalysis');
 
 app.get('/', (req, res) => {
   return res.render('home', { page: 'home'})
 })
 
-app.use('/live', live);
-
-app.use('/api', api);
+app.use('/summoner', live);
+app.use('/search-game', searchGame);
+app.use('/get-teams-power', teamsPower);
+app.use('/get-items', items);
+app.use('/get-analysis', gameAnalysis);
 
 app.get('*', (req, res) => {
   res.redirect('/');

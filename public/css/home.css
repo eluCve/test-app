@@ -148,3 +148,16 @@ select {
     margin-top: -40px;
     margin-left: -70px;
 }
+body::before {
+    content: '';
+    position: absolute;
+    top: -5%;
+    right: -5%;
+    width: 30%;
+    height: 60%;
+    background: url('/assets/poromentor.png') no-repeat top right;
+    background-size: 100% auto;
+    opacity: 0.02;
+    z-index: -1;
+    transform: scaleX(-1);
+}

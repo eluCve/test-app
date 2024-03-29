@@ -5,7 +5,7 @@ const Summoner = require('../models/summoner');
 
 const RIOT_API_KEY = process.env.RIOT_API_KEY;
 
-router.get('/summoner/:region/:summoner/:tag', async (req, res) => {
+router.get('/:region/:summoner/:tag', async (req, res) => {
     try {
         const { region, summoner, tag } = req.params;
         const encodedSummoner = encodeURIComponent(summoner);
@@ -69,15 +69,5 @@ router.get('/summoner/:region/:summoner/:tag', async (req, res) => {
         }
     }
 });
-
-router.get('/:region/:summonerName/:tag', async (req, res) => {
-    const {region, summonerName, tag} = req.params;
-    res.render('shareGame', {
-        page: 'shareGame',
-        summonerName: summonerName,
-        region: region,
-        tag: tag
-    });
-})
 
 module.exports = router;

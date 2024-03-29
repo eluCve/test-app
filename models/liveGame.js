@@ -11,6 +11,7 @@ const liveGameSchema = new mongoose.Schema({
     jungler_red: { type: String, required: false },
     blue_team_power: [{ type: Number, required: false }],
     red_team_power: [{ type: Number, required: false }],
+    playingChamp: { type: String, required: false },
     analysis: String,
     createdAt: { 
         type: Date, 

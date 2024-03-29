@@ -3,58 +3,46 @@ const region = summonerInfo.getAttribute("data-region");
 const summonerId = summonerInfo.getAttribute("data-summoner-id");
 const summonerName = summonerInfo.getAttribute("data-summoner-name");
 const tag = summonerInfo.getAttribute("data-tag");
-const summonerLevel = summonerInfo.getAttribute("data-summoner-level");
-const profileIconId = summonerInfo.getAttribute("data-profile-icon-id");
-document.getElementById("summoner-name").innerHTML = summonerName;
-document.getElementById("region").innerHTML = region;
+
+let loadTimes = 0;
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 async function searchLiveGame() {
   document.getElementById("search-game-btn").style.display = "none";
   document.getElementById("status").innerText = "Searching...";
   document.getElementById("loading-animation").style.display = "flex";
   try {
-    const response = await fetch(`/api/search-game`, {
+    const response = await fetch(`/search-game`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ region: region, summonerId: summonerId }),
+      body: JSON.stringify({ summonerId: summonerId, tag: tag, region: region }),
     });
-
-    if (!response.ok) {
-      if (response.status === 408) {
-        // Handle specific 408 timeout error
-        document.getElementById("status").innerText =
-          `${summonerName} is not currently in game. Try again when the Loading Screen appears.`;
-        document.getElementById("search-game-btn").style.display = "flex";
-        document.getElementById("loading-animation").style.display = "none";
-      } else {
-        // Handle other non-ok responses
-        throw new Error(`HTTP error: ${response.status}`);
-      }
-    } else {
-      const liveGameJSON = await response.json();
+    if (response.ok) {
+      const gameData = await response.json();
       document.getElementById("loading").style.display = "none";
       document.getElementById("main").style.display = "block";
-      showTeams(liveGameJSON);
-      if (response.status === 202) {
-        showAnalysis(
-          JSON.parse(liveGameJSON.analysis),
-          liveGameJSON.team_color
-        );
+      document.getElementById('background-image').style.backgroundImage = `url('/assets/champion-images/${gameData.playingChamp}_0.jpg')`;;
+      blueChart.data.datasets[0].data = gameData.blue_team_power;
+      blueChart.update();
+      redChart.data.datasets[0].data = gameData.red_team_power;
+      redChart.update();
+
+      generateAnalysis(gameData.red_team, gameData.blue_team , gameData.team_color, gameData.jungler_blue, gameData.jungler_red, gameData.playingChamp)
+      getItemBuild(gameData.red_team, gameData.blue_team , gameData.team_color, gameData.jungler_blue, gameData.jungler_red, gameData.playingChamp)
+      getTeamPowers(gameData.red_team, gameData.blue_team)
+    } else {
+      await delay(1500);
+      if (loadTimes < 4 && response.status === 500) {
+        loadTimes++;
+        searchLiveGame();
       } else {
-        generateAnalysis(
-          liveGameJSON.red_team,
-          liveGameJSON.blue_team,
-          liveGameJSON.team_color,
-          liveGameJSON.enemy_color,
-          liveGameJSON.jungler_blue,
-          liveGameJSON.jungler_red,
-          liveGameJSON.gameId,
-          region
-        );
+        document.getElementById("status").innerText =
+        `${summonerName} is not currently in game. Try again when the Loading Screen appears.`;
+        document.getElementById("search-game-btn").style.display = "flex";
+        document.getElementById("loading-animation").style.display = "none";
       }
     }
   } catch (error) {
-    console.error("Fetch error: ", error);
     document.getElementById("status").innerText =
       "An error has occurred, please try again in a few minutes.";
     document.getElementById("search-game-btn").style.display = "flex";
@@ -66,31 +54,39 @@ async function generateAnalysis(
   red_team,
   blue_team,
   team_color,
-  enemy_color,
   jungler_blue,
   jungler_red,
-  gameId,
-  region
+  playingChamp,
 ) {
   try {
-    const response = await fetch("/api/generate-analysis", {
+    const response = await fetch("/get-analysis", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        summonerId: summonerId,
+        tag: tag,
+        region: region,
         red_team: red_team,
         blue_team: blue_team,
         team_color: team_color,
-        enemy_color: enemy_color,
         jungler_blue: jungler_blue,
         jungler_red: jungler_red,
-        gameId: gameId,
-        region: region,
+        playingChamp: playingChamp
       }),
     });
     if (response.ok) {
       if (response.status === 200) {
         const analysis = await response.json();
-        showAnalysis(analysis, team_color);
+        function transformTip(tip) {
+          let colonIndex = tip.indexOf(":");
+          return `<span style="color: #28A9E1; font-size: 16px; font-weight: bold; letter-spacing: 0.2px;">${tip.substring(0, colonIndex + 1)}</span>${tip.substring(colonIndex + 1)}`;
+        }
+        document.querySelectorAll('.skeleton-text').forEach(el => el.style.display = 'none');
+        for (let key in analysis) {
+          if (analysis.hasOwnProperty(key)) {
+            document.getElementById(key).innerHTML = transformTip(analysis[key]);
+          }
+        }
       } else {
         // Handle other non-ok responses
         throw new Error(`HTTP error: ${response.status}`);
@@ -101,111 +97,115 @@ async function generateAnalysis(
   }
 }
 
-function showTeams(teams) {
-  ["red", "blue"].forEach((team) => {
-    const teamData = teams[`${team}_team`];
-    const container = document.querySelector(`#team-${team}-icons`);
-    container.innerHTML = "";
-    teamData.forEach((champion) => {
-      const img = document.createElement("img");
-      img.className = "champion-icon";
-      img.src = `/assets/champion-icons/${champion}.png`;
-      const div = document.createElement("div");
-      div.className = "champion-container";
-      div.appendChild(img);
-      container.appendChild(div);
+async function getItemBuild(
+  red_team,
+  blue_team,
+  team_color,
+  jungler_blue,
+  jungler_red,
+  playingChamp,
+) {
+  try {
+    const response = await fetch("/get-items", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        summonerId: summonerId,
+        tag: tag,
+        region: region,
+        red_team: red_team,
+        blue_team: blue_team,
+        team_color: team_color,
+        jungler_blue: jungler_blue,
+        jungler_red: jungler_red,
+        playingChamp: playingChamp
+      }),
     });
-  });
-  blueChart.data.datasets[0].data = teams.blue_team_power;
-  redChart.data.datasets[0].data = teams.red_team_power;
-  blueChart.update();
-  redChart.update();
-}
-
-function showAnalysis(analysis, team_color) {
-  const redTeamContainer = document.getElementById("team-red-icons");
-  const blueTeamContainer = document.getElementById("team-blue-icons");
-  redTeamContainer.innerHTML = "";
-  blueTeamContainer.innerHTML = "";
-  Object.entries(analysis.red.positions).forEach(([lane, champion]) => {
-    let img = document.createElement("img");
-    let div = document.createElement("div");
-    img.className = "champion-icon";
-    img.src = `/assets/champion-icons/${champion}.png`;
-    div.className = "champion-container";
-    div.appendChild(img);
-    redTeamContainer.appendChild(div);
-  });
-  Object.entries(analysis.blue.positions).forEach(([lane, champion]) => {
-    let img = document.createElement("img");
-    let div = document.createElement("div");
-    img.className = "champion-icon";
-    img.src = `/assets/champion-icons/${champion}.png`;
-    div.className = "champion-container";
-    div.appendChild(img);
-    blueTeamContainer.appendChild(div);
-  });
-  const powerSpikeColors = {
-    0: "#c8453c",
-    1: "#c89c3c",
-    2: "#3cc848",
-    default: "#000"
-  };
-  
-  function setPowerSpikeColor(element, value) {
-    element.style.backgroundColor = powerSpikeColors[value] || powerSpikeColors.default;
+    if (response.ok) {
+      if (response.status === 200) {
+        const items = await response.json();
+        for (let key in items) {
+          if (items.hasOwnProperty(key)) {
+            let itemId = items[key].id;
+            let itemReason = items[key].reason;
+            let itemName = items[key].name;
+            let itemDescription = items[key].description;
+            document.getElementById(key).src = `http://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/${itemId}.png`;
+            document.getElementById(`reason-${key}-img`).src = `http://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/${itemId}.png`;
+            document.getElementById(`reason-${key}`).innerText = itemReason;
+            document.getElementById('items-headline').innerText = 'Item Build Generated';
+            document.getElementById(`description-${key}`).innerHTML = `<span style="font-size:16px; font-weight: bold; line-height: 25px;">${itemName}</span>${itemDescription}`;
+          }
+        }
+      } else {
+        // Handle other non-ok responses
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+    }
+  } catch (error) {
+    console.error("Fetch error: ", error);
   }
-  
-  const redElements = ["red-early", "red-early-mid", "red-mid", "red-mid-late", "red-late"];
-  const blueElements = ["blue-early", "blue-early-mid", "blue-mid", "blue-mid-late", "blue-late"];
-  
-  redElements.forEach(id => {
-    const element = document.getElementById(id);
-    const value = analysis.red.power_spikes[id.split('-')[1]];
-    setPowerSpikeColor(element, value);
-  });
-  
-  blueElements.forEach(id => {
-    const element = document.getElementById(id);
-    const value = analysis.blue.power_spikes[id.split('-')[1]];
-    setPowerSpikeColor(element, value);
-  });
-
-  document.getElementById("red-comp").innerHTML = analysis.red.composition_type;
-  document.getElementById("blue-comp").innerHTML = analysis.blue.composition_type;
-  document.getElementById("general-strategy").innerHTML = analysis[team_color].general_game_strategy;
-  document.getElementById("warnings").innerHTML = analysis[team_color].general_warnings;
-  document.getElementById("earlygame-strategy").innerHTML = analysis[team_color].earlygame_strategy;
-  document.getElementById("earlygame-objectives").innerHTML = analysis[team_color].earlygame_objectives;
-  document.getElementById("midgame-objectives").innerHTML = analysis[team_color].midgame_objectives;
-  document.getElementById("lategame-strategy").innerHTML = analysis[team_color].lategame_strategy;
 }
 
-document.getElementById("btn-share").addEventListener("click", () => {
-  let buttonText = document.getElementById("btn-share-text");
-  navigator.clipboard
-    .writeText(`${window.location.origin}/live/${region}/${summonerName}/${tag}`)
-    .then(function () {
-      buttonText.innerText = "COPIED";
-      setTimeout(function () {
-        buttonText.innerText = "SHARE";
-      }, 2000);
-    })
-    .catch(function (error) {
-      console.error("Error copying text: ", error);
+async function getTeamPowers(
+  red_team,
+  blue_team,
+) {
+  try {
+    const response = await fetch("/get-teams-power", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        summonerId: summonerId,
+        tag: tag,
+        region: region,
+        red_team: red_team,
+        blue_team: blue_team,
+      }),
     });
-});
+    if (response.ok) {
+      if (response.status === 200) {
+        const teamPowers = await response.json();
+        const powerColors = {
+          0: "#c8453c",
+          1: "#c89c3c",
+          2: "#3cc848",
+          default: "#000"
+        };
+        function setPowerSpikeColor(element, value) {
+          element.style.background = powerColors[value] || powerColors.default;
+        }
+        const redElements = ["red-early", "red-early_mid", "red-mid", "red-mid_late", "red-late"];
+        const blueElements = ["blue-early", "blue-early_mid", "blue-mid", "blue-mid_late", "blue-late"];
+        
+        redElements.forEach(id => {
+          const element = document.getElementById(id);
+          console.log(id.split('-')[1])
+          const value = teamPowers.red[id.split('-')[1]];
+          setPowerSpikeColor(element, value);
+        });
+        
+        blueElements.forEach(id => {
+          const element = document.getElementById(id);
+          const value = teamPowers.blue[id.split('-')[1]];
+          setPowerSpikeColor(element, value);
+        });
+      } else {
+        // Handle other non-ok responses
+        throw new Error(`HTTP error: ${response.status}`);
+      }
+    }
+  } catch (error) {
+    console.error("Fetch error: ", error);
+  }
+}
 
 document.getElementById("search-game-btn").addEventListener("click", () => {
+  loadTimes = 0;
   searchLiveGame();
 });
 
-document.getElementById("btn-reload").addEventListener("click", () => {
-  window.location.reload();
-});
-
 searchLiveGame();
-
 
 const chartConfBlue = {
   type: "radar",
@@ -381,3 +381,52 @@ const blueChartCTX = document.getElementById("blue-chart").getContext("2d");
 const redChartCTX = document.getElementById("red-chart").getContext("2d");
 const blueChart = new Chart(blueChartCTX, chartConfBlue);
 const redChart = new Chart(redChartCTX, chartConfRed);
+
+document.addEventListener('DOMContentLoaded', function() {
+  var reloadButton = document.querySelector('.button-new'); // Select the button
+  if (reloadButton) {
+      reloadButton.addEventListener('click', function(e) {
+          e.preventDefault(); // Prevent the default anchor action
+          window.location.reload(); // Reload the page
+      });
+  }
+  // First, we select all elements with the class that starts with 'reason-item'
+  const reasonItems = document.querySelectorAll('[class^="reason-item"]');
+
+  // Function to remove the 'selected' class from all items and hide all paragraphs
+  function deselectAll() {
+    reasonItems.forEach(item => {
+      item.classList.remove('selected'); // Remove 'selected' class from every item
+    });
+
+    // Hide all paragraphs
+    for(let i = 1; i <= 6; i++) {
+      document.getElementById(`reason-item${i}`).style.display = 'none';
+    }
+  }
+
+  // Function to add 'selected' class to clicked item and show the corresponding paragraph
+  function selectItem(item) {
+    const itemId = item.classList[0]; // Assuming the first class is the item's identifier
+    // Add 'selected' class to the clicked item
+    item.classList.add('selected');
+    // Display the corresponding paragraph
+    document.getElementById(itemId).style.display = 'block';
+  }
+
+  // Add event listener to each item
+  reasonItems.forEach(item => {
+    item.addEventListener('click', () => {
+      deselectAll(); // Deselect all items and hide all paragraphs
+      selectItem(item); // Select clicked item and show corresponding paragraph
+    });
+  });
+});
+
+
+
+
+  
+  
+
+  
