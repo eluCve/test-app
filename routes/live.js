@@ -42,7 +42,7 @@ router.get('/:region/:summoner/:tag', async (req, res) => {
                     res.render('livegame', {
                         page: 'livegame',
                         region: encodedRegion,
-                        summonerId: searchSummoner.data.id,
+                        summonerId: searchAccount.data.puuid,
                         summonerName: encodedSummoner,
                         tag: encodedTag,
                         summonerLevel: searchSummoner.data.summonerLevel,
