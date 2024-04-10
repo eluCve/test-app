@@ -9,7 +9,7 @@ const championPowers = require('../data/champion_powers.json');
 router.post('/', async (req, res) => {
   try {
     const { summonerId, tag, region } = req.body;
-    const liveGame = await axios.get(`https://${region}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/${summonerId}?api_key=${RIOT_API_KEY}`);
+    const liveGame = await axios.get(`https://${region}.api.riotgames.com/lol/spectator/v5/active-games/by-summoner/${summonerId}?api_key=${RIOT_API_KEY}`);
 // HAVE TO CHECK IF THERE IS NO MATCH AVAILABLE TO SEND BACK A STATUS CODE RELEVANT TO NOTIFY THE FRONT END
     if(liveGame.status === 202) return res.status(202);
     
