@@ -30,7 +30,7 @@ router.get('/:region/:summoner/:tag', async (req, res) => {
                 const searchSummoner = await axios.get(`https://${encodedRegion}.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/${searchAccount.data.puuid}?api_key=${RIOT_API_KEY}`);
                 if (searchSummoner && searchSummoner.status === 200) {
                     const newSummoner = new Summoner({
-                        summonerId: searchSummoner.data.id,
+                        summonerId: searchAccount.data.puuid,
                         summonerName: encodedSummoner,
                         summonerLevel: searchSummoner.data.summonerLevel,
                         profileIconId: searchSummoner.data.profileIconId,
