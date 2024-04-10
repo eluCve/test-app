@@ -74,7 +74,7 @@ let gameDataExtract = (liveGame, summonerId) => {
           red_team_power[i] += championPower[i] * 2;
         }
     }
-    if (participant.summonerId === summonerId) {
+    if (participant.puuid === summonerId) {
       team_color = participant.teamId === 100 ? "blue" : "red";
       enemy_color = participant.teamId === 200 ? "blue" : "red";
       playingChamp = championIDs[participant.championId];
