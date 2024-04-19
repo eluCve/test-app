@@ -140,6 +140,7 @@
     flex: 1;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .container {
@@ -162,7 +163,7 @@
 .data {
     display: flex;
     justify-content: space-evenly;
-    background-color: #191937; 
+    background-color: #1F1F1F; 
     padding: 40px 20px;
 }
 
@@ -201,7 +202,7 @@
     height: 12px;
     border: 1px solid #a09b8c1a;
     border-radius: 100%;
-    background: linear-gradient(120deg, #26264e 0%, #323261 30%, #323261 45%, #26264e 100%);
+    background: linear-gradient(120deg, #1F1F1F 0%, #2d2d2d 30%, #2d2d2d 45%, #1F1F1F 100%);
     background-size: 200% 100%;
     background-position: 100% 0;
     animation: loading-last 2s infinite;
@@ -361,12 +362,15 @@
     top: 90%;
     left: 40%;
     opacity: 0;
-    transition: opacity 0.3s;
+    transform: scale(0.8); /* Example transform */
+    transition: visibility 0s 0.15s, opacity 0.15s ease, transform 0.15s ease;
 }
 
 .item1:hover .description-item1, .item2:hover .description-item2, .item3:hover .description-item3, .item4:hover .description-item4, .item5:hover .description-item5, .item6:hover .description-item6 {
     visibility: visible;
     opacity: 1;
+    transform: scale(1); /* Example transform */
+    transition: visibility 0s 0s, opacity 0.15s ease, transform 0.15s ease;
 }
 
 .analysis-text {
@@ -377,7 +381,7 @@
     width: 70%;
     height: 15px;
     margin-top: 2px;
-    background: linear-gradient(120deg, #26264e 0%, #323261 30%, #323261 45%, #26264e 100%);
+    background: linear-gradient(120deg, #1F1F1F 0%, #2d2d2d 30%, #2d2d2d 45%, #1F1F1F 100%);
     background-size: 200% 100%;
     background-position: 100% 0;
     border-radius: 4px;
@@ -392,12 +396,13 @@
 
 .reasons div {
     padding: 8px 16px;
-    background-color: #323265;
+    background-color: #616161;
     border-radius: 6px 6px 0 0;
+    transition: all 0.15s ease-in-out;
 }
 
 .reasons div:hover {
-    background-color: #3f3f77;
+    background-color: #121212;
     cursor: pointer;
 }
 
@@ -408,11 +413,11 @@
 }
 
 .reasons .selected {
-    background-color: #0D0D20;
+    background-color: #121212;
 }
 
 .reasons .selected:hover {
-    background-color: #0D0D20 !important;
+    background-color: #121212 !important;
 }
 
 #reason-item1, #reason-item2, #reason-item3, #reason-item4, #reason-item5, #reason-item6 {
@@ -427,7 +432,7 @@ img[src=""] {
 }
 
 .item-container {
-    background: linear-gradient(90deg, #26264e 0%, #323261 30%, #323261 45%, #26264e 100%);
+    background: linear-gradient(120deg, #1F1F1F 0%, #2d2d2d 30%, #2d2d2d 45%, #1F1F1F 100%);
     background-size: 200% 100%;
     background-position: 100% 0;
     animation: loading-last 2s infinite;
@@ -442,3 +447,14 @@ mainText, stats {
 attention {
     font-weight: bold;
 }
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }

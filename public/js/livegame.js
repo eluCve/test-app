@@ -20,16 +20,23 @@ async function searchLiveGame() {
     if (response.ok) {
       const gameData = await response.json();
       document.getElementById("loading").style.display = "none";
-      document.getElementById("main").style.display = "block";
-      document.getElementById('background-image').style.backgroundImage = `url('/assets/champion-images/${gameData.playingChamp}_0.jpg')`;;
-      blueChart.data.datasets[0].data = gameData.blue_team_power;
-      blueChart.update();
-      redChart.data.datasets[0].data = gameData.red_team_power;
-      redChart.update();
+      document.getElementById("main").style.display = "block"; 
+      document.getElementById('background-image').style.backgroundImage = `url('https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${gameData.playingChamp}_0.jpg')`;;
+      if(gameData.team_color === 'red') {
+        blueChart.data.datasets[0].data = gameData.red_team_power;
+        blueChart.update();
+        redChart.data.datasets[0].data = gameData.blue_team_power;
+        redChart.update();
+      } else {
+        blueChart.data.datasets[0].data = gameData.blue_team_power;
+        blueChart.update();
+        redChart.data.datasets[0].data = gameData.red_team_power;
+        redChart.update();
+      }
 
-      generateAnalysis(gameData.red_team, gameData.blue_team , gameData.team_color, gameData.jungler_blue, gameData.jungler_red, gameData.playingChamp)
-      getItemBuild(gameData.red_team, gameData.blue_team , gameData.team_color, gameData.jungler_blue, gameData.jungler_red, gameData.playingChamp)
-      getTeamPowers(gameData.red_team, gameData.blue_team)
+      generateAnalysis(gameData.red_team, gameData.blue_team, gameData.team_color, gameData.jungler_blue, gameData.jungler_red, gameData.playingChamp)
+      getItemBuild(gameData.red_team, gameData.blue_team, gameData.team_color, gameData.jungler_blue, gameData.jungler_red, gameData.playingChamp)
+      getTeamPowers(gameData.red_team, gameData.blue_team, gameData.team_color)
     } else {
       await delay(1500);
       if (loadTimes < 4 && response.status === 500) {
@@ -79,12 +86,22 @@ async function generateAnalysis(
         const analysis = await response.json();
         function transformTip(tip) {
           let colonIndex = tip.indexOf(":");
-          return `<span style="color: #28A9E1; font-size: 16px; font-weight: bold; letter-spacing: 0.2px;">${tip.substring(0, colonIndex + 1)}</span>${tip.substring(colonIndex + 1)}`;
+          return `<span style="color: #1FC1A2; font-size: 16px; font-weight: 400; letter-spacing: 0.3px; font-family: Roboto;">${tip.substring(0, colonIndex + 1)}</span>${tip.substring(colonIndex + 1)}`;
+        }
+        function transformWarning(tip) {
+          let colonIndex = tip.indexOf(":");
+          return `<span style="color: #FF6174; font-size: 16px; font-weight: 400; letter-spacing: 0.3px; font-family: Roboto;">${tip.substring(0, colonIndex + 1)}</span>${tip.substring(colonIndex + 1)}`;
         }
         document.querySelectorAll('.skeleton-text').forEach(el => el.style.display = 'none');
+        let counter = 0;
         for (let key in analysis) {
           if (analysis.hasOwnProperty(key)) {
-            document.getElementById(key).innerHTML = transformTip(analysis[key]);
+            if(counter < 5){
+              document.getElementById(key).innerHTML = transformTip(analysis[key]);
+              counter++
+            } else {
+              document.getElementById(key).innerHTML = transformWarning(analysis[key]);
+            }
           }
         }
       } else {
@@ -130,8 +147,8 @@ async function getItemBuild(
             let itemReason = items[key].reason;
             let itemName = items[key].name;
             let itemDescription = items[key].description;
-            document.getElementById(key).src = `http://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/${itemId}.png`;
-            document.getElementById(`reason-${key}-img`).src = `http://ddragon.leagueoflegends.com/cdn/14.6.1/img/item/${itemId}.png`;
+            document.getElementById(key).src = `http://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/${itemId}.png`;
+            document.getElementById(`reason-${key}-img`).src = `http://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/${itemId}.png`;
             document.getElementById(`reason-${key}`).innerText = itemReason;
             document.getElementById('items-headline').innerText = 'Item Build Generated';
             document.getElementById(`description-${key}`).innerHTML = `<span style="font-size:16px; font-weight: bold; line-height: 25px;">${itemName}</span>${itemDescription}`;
@@ -150,6 +167,7 @@ async function getItemBuild(
 async function getTeamPowers(
   red_team,
   blue_team,
+  team_color
 ) {
   try {
     const response = await fetch("/get-teams-power", {
@@ -177,19 +195,32 @@ async function getTeamPowers(
         }
         const redElements = ["red-early", "red-early_mid", "red-mid", "red-mid_late", "red-late"];
         const blueElements = ["blue-early", "blue-early_mid", "blue-mid", "blue-mid_late", "blue-late"];
+        if(team_color === 'red'){
+          redElements.forEach(id => {
+            const element = document.getElementById(id);
+            const value = teamPowers.blue[id.split('-')[1]];
+            setPowerSpikeColor(element, value);
+          });
+          
+          blueElements.forEach(id => {
+            const element = document.getElementById(id);
+            const value = teamPowers.red[id.split('-')[1]];
+            setPowerSpikeColor(element, value);
+          });
+        } else {
+          redElements.forEach(id => {
+            const element = document.getElementById(id);
+            const value = teamPowers.red[id.split('-')[1]];
+            setPowerSpikeColor(element, value);
+          });
+          
+          blueElements.forEach(id => {
+            const element = document.getElementById(id);
+            const value = teamPowers.blue[id.split('-')[1]];
+            setPowerSpikeColor(element, value);
+          });
+        }
         
-        redElements.forEach(id => {
-          const element = document.getElementById(id);
-          console.log(id.split('-')[1])
-          const value = teamPowers.red[id.split('-')[1]];
-          setPowerSpikeColor(element, value);
-        });
-        
-        blueElements.forEach(id => {
-          const element = document.getElementById(id);
-          const value = teamPowers.blue[id.split('-')[1]];
-          setPowerSpikeColor(element, value);
-        });
       } else {
         // Handle other non-ok responses
         throw new Error(`HTTP error: ${response.status}`);
@@ -422,8 +453,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 });
-
-
 
 
   

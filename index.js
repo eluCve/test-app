@@ -52,6 +52,7 @@ app.use(express.static('public'));
 
 // view engine
 app.set('view engine', 'ejs');
+app.set('trust proxy', true);
 app.use(ejs_layouts);
 
 const live = require('./routes/live');

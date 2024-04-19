@@ -11,6 +11,7 @@ const anthropic = new Anthropic({
 
 router.post('/', async (req, res) => {
   try {
+    const clientIP = req.ip;
     const { summonerId, tag, region, red_team, blue_team} = req.body;
     
     let summoner = await Summoner.findOne({ 
@@ -27,10 +28,10 @@ router.post('/', async (req, res) => {
           messages: [{ role: "user", content: `${prompt}` },{"role": "assistant","content": "{"}],
         });
         let response = "{"+msg.content[0].text;
-        let responseJSON = JSON.parse(response);
-        summoner.liveGame.teamsPower = JSON.stringify(responseJSON);
+        summoner.liveGame.teamsPower = response;
         await summoner.save();
-        res.send(summoner.liveGame.teamsPower);
+        console.log(getFormattedAthensTime() + ' | POWERS | ' + clientIP + ' | ' + summonerId);
+        res.send(response);
         } else {
         res.send(summoner.liveGame.teamsPower);
         }
@@ -38,5 +39,21 @@ router.post('/', async (req, res) => {
         res.status(500).send('An error occurred: ' + error.message);
     }
 });
+
+function getFormattedAthensTime() {
+  const now = new Date();
+  const options = {
+      weekday: 'long', // "Monday", "Tuesday", etc.
+      year: 'numeric', // "2021"
+      month: 'long', // "July"
+      day: 'numeric', // "31"
+      hour: '2-digit', // "12" AM/PM
+      minute: '2-digit', // "59"
+      second: '2-digit', // "59"
+      timeZoneName: 'short' // "GMT+3"
+  };
+  const athensTime = now.toLocaleString('en-US', { timeZone: 'Europe/Athens', ...options });
+  return athensTime;
+}
 
 module.exports = router;

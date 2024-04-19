@@ -37,11 +37,8 @@
       <p style="margin-top: 20px; margin-bottom: 50px; font-size: 15px; font-weight: 100; text-align: center; line-height: 19px; color: #e2e2e2;">Match analysis can start once you reach the loading screen.</p>
       <p id="status" style="margin-bottom: 50px;">Searching Game...</p>
       <div class="btn">
-        <a class="btn btn-tryagain" id="search-game-btn" href="#">
-          <p>Try Again</p>
-          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
-            <path d="M7 15C6.02778 15 5.11713 14.8304 4.26806 14.4911C3.41898 14.1518 2.68009 13.6935 2.05139 13.1161C1.42269 12.5387 0.923611 11.8601 0.554167 11.0804C0.293762 10.5307 0.125131 9.95303 0.0482739 9.34722C-0.00578935 8.92108 0.348223 8.57143 0.777778 8.57143C1.20733 8.57143 1.54807 8.92179 1.61336 9.34636C1.7766 10.4079 2.28557 11.3311 3.14028 12.1161C4.19676 13.0863 5.48333 13.5714 7 13.5714C8.51667 13.5714 9.80324 13.0863 10.8597 12.1161C11.9162 11.1458 12.4444 9.96429 12.4444 8.57143C12.4444 7.17857 11.9162 5.99702 10.8597 5.02679C9.80324 4.05655 8.51667 3.57143 7 3.57143C6.95858 3.57143 6.93875 3.62232 6.96926 3.65034L7.73426 4.35289C7.92612 4.52909 7.92876 4.83088 7.74001 5.01041L7.5077 5.23138C7.22192 5.5032 6.77442 5.50712 6.48393 5.24034L5.56303 4.39462C4.66237 3.56749 4.66237 2.1468 5.56303 1.31967L6.48393 0.473942C6.77442 0.207169 7.22192 0.211087 7.5077 0.482902L7.74001 0.703876C7.92876 0.883406 7.92612 1.1852 7.73426 1.36139L6.96926 2.06394C6.93875 2.09196 6.95858 2.14286 7 2.14286C7.97222 2.14286 8.88287 2.3125 9.73195 2.65179C10.581 2.99107 11.3199 3.4494 11.9486 4.02679C12.5773 4.60417 13.0764 5.28274 13.4458 6.0625C13.8153 6.84226 14 7.67857 14 8.57143C14 9.46429 13.8153 10.3006 13.4458 11.0804C13.0764 11.8601 12.5773 12.5387 11.9486 13.1161C11.3199 13.6935 10.581 14.1518 9.73195 14.4911C8.88287 14.8304 7.97222 15 7 15Z" fill="white"/>
-          </svg>
+        <a class="btn btn-tryagain button-new" id="search-game-btn" href="#">
+          <span>Try Again</span>
         </a>
       </div>
       <div id="loading-animation">
@@ -53,39 +50,17 @@
     </div>
     <div id="main" style="display: none;">
       <div class="row" style="margin-top: 50px;">
-        <div class="container" style="justify-content: center;">
-          <div class="container-title" style="border-top: 1px solid #fff; background-color: #191937;">
+        <div class="container" style="justify-content: center; opacity: 0; animation: fadeInUp 0.5s ease forwards; animation-delay: 0s;">
+          <div class="container-title" style="border-top: 1px solid #fff; background-color: #121212;">
             <p style="font-weight: 100;">Power Stats</p>
             <img src="/assets/chart-title-icon.png" width="18px" height="18px">
           </div>
           <div class="data" style="height: 100%;">
             <div class="tools">
-              <p style="color: #c8453c; margin-left: 15px; font-weight: bold;">Red Team</p>
-              <canvas class="chart" id="red-chart"></canvas>
-              <div class="power-spikes">
-                <h5>Red Power Spikes</h5>
-                <div class="power-boxes">
-                  <h5>Early</h5>
-                  <div id="red-early" class="power-spike"></div>
-                  <div id="red-early_mid" class="power-spike"></div>
-                  <div id="red-mid" class="power-spike"></div>
-                  <div id="red-mid_late" class="power-spike"></div>
-                  <div id="red-late" class="power-spike"></div>
-                  <h5>Late</h5>
-                </div>
-                <div class="power-explainers">
-                  <div class="power-explainer box-weak" style="background-color: #c8453c;"></div><h5>Weak</h5>
-                  <div class="power-explainer box-moderate" style="background-color: #c89c3c;"></div><h5>Moderate</h5>
-                  <div class="power-explainer box-strong" style="background-color: #3cc848;"></div><h5>Strong</h5>
-                </div>
-              </div>
-            </div>
-            <div style="height: 100%; width: 1px; background-color: #ffffff5b;"></div>
-            <div class="tools">
-              <p style="color: #3190E4; margin-left: 15px; font-weight: bold;">Blue Team</p>
+              <p style="color: #3190E4; margin-left: 15px; font-weight: bold;">Your Team</p>
               <canvas class="chart" id="blue-chart"></canvas>
               <div class="power-spikes">
-                <h5>Blue Power Spikes</h5>
+                <h5>Power Spikes</h5>
                 <div class="power-boxes">
                   <h5>Early</h5>
                   <div id="blue-early" class="power-spike"></div>
@@ -102,17 +77,39 @@
                 </div>
               </div>
             </div>
+            <div style="height: 100%; width: 1px; background-color: #ffffff5b;"></div>
+            <div class="tools">
+              <p style="color: #c8453c; margin-left: 15px; font-weight: bold;">Enemy Team</p>
+              <canvas class="chart" id="red-chart"></canvas>
+              <div class="power-spikes">
+                <h5>Power Spikes</h5>
+                <div class="power-boxes">
+                  <h5>Early</h5>
+                  <div id="red-early" class="power-spike"></div>
+                  <div id="red-early_mid" class="power-spike"></div>
+                  <div id="red-mid" class="power-spike"></div>
+                  <div id="red-mid_late" class="power-spike"></div>
+                  <div id="red-late" class="power-spike"></div>
+                  <h5>Late</h5>
+                </div>
+                <div class="power-explainers">
+                  <div class="power-explainer box-weak" style="background-color: #c8453c;"></div><h5>Weak</h5>
+                  <div class="power-explainer box-moderate" style="background-color: #c89c3c;"></div><h5>Moderate</h5>
+                  <div class="power-explainer box-strong" style="background-color: #3cc848;"></div><h5>Strong</h5>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="container">
-          <div class="container-title" style="border-top: 1px solid #FEF04A; background-color: #191937;">
+        <div class="container" style="opacity: 0; animation: fadeInUp 0.5s ease forwards; animation-delay: 0.15s;">
+          <div class="container-title" style="border-top: 1px solid #FEF04A; background-color: #121212;">
             <p style="font-weight: 100;">Full Item Build</p>
             <img src="/assets/item-title-icon.png" width="15px" height="15px">
           </div>
-          <div style="height: 100%; background-color: #191937; padding: 40px 20px 0 20px;">
+          <div style="height: 100%; background-color: #1F1F1F; padding: 40px 20px 0 20px;">
             <div style="display: flex;">
-              <img src="/assets/shopkeeper.png" width="90px" height="90px" style=" margin-left: 20px; filter: drop-shadow(4px 4px 7px rgba(0, 0, 0, 0.4)) saturate(0.7)">
-              <div style="margin-left: -40px; flex: 1; display: flex; flex-direction: column; gap: 15px; justify-content: center; align-items: center;">
+              <!-- <img src="/assets/shopkeeper.png" width="90px" height="90px" style=" margin-left: 20px; filter: drop-shadow(4px 4px 7px rgba(0, 0, 0, 0.4)) saturate(0.7)"> -->
+              <div style=" flex: 1; display: flex; flex-direction: column; gap: 15px; justify-content: center; align-items: center;">
                 <p id="items-headline">Finding best build for your game...</p>
                 <div style="display: flex; gap: 8px;">
                   <div class="item-container item1">
@@ -154,9 +151,8 @@
                 </div>
               </div>
             </div>
-
           </div>
-          <div style="height: 100%; background-color: #191937; padding: 40px;">
+          <div style="height: 100%; background-color: #1F1F1F; padding: 40px;">
             <div class="reasons" style="display: flex; gap: 1px;">
               <div class="reason-item1 selected">
                 <img id="reason-item1-img" src="">
@@ -177,7 +173,7 @@
                 <img id="reason-item6-img" src="">
               </div>
             </div>
-            <div style="background-color: #0D0D20; padding: 20px; min-height: 70px;">
+            <div style="background-color: #121212; padding: 20px; min-height: 90px;">
               <p id="reason-item1">Loading...</p>
               <p id="reason-item2" style="display: none;">Loading...</p>
               <p id="reason-item3" style="display: none;">Loading...</p>
@@ -189,12 +185,12 @@
         </div>
       </div>
       <div class="row" style="margin-bottom: 50px;">
-        <div class="container tips">
-          <div class="container-title" style="border-top: 1px solid #1FC1A2; background-color: #191937;">
+        <div class="container tips" style="opacity: 0; animation: fadeInUp 0.5s ease forwards; animation-delay: 0.3s;">
+          <div class="container-title" style="border-top: 1px solid #1FC1A2; background-color: #121212;">
             <p style="font-weight: 100;">Strategy & Tips</p>
             <img src="/assets/strategy-title-icon.png" width="20px" height="20px" style="margin-top: 2px;">
           </div>
-          <div style="display: flex; flex-direction: column; gap: 8px; height: 100%; min-height: 200px; line-height: 18px; font-weight: 100; letter-spacing: 0.3px; background-color: #191937; padding: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 8px; height: 100%; min-height: 200px; line-height: 18px; font-weight: 100; letter-spacing: 0.3px; background-color: #1F1F1F; padding: 20px;">
             <div style="display: flex; gap: 6px;">
               <span style="color: #ffffff5b;">1</span>
               <p id="tip1" class="analysis-text"></p>
@@ -232,12 +228,12 @@
             <div class="skeleton-text"></div>
           </div>
         </div>
-        <div class="container warnings">
-          <div class="container-title" style="border-top: 1px solid #FF6174; background-color: #191937;">
+        <div class="container warnings" style="opacity: 0; animation: fadeInUp 0.5s ease forwards; animation-delay: 0.45s;">
+          <div class="container-title" style="border-top: 1px solid #FF6174; background-color: #121212;">
             <p style="font-weight: 100;">Warnings</p>
             <img src="/assets/warnings-title-icon.png" width="15px" height="15px" style="margin-top: 2px;">
           </div>
-          <div style="display: flex; flex-direction: column; gap: 8px; height: 100%; min-height: 200px; line-height: 18px; font-weight: 100; letter-spacing: 0.3px; background-color: #191937; padding: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 8px; height: 100%; min-height: 200px; line-height: 18px; font-weight: 100; letter-spacing: 0.3px; background-color: #1F1F1F; padding: 20px;">
             <div style="display: flex; gap: 6px;">
               <span style="color: #ffffff5b;">1</span>
               <p id="warning1" class="analysis-text"></p>

@@ -44,7 +44,7 @@ router.post('/', async (req, res) => {
       }
     }
   } catch (error) {
-    console.error(`[${new Date().toISOString()}] Error fetching live game data:`, error.message);
+    if(error != 404) console.error(`${getFormattedAthensTime()} | Error fetching live game data:`, error.message);
     res.status(500).send('An error occurred: ' + error.message)
   }
 });
@@ -111,5 +111,20 @@ let gameDataExtract = (liveGame, summonerId) => {
   return gameData;
 }
 
+function getFormattedAthensTime() {
+  const now = new Date();
+  const options = {
+      weekday: 'long', // "Monday", "Tuesday", etc.
+      year: 'numeric', // "2021"
+      month: 'long', // "July"
+      day: 'numeric', // "31"
+      hour: '2-digit', // "12" AM/PM
+      minute: '2-digit', // "59"
+      second: '2-digit', // "59"
+      timeZoneName: 'short' // "GMT+3"
+  };
+  const athensTime = now.toLocaleString('en-US', { timeZone: 'Europe/Athens', ...options });
+  return athensTime;
+}
 
 module.exports = router;
