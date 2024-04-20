@@ -24,6 +24,7 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+      "frame-src": ["'self'", 'https://player.vimeo.com'],
       "script-src": [
         "'self'",
         'https://www.googletagmanager.com',

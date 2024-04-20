@@ -161,3 +161,86 @@ body::before {
     z-index: -1;
     transform: scaleX(-1);
 }
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    backdrop-filter: blur(8px);
+}
+
+.modal-content {
+    background-color: #000;
+    margin: 10% auto;
+    width: 960px;
+    height: 540px;
+    transition: all 0.3s ease-in-out;
+    transform: scale(0);
+}
+
+/* Animation */
+.modal-content.show {
+    transform: scale(1);
+}
+
+.button-new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 140px;
+    height: 35px;
+    color: #fff;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+
+.button-new::after {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+.button-new::after {
+    content: "";
+    background-image: url('../assets/poromentor.png');
+    background-size: cover; 
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: -20%;
+    transition: 0.25s ease;
+}
+.button-new span {
+    transition: 0.25s ease;
+}
+.button-new:hover span {
+    margin-left: 20px;
+}
+.button-new:hover:after {
+    left: 20px;
+}
+.button-new::after {
+    left: 120%;
+}
+.button-new:hover span {
+    margin-left: 0;
+    margin-right: 20px;
+}
+.button-new:hover:after {
+    left: calc(100% - 27px);
+}

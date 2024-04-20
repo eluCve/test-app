@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
     }).exec();
 
     if (summoner.liveGame.teamsPower === null) {
-        const prompt = `I play this match in League of Legends: Red team: ${red_team}. Blue Team: ${blue_team}. I want you to analyze this match and tell me how powerful each team will be on their early, early_mid, mid, mid_late, and late game by giving me a number from 0 to 2, where 0 is weak phase, 1 is moderate phase, and 2 is strong phase. I want your response to be a JSON object as it will be parsed in JavaScript with JSON.parse, never use linebreaks and have this structure: : {"red":{"early":"","early_mid":"","mid":"","mid_late":"","late":""},"blue":{"early":"","early_mid":"","mid":"","mid_late":"","late":""}}`;
+        const prompt = `I play this match in League of Legends: Red team: ${red_team}. Blue Team: ${blue_team}. I want you to analyze this match and tell me how powerful each team will be on their early game, early to mid game, mid game, mid to late game, and late game by giving me a number from 0 to 2, where 0 is weak, 1 is moderate, and 2 is strong. Use each strength number at least once. I want your response to be a JSON object as it will be parsed in JavaScript with JSON.parse, never use linebreaks and have this structure: : {"red":{"early":"","early_mid":"","mid":"","mid_late":"","late":""},"blue":{"early":"","early_mid":"","mid":"","mid_late":"","late":""}}`;
         const msg = await anthropic.messages.create({
           model: "claude-3-haiku-20240307",
           max_tokens: 1024,
