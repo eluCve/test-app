@@ -45,7 +45,6 @@ router.post('/', async (req, res) => {
       }
     }
   } catch (error) {
-    console.log(error)
     if(error.response.status && error.response.status != 404) console.error(`${getFormattedAthensTime()} | Error fetching live game data:`, error.message);
     res.status(500).send('An error occurred: ' + error.message)
   }
