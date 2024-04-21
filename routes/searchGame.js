@@ -8,7 +8,7 @@ const championPowers = require('../data/champion_powers.json');
 
 router.post('/', async (req, res) => {
   try {
-    const { summonerId, tag, region } = req.body;
+    let { summonerId, tag, region } = req.body;
     const liveGame = await axios.get(`https://${region}.api.riotgames.com/lol/spectator/v5/active-games/by-summoner/${summonerId}?api_key=${RIOT_API_KEY}`);
 // HAVE TO CHECK IF THERE IS NO MATCH AVAILABLE TO SEND BACK A STATUS CODE RELEVANT TO NOTIFY THE FRONT END
     if(liveGame.status === 202) return res.status(202);
@@ -23,8 +23,9 @@ router.post('/', async (req, res) => {
       if (summoner.liveGame.gameId ===  String(liveGame.data.gameId)) {
         res.json(summoner.liveGame)
       } else {
+        console.log(`https://poromentor.gg/summoner/${summoner.region}/${summoner.summonerName}/${summoner.tag}`)
         const gameData = gameDataExtract(liveGame, summonerId);
-        
+        summoner.gameCount = summoner.gameCount + 1;
         summoner.liveGame.gameId = liveGame.data.gameId;
         summoner.liveGame.red_team = gameData.red_team;
         summoner.liveGame.blue_team = gameData.blue_team;
@@ -44,7 +45,8 @@ router.post('/', async (req, res) => {
       }
     }
   } catch (error) {
-    if(error != 404) console.error(`${getFormattedAthensTime()} | Error fetching live game data:`, error.message);
+    console.log(error)
+    if(error.response.status && error.response.status != 404) console.error(`${getFormattedAthensTime()} | Error fetching live game data:`, error.message);
     res.status(500).send('An error occurred: ' + error.message)
   }
 });

@@ -7,6 +7,7 @@ const summonerSchema = new mongoose.Schema({
     profileIconId: { type: Number, required: true },
     tag: { type: String, required: true },
     region: { type: String, required: true },
+    gameCount: {type: Number, required: true, default: 0},
     liveGame: { 
         gameId: { type: String, required: false },
         red_team: { type: Array, required: false },
