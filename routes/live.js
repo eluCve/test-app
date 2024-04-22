@@ -8,9 +8,9 @@ const RIOT_API_KEY = process.env.RIOT_API_KEY;
 router.get('/:region/:summoner/:tag', async (req, res) => {
     try {
         const { region, summoner, tag } = req.params;
-        const encodedSummoner = encodeURIComponent(summoner).toLowerCase();
-        const encodedTag = encodeURIComponent(tag).toLowerCase();
-        const encodedRegion = encodeURIComponent(region).toLowerCase();
+        const encodedSummoner = encodeURIComponent(summoner);
+        const encodedTag = encodeURIComponent(tag);
+        const encodedRegion = encodeURIComponent(region);
         const existingSummoner = await Summoner.findOne({ summonerName: encodedSummoner, tag: encodedTag }).exec();
 
         if (existingSummoner) {
