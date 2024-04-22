@@ -45,7 +45,8 @@ router.post('/', async (req, res) => {
       }
     }
   } catch (error) {
-    if(error.response.status && error.response.status != 404) console.error(`${getFormattedAthensTime()} | Error fetching live game data:`, error.message);
+    // if(error.response.status && error.response.status != 404) console.error(`${getFormattedAthensTime()} | Error fetching live game data:`, error.message);
+    console.log(error)
     res.status(500).send('An error occurred: ' + error.message)
   }
 });
