@@ -57,7 +57,7 @@ router.post('/', async (req, res) => {
           model: "ft:gpt-3.5-turbo-0125:personal:generateanalysis:95d3RaQO",
           response_format: { type: "json_object" },
         });
-        const jsonResponse2 = JSON.parse(openAIResponse.choices[0].message.content);
+        const jsonResponse2 = JSON.parse(openAIResponse2.choices[0].message.content);
         if (jsonResponse2.warning1 && jsonResponse2.warning2 && jsonResponse2.warning3 && jsonResponse2.warning4 && jsonResponse2.warning5) {
           summoner.liveGame.analysis = openAIResponse2.choices[0].message.content;
           await summoner.save();
