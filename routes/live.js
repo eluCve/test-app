@@ -11,7 +11,7 @@ router.get('/:region/:summoner/:tag', async (req, res) => {
         const encodedSummoner = encodeURIComponent(summoner);
         const encodedTag = encodeURIComponent(tag);
         const encodedRegion = encodeURIComponent(region);
-        const existingSummoner = await Summoner.findOne({ summonerName: encodedSummoner, tag: encodedTag, region: endcodedRegion }).exec();
+        const existingSummoner = await Summoner.findOne({ summonerName: encodedSummoner, tag: encodedTag }).exec();
 
         if (existingSummoner) {
             res.render('livegame', {
