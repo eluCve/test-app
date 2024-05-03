@@ -147,8 +147,8 @@ async function getItemBuild(
             let itemReason = items[key].reason;
             let itemName = items[key].name;
             let itemDescription = items[key].description;
-            document.getElementById(key).src = `http://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/${itemId}.png`;
-            document.getElementById(`reason-${key}-img`).src = `http://ddragon.leagueoflegends.com/cdn/14.8.1/img/item/${itemId}.png`;
+            document.getElementById(key).src = `http://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/${itemId}.png`;
+            document.getElementById(`reason-${key}-img`).src = `http://ddragon.leagueoflegends.com/cdn/14.9.1/img/item/${itemId}.png`;
             document.getElementById(`reason-${key}`).innerText = itemReason;
             document.getElementById('items-headline').innerText = 'Item Build Generated';
             document.getElementById(`description-${key}`).innerHTML = `<span style="font-size:16px; font-weight: bold; line-height: 25px;">${itemName}</span>${itemDescription}`;
