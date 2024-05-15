@@ -30,7 +30,8 @@ app.use(helmet({
         'https://www.googletagmanager.com',
         'https://region1.google-analytics.com',
         'https://www.paypalobjects.com',
-        'https://cdn.jsdelivr.net/npm/chart.js'
+        'https://cdn.jsdelivr.net/npm/chart.js',
+        'https://cdn.jsdelivr.net/npm/konva@8.3.10/konva.min.js',
       ],
       'img-src': [
         "'self'",
@@ -65,6 +66,10 @@ const gameAnalysis = require('./routes/gameAnalysis');
 app.get('/', (req, res) => {
   return res.render('home', { page: 'home'})
 })
+app.get('/draft-draw', (req, res) => {
+  return res.render('draftDraw', { page: 'draftDraw'})
+})
+app.use('/data', express.static('data'));
 
 app.use('/summoner', live);
 app.use('/search-game', searchGame);

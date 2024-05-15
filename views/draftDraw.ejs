@@ -1,0 +1,213 @@
+<div id="color-meaning-popup" style="display: none; position: absolute; top: 0; left: 0; width: 100vw; height: 100vh; background-color: #00000068; z-index: 999; justify-content: center; align-items: center; flex-direction: column;">
+    <div style="max-width: 600px; display: flex; flex-direction: column; gap: 20px; background-color: #1e1e1e; padding: 30px; height: 700px; overflow: auto;">
+        <h3>Composition(Comp) Meaning:</h3>
+        <p style="font-weight: 100; line-height: 22px;"><span style="font-weight: 600; text-transform: capitalize; font-style: italic; color: #CC3E22;">Attack (AoE or wombo combo) compositions:</span><br>
+            Attack compositions focus on teamfighting and require at least one engager, hard crowd control, massive AoE damage, and/or high DPS damage. The win condition for this composition is to engage in teamfights when ultimates are available. While attack compositions are easy to execute, they are heavily reliant on ultimates, which can be a drawback.
+        </p>
+        <p style="font-weight: 100; line-height: 22px;"><span style="font-weight: 600; text-transform: capitalize; font-style: italic; color: #AB2DC0;">Split push compositions:</span><br>
+            Split push compositions involve a strong duelist, strong wave clear from the rest of the team, and some disengage tools. They aim to create pressure by splitting enemies apart and threatening multiple objectives simultaneously. Split push compositions can create immense map pressure, but they are high-risk and easy to misplay. There are two main types of split push compositions: 1-4 (with one split pusher) and 1-3-1 (with two split pushers).
+        </p>
+        <p style="font-weight: 100; line-height: 22px;"><span style="font-weight: 600; text-transform: capitalize; font-style: italic; color: #3c9bc8;">Siege (poke) compositions:</span><br>
+            Siege compositions rely on long-range abilities, tower damage, and disengage crowd control to slowly chip away at opponents. Rather than engaging in full teamfights, they aim to gradually wear down the enemy team. Siege compositions provide exceptional objective control but require a great deal of patience and coordination to execute effectively.
+        </p>
+        <p style="font-weight: 100; line-height: 22px;"><span style="font-weight: 600; text-transform: capitalize; font-style: italic; color: #3cc89b;">Protect compositions:</span><br>
+            Protect compositions are built around one or two hyper scaling threats, such as Kale, Vayne, Kog'Maw, or Cassiopeia. The team focuses on protecting these carries with disengage crowd control and utility abilities like shields, heals, and buffs. The win condition is to survive and win 5v5 teamfights by keeping the carries alive. Protect compositions are very safe and can be tilting to play against, especially for attack and catch compositions. However, they require the team to stay grouped and are extremely dependent on their carries' performance.
+        </p>
+        <p style="font-weight: 100; line-height: 22px;"><span style="font-weight: 600; text-transform: capitalize; font-style: italic; color: #FFE300;">Catch (pick or burst) compositions:</span><br>
+            Catch compositions prioritize burst damage, single target hard crowd control, and mobility. They excel at creating unfair fights and denying vision, making them effective at punishing mistakes and greed. Catch compositions are particularly strong in the early game but tend to struggle in 5v5 teamfights.
+        </p>
+        <img src="/assets/comp-diff.png" style="width: 80%; margin: auto;">
+        <br>
+        <h3>Meaning of Colors</h3>
+        <p style="font-weight: 100; line-height: 22px;"><span style="font-weight: 600; text-transform: capitalize; font-style: italic; color: #CC3E22;">RED:</span>
+            Aggressive early game champions that rely on snowballing their lead. They have strong kill potential but fall off if they fail to secure early advantages.
+        </p>
+        <p style="font-weight: 100; line-height: 22px;"><span style="font-weight: 600; text-transform: capitalize; font-style: italic; color: #3cc89b;">GREEN:</span>
+            These champions get stronger and stronger as the game goes on. They work well with their teammates and can win long fights by simply outlasting their opponents with their high stat growth or by enabling the stats of their carries.
+        </p>
+        <p style="font-weight: 100; line-height: 22px;"><span style="font-weight: 600; text-transform: capitalize; font-style: italic; color: #3c9bc8;">BLUE:</span>
+            Strategic champions that focus on controlling the map and denying resources. They are weak early but scale incredibly well into the late game, requiring high map awareness and strategic thinking.
+        </p>
+        <p style="font-weight: 100; line-height: 22px;"><span style="font-weight: 600; text-transform: capitalize; font-style: italic; color: #FFFFFF;">WHITE:</span>
+            Versatile champions that can fill multiple roles and support their team. They are resistant to early aggression and can adapt to any team composition.
+        </p>
+        <p style="font-weight: 100; line-height: 22px;"><span style="font-weight: 600; text-transform: capitalize; font-style: italic; color: #000000;">BLACK:</span>
+            High risk, high reward champions that require certain conditions or sacrifices to unlock their full potential. They can accelerate a team's game plan but come with significant tradeoffs.
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div id="draft-header" style="display:none; width: 70vw; justify-content: space-between;">
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;">
+            <a id="share-draft" class="button-new-disable"><span>Share</span></a>
+            <p style="font-size: 12px; color: #a8a8a8; font-style: italic;">Comming Soon</p>
+        </div>
+        <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;">
+            <a id="edit-draft" class="button-new" style="width: 160px;"><span>Edit Draft</span></a>
+            <p style="font-size: 13px; color: #a8a8a8; font-style: italic; letter-spacing: 0.7px;">*Going back to edit will delete current drawings and comments*</p>
+        </div>
+        <a id="reset-draft" class="button-new" style="width: 160px;"><span>Reset All</span></a>
+    </div>
+    <div id="draft-container">
+        <div class="remove-icon"></div>
+        <div id="team-one" class="team-container">
+            <div id="team-comp-blue">
+                <div id="team-comp-blue-header">Blue Team</div>
+                <div id="team-comp-blue-content">
+                    <p id="team-comp-blue-primary"></p>
+                    <p id="team-comp-blue-secondary"></p>
+                </div>
+            </div>
+            <div id="chart-blue"><canvas class="chart" id="blue-chart"></canvas></div>
+            <div id="top-one" class="lane-container team-one picked-champion" style="margin-top: 20px;">
+                <img src="/assets/b1-icon.png" class="draft-icon" draggable="false">
+                <img src="/assets/top_icon.png" class="lane-icon" draggable="false">
+            </div>
+            <div id="jungle-one" class="lane-container team-one picked-champion">
+                <img src="/assets/b2-icon.png" class="draft-icon" draggable="false">
+                <img src="/assets/jungle_icon.png" class="lane-icon" draggable="false">
+            </div>
+            <div id="mid-one" class="lane-container team-one picked-champion">
+                <img src="/assets/b3-icon.png" class="draft-icon" draggable="false">
+                <img src="/assets/mid_icon.png" class="lane-icon" draggable="false">
+            </div>
+            <div id="adc-one" class="lane-container team-one picked-champion" style="margin-top: 20px;">
+                <img src="/assets/b4-icon.png" class="draft-icon" draggable="false">
+                <img src="/assets/adc_icon.png" class="lane-icon" draggable="false">
+            </div>
+            <div id="support-one" class="lane-container team-one picked-champion">
+                <img src="/assets/b5-icon.png" class="draft-icon" draggable="false">
+                <img src="/assets/support_icon.png" class="lane-icon" draggable="false">
+            </div>
+        </div>
+        <div id="workspace">
+            <div id="bans-container">
+                <div id="team-one-bans">
+                    <div id="ban1-one" class="lane-container" style="width: 55px !important; height: 55px !important;">
+                        <img src="/assets/ban_blue.png" class="ban-icon" draggable="false">
+                    </div>
+                    <div id="ban2-one" class="lane-container" style="width: 55px !important; height: 55px !important;">
+                        <img src="/assets/ban_blue.png" class="ban-icon" draggable="false">
+                    </div>
+                    <div id="ban3-one" class="lane-container" style="width: 55px !important; height: 55px !important;">
+                        <img src="/assets/ban_blue.png" class="ban-icon" draggable="false">
+                    </div>
+                    <div id="ban4-one" class="lane-container" style="margin-left: 10px; width: 55px !important; height: 55px !important;">
+                        <img src="/assets/ban_blue.png" class="ban-icon" draggable="false">
+                    </div>
+                    <div id="ban5-one" class="lane-container" style="width: 55px !important; height: 55px !important;">
+                        <img src="/assets/ban_blue.png" class="ban-icon" draggable="false">
+                    </div>
+                </div>
+                <div id="team-two-bans">
+                    <div id="ban1-two" class="lane-container" style="width: 55px !important; height: 55px !important;">
+                        <img src="/assets/ban_red.png" class="ban-icon" draggable="false">
+                    </div>
+                    <div id="ban2-two" class="lane-container" style="width: 55px !important; height: 55px !important;">
+                        <img src="/assets/ban_red.png" class="ban-icon" draggable="false">
+                    </div>
+                    <div id="ban3-two" class="lane-container" style="width: 55px !important; height: 55px !important;">
+                        <img src="/assets/ban_red.png" class="ban-icon" draggable="false">
+                    </div>
+                    <div id="ban4-two" class="lane-container" style="margin-right: 10px; width: 55px !important; height: 55px !important;">
+                        <img src="/assets/ban_red.png" class="ban-icon" draggable="false">
+                    </div>
+                    <div id="ban5-two" class="lane-container" style="width: 55px !important; height: 55px !important;">
+                        <img src="/assets/ban_red.png" class="ban-icon" draggable="false">
+                    </div>
+                </div>
+            </div>
+            <div id="champion-selection">
+                <div id="filter-champions">
+                    <div id="search-champion">
+                        <input
+                          type="text"
+                          class="search-box"
+                          placeholder="Search..."
+                          id="searchBox"
+                        />
+                        <button id="clear-search">✖</button>
+                    </div>
+                    
+                    <div id="champion-roles">
+                        <div class="lane-filter active" lane="all"><img src="/assets/all_icon.png"></div>
+                        <div class="lane-filter" lane="top"><img src="/assets/top_icon.png"></div>
+                        <div class="lane-filter" lane="jungle"><img src="/assets/jungle_icon.png"></div>
+                        <div class="lane-filter" lane="mid"><img src="/assets/mid_icon.png"></div>
+                        <div class="lane-filter" lane="adc"><img src="/assets/adc_icon.png"></div>
+                        <div class="lane-filter" lane="support"><img src="/assets/support_icon.png"></div>
+                    </div>
+                </div>
+                <div id="champions-container"></div>
+                <div id="analysis" style="display: none;"></div>
+            </div>
+            <a id="complete-draft" class="button-new">
+                <span>Start Draft Analysis</span>
+            </a>
+        </div>
+        <div id="phase-2-btns">
+            <a id="team-submit" class="button-new"><span>Analyze</span></a>
+            <a id="back-to-draft" class="button-new"><span>Back</span></a>
+        </div>
+        <div id="draft-analysis">
+            <div id="analysis-nav-bar">
+                <a id="team-analysis-btn" class="button-new" style="width: 190px !important;"><span>Team Analysis</span></a>
+                <a id="map-drawing-btn" class="button-new" style="width: 180px !important;"><span>Map Canvas</span></a>
+                <a id="drawing-btn" class="button-new" style="width: 130px !important;"><span>Free Draw</span></a>
+                <a id="notes-btn" class="button-new"style="width: 110px !important;"><span>Notes</span></a>
+            </div>
+            <div id="all-tool-container">
+                <div id="team-analysis">
+                    
+                </div>
+                <div id="map-drawing" style="width: 100%; height: 90%;">
+                    <div class="canvas-toolbar">
+                        <p style="color: #fff;">Pen Color:</p>
+                        <input type="color" id="colorPicker-map-draw" value="#ffffff" style="width: 25px; height: 25px; padding: 0; border: none;">
+                        <a id="canvas-undo-map-draw" class="canvas-undo">Undo</a>
+                    </div>
+                    <div style="width: 100%; height: 100%; background-image: url('/assets/summonersRift.jpg'); background-position: center; background-size: contain; background-repeat: no-repeat; background-color: #000;"><div id="map-draw" class="canvas"></div></div>
+                </div>
+                <div id="drawing">
+                    <div class="canvas-toolbar">
+                        <p style="color: #fff;">Pen Color:</p>
+                        <input type="color" id="colorPicker-free-draw" value="#ffffff" style="width: 25px; height: 25px; padding: 0; border: none;">
+                        <a id="canvas-undo-free-draw" class="canvas-undo">Undo</a>
+                    </div>
+                    <div style="width: 100%; height: 100%; background-color: #1e1e1e;"><div id="free-draw" class="canvas"></div></div>
+                </div>
+                <div id="notes">
+                    <textarea id="notes-input" class="notes-input" placeholder="Notes..."></textarea>
+                </div>
+            </div>
+        </div>
+        <div id="team-two" class="team-container">
+            <div id="team-comp-red">
+                <div id="team-comp-red-header">Red Team</div>
+                <div id="team-comp-red-content"></div>
+            </div>
+            <div id="chart-red"><canvas class="chart" id="red-chart"></canvas></div>
+            <div id="top-two" class="lane-container team-two picked-champion" style="margin-top: 20px;">
+                <img src="/assets/r1-icon.png" class="draft-icon" draggable="false">
+                <img src="/assets/top_icon.png" class="lane-icon" draggable="false">
+            </div>
+            <div id="jungle-two" class="lane-container team-two picked-champion">
+                <img src="/assets/r2-icon.png" class="draft-icon" draggable="false">
+                <img src="/assets/jungle_icon.png" class="lane-icon" draggable="false">
+            </div>
+            <div id="mid-two" class="lane-container team-two picked-champion">
+                <img src="/assets/r3-icon.png" class="draft-icon" draggable="false">
+                <img src="/assets/mid_icon.png" class="lane-icon" draggable="false">
+            </div>
+            <div id="adc-two" class="lane-container team-two picked-champion" style="margin-top: 20px;">
+                <img src="/assets/r4-icon.png" class="draft-icon" draggable="false">
+                <img src="/assets/adc_icon.png" class="lane-icon" draggable="false">
+            </div>
+            <div id="support-two" class="lane-container team-two picked-champion">
+                <img src="/assets/r5-icon.png" class="draft-icon" draggable="false">
+                <img src="/assets/support_icon.png" class="lane-icon" draggable="false">
+            </div>
+        </div>
+        <div class="remove-icon"></div>
+    </div>
+</div>

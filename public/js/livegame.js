@@ -414,13 +414,11 @@ const blueChart = new Chart(blueChartCTX, chartConfBlue);
 const redChart = new Chart(redChartCTX, chartConfRed);
 
 document.addEventListener('DOMContentLoaded', function() {
-  var reloadButton = document.querySelector('.button-new'); // Select the button
-  if (reloadButton) {
-      reloadButton.addEventListener('click', function(e) {
-          e.preventDefault(); // Prevent the default anchor action
-          window.location.reload(); // Reload the page
-      });
-  }
+  const reloadButton = document.getElementById('reload-btn');
+  reloadButton.addEventListener('click', () => {
+    location.reload();
+  });
+
   // First, we select all elements with the class that starts with 'reason-item'
   const reasonItems = document.querySelectorAll('[class^="reason-item"]');
 

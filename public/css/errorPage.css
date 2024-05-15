@@ -57,3 +57,58 @@ select {
     appearance: none;
     background: url('/assets/dropdown-icon.svg') 96% / 15% no-repeat;
 }
+.button-new {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    width: 140px;
+    height: 35px;
+    color: #fff;
+    background-color: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(255,255,255,0.8);
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+
+.button-new::after {
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+}
+.button-new::after {
+    content: "";
+    background-image: url('../assets/poromentor.png');
+    background-size: cover; 
+    width: 14px;
+    height: 14px;
+    position: absolute;
+    left: -20%;
+    transition: 0.25s ease;
+}
+.button-new span {
+    transition: 0.25s ease;
+}
+.button-new:hover span {
+    margin-left: 20px;
+}
+.button-new:hover:after {
+    left: 20px;
+}
+.button-new::after {
+    left: 120%;
+}
+.button-new:hover span {
+    margin-left: 0;
+    margin-right: 20px;
+}
+.button-new:hover:after {
+    left: calc(100% - 27px);
+}

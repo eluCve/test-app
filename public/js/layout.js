@@ -7,3 +7,7 @@
 //     title:'PayPal - The safer, easier way to pay online!',
 //     }
 // }).render('#donate-button');
+const navBtn = document.getElementById('nav-btn');
+navBtn.style.width = '150px';
+navBtn.href = '/draft-draw';
+navBtn.innerHTML = '<span>Draft Draw</span>';
