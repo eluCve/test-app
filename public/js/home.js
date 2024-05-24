@@ -1,3 +1,8 @@
+navBtn.style.width = '191px';
+navBtn.style.height = '50px';
+navBtn.style.display = 'block';
+navBtn.style.marginTop = '-10px';
+
 document.getElementById('search-summoner').addEventListener('submit', async function(e) {
     e.preventDefault();
     const summoner = document.getElementById('summonerName').value.replace(/\s/g, "%20");

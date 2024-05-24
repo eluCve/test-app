@@ -409,25 +409,29 @@ body {
     align-items: center;
     justify-content: center;
     width: 100vw;
+    margin-top: 40px;
 }
 
 .chart {
-    width: 130px !important;
-    height: 130px !important;
+    width: 72% !important;
+    height: 60px !important;
+    margin: auto;
 }
 
 #team-comp-blue-header{
     flex: 1;
-    color: #28A9E1;
+    color: #3082CA;
     font-size: 20px;
     font-weight: 600;
+    margin-bottom: 8px;
 }
 
 #team-comp-red-header{
     flex: 1;
-    color: #CC3E22;
+    color: #CE284C;
     font-size: 20px;
     font-weight: 600;
+    margin-bottom: 8px;
 }
 
 #draft-analysis {
@@ -461,12 +465,15 @@ body {
 
   #team-comp-blue-content, #team-comp-red-content {
     min-height: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
 .canvas {
     width: 100%;
     height: 100%;
-    cursor: url('/assets/pen_cursor.png') 0 28, auto;
+    cursor: url('/assets/pen_cursor.png') 0 0, auto;
 }
 #notes {
     width: 100%;
@@ -654,11 +661,11 @@ input[type="color"]::-webkit-color-swatch {
 }
 
 #blue-power-percentage {
-    background-color: #3c9bc8;  /* Specific blue color */
+    background-color: #3082CA;  /* Specific blue color */
 }
 
 #red-power-percentage {
-    background-color: #CC3E22;  /* Specific red color */
+    background-color: #CE284C;  /* Specific red color */
 }
 
 .team-comp-values {
@@ -686,7 +693,7 @@ input[type="color"]::-webkit-color-swatch {
 }
 .all-colors-container {
     min-height: 50px;
-    width: 80%;
+    width: 90%;
     padding-bottom: 10px;
     border-bottom: 1px solid #212121;
     margin-bottom: 10px;
@@ -723,7 +730,7 @@ input[type="color"]::-webkit-color-swatch {
 
 .team-title {
     position: absolute;
-    color: #212121;
+    color: #282829;
     font-size: 20px;
     font-weight: 900;
     font-style: italic;
@@ -735,4 +742,22 @@ input[type="color"]::-webkit-color-swatch {
 
 #team-comp-blue, #team-comp-red {
     min-height: 70px;
+}
+
+.team-total-img {
+    width: 180px;
+    height: 74px;
+}
+.color-meaning-btn {
+    font-size: 15px;
+    font-weight: 100;
+    font-style: italic;
+    text-decoration: underline;
+    cursor: pointer;
+}
+.color-meaning-btn::after {
+    content: url('/assets/help-icon.png');
+    display: inline;
+    margin-left: 5px;
+    margin-top: 5px; /* Add this line to move the icon down */
 }

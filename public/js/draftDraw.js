@@ -1684,10 +1684,11 @@ logo.style.width = "300px";
 navBtn.style.width = '120px';
 navBtn.href = '/';
 navBtn.innerHTML = '<span>Home</span>';
+navBtn.classList.add('button-new');
+navBtn.style.backgroundImage = 'none';
 const colorMeaningBtn = document.createElement('a');
-colorMeaningBtn.innerText = 'Color & Comps Meaning';
-colorMeaningBtn.style.width = '250px';
-colorMeaningBtn.classList.add('button-new');
+colorMeaningBtn.innerText = 'Colors & Comps Definitions';
+colorMeaningBtn.classList.add('color-meaning-btn');
 
 colorMeaningBtn.style.marginLeft = '70px';
 colorMeaningBtn.addEventListener('click', () => {
@@ -1702,8 +1703,7 @@ colorMeaningBtn.addEventListener('click', () => {
     }
   });
 });
-const header = document.getElementById('header');
-header.appendChild(colorMeaningBtn);
+header.insertBefore(colorMeaningBtn, navBtn.parentNode.nextSibling);
 let allChampionsColors;
 let championComps;
 document.addEventListener("DOMContentLoaded", () => {
@@ -1777,7 +1777,7 @@ function handleDragStart(e) {
     removeIcons.forEach((icon) => {
         icon.style.opacity = 1;
         icon.style.width = "120px";
-        icon.style.height = "700px";
+        icon.style.height = "660px";
     });
     clearPopup();
     clearSelection();
@@ -2385,13 +2385,15 @@ function updateColorGraphs() {
       const black = parseInt(allChampionsColors[name].Black, 10);
       const white = parseInt(allChampionsColors[name].White, 10);
       gameData.blue_team_power[0] += red;
-      gameData.blue_team_power[1] += blue;
-      gameData.blue_team_power[2] += green;
+      gameData.blue_team_power[1] += green;
+      gameData.blue_team_power[2] += blue;
       gameData.blue_team_power[3] += white;
       gameData.blue_team_power[4] += black;
     });
+    const maxPercentage = Math.max(...Object.values(gameData.blue_team_power));
+    console.log(maxPercentage);
     gameData.blue_team_power.forEach((value, index) => {
-      gameData.blue_team_power[index] = value / teamOne.length;
+      gameData.blue_team_power[index] = value / maxPercentage * 100;
     });
     blueChart.data.datasets[0].data = gameData.blue_team_power;
     blueChart.update();
@@ -2411,13 +2413,14 @@ function updateColorGraphs() {
       const black = parseInt(allChampionsColors[name].Black, 10);
       const white = parseInt(allChampionsColors[name].White, 10);
       gameData.red_team_power[0] += red;
-      gameData.red_team_power[1] += blue;
-      gameData.red_team_power[2] += green;
+      gameData.red_team_power[1] += green;
+      gameData.red_team_power[2] += blue;
       gameData.red_team_power[3] += white;
       gameData.red_team_power[4] += black;
     });
+    const maxPercentage = Math.max(...Object.values(gameData.red_team_power));
     gameData.red_team_power.forEach((value, index) => {
-      gameData.red_team_power[index] = value / teamTwo.length;
+      gameData.red_team_power[index] = value / maxPercentage * 100;
     });
     redChart.data.datasets[0].data = gameData.red_team_power;
     redChart.update();
@@ -2602,134 +2605,92 @@ function updateTeamComps() {
 };
 
 const chartConfBlue = {
-  type: "radar",
+  type: "bar",  // Change chart type to 'bar' for bar chart
   data: {
-    labels: ["Red", "Blue", "Green", "White", "Black"],
+    labels: ["Red", "Green", "Blue", "White", "Black"],  // Same labels
     datasets: [
       {
-        label: "Team Stats",
-        data: [6, 6, 6, 6, 6],
-        backgroundColor: "rgba(0, 90, 130, 0.3)",
-        borderColor: "rgba(200, 155, 60, 0.4)",
-        borderWidth: 1,
-        pointBackgroundColor: "rgba(200, 155, 60, 0.7)",
-        pointBorderColor: "rgba(200, 155, 60, 0.7)",
+        label: "Colors",
+        data: [0, 0, 0, 0, 0],  // Same data
+        backgroundColor: [
+          '#CC3E22',  // Red
+          '#3cc89b',  // Green
+          '#3c9bc8',  // Blue
+          '#ffffff',  // White
+          '#363636'   // Black
+        ],
+        borderRadius: 100, // Apply 50% border radius for rounded corners
+        barThickness: 4, // Set bar thickness to 4px
       },
     ],
   },
   options: {
-    animations: {
-      tension: {
-        duration: 1000,
-        easing: "easeInOutBounce",
-        from: 1,
-        to: 0.07,
-      },
-    },
+    indexAxis: 'y',  // Set the indexAxis to 'y' for horizontal bars
     scales: {
-      r: {
-        min: 0,
-        max: 6,
-        ticks: {
-          display: false,
-          stepSize: 1,
-        },
-        grid: {
-          color: "rgba(160, 155, 140, 0.1)",
-        },
-        pointLabels: {
-          display: true,
-          font: {
-            size: 10,
-            family: "Inria Sans",
-            weight: "bold",
-          },
-          color: "rgba(160, 155, 140, 1)",
-        },
-        angleLines: {
-          display: true,
-          color: "rgba(160, 155, 140, 0.1)",
-        },
+      x: {
+        display: false, // Disable display of the x-axis (horizontal axis)
       },
+      y: {
+        display: false  // Disable display of the y-axis (vertical axis)
+      }
     },
     plugins: {
       legend: {
-        display: false,
+        display: false,  // Disable legend display to remove 'Team Stats'
       },
       tooltip: {
-        enabled: false,
+        enabled: true,  // Adjust tooltip display according to your needs
       },
     },
     elements: {
-      line: {
-        borderWidth: 2,
+      bar: {
+        borderWidth: 0,  // Set the border width for bars
       },
     },
   },
 };
 
 const chartConfRed = {
-  type: "radar",
+  type: "bar",  // Change chart type to 'bar' for bar chart
   data: {
-    labels: ["Red", "Blue", "Green", "White", "Black"],
+    labels: ["Red", "Green", "Blue", "White", "Black"],  // Same labels
     datasets: [
       {
-        label: "Team Stats",
-        data: [6, 6, 6, 6, 6],
-        backgroundColor: "rgba(233, 66, 46, 0.3)",
-        borderColor: "rgba(200, 155, 60, 0.4)",
-        borderWidth: 1,
-        pointBackgroundColor: "rgba(200, 155, 60, 0.7)",
-        pointBorderColor: "rgba(200, 155, 60, 0.7)",
+        label: "Colors",
+        data: [0, 0, 0, 0, 0],  // Same data
+        backgroundColor: [
+          '#CC3E22',  // Red
+          '#3cc89b',  // Green
+          '#3c9bc8',  // Blue
+          '#ffffff',  // White
+          '#363636'   // Black
+        ],
+        borderRadius: 100, // Apply 50% border radius for rounded corners
+        barThickness: 4, // Set bar thickness to 4px
       },
     ],
   },
   options: {
-    animations: {
-      tension: {
-        duration: 1000,
-        easing: "easeInOutBounce",
-        from: 1,
-        to: 0.07,
-      },
-    },
+    indexAxis: 'y',  // Set the indexAxis to 'y' for horizontal bars
     scales: {
-      r: {
-        min: 0,
-        max: 6,
-        ticks: {
-          display: false,
-          stepSize: 1,
-        },
-        grid: {
-          color: "rgba(160, 155, 140, 0.1)",
-        },
-        pointLabels: {
-          display: true,
-          font: {
-            size: 10,
-            family: "Inria Sans",
-            weight: "bold",
-          },
-          color: "rgba(160, 155, 140, 1)",
-        },
-        angleLines: {
-          display: true,
-          color: "rgba(160, 155, 140, 0.1)",
-        },
+      x: {
+        display: false, // Disable display of the x-axis (horizontal axis)
       },
+      y: {
+        display: false  // Disable display of the y-axis (vertical axis)
+      }
     },
     plugins: {
       legend: {
-        display: false,
+        display: false,  // Disable legend display to remove 'Team Stats'
       },
       tooltip: {
-        enabled: false,
+        enabled: true,  // Adjust tooltip display according to your needs
       },
     },
     elements: {
-      line: {
-        borderWidth: 2,
+      bar: {
+        borderWidth: 0,  // Set the border width for bars
       },
     },
   },
@@ -2907,13 +2868,13 @@ function loadAnalysis() {
 const redTeam =  [topRed, jungleRed, midRed, adcRed, supportRed];
 const teamAnalysis = document.getElementById("team-analysis");
 
-const colors = ["Red", "Green", "Blue", "Black", "White"];
+const colors = ["Red", "Green", "Blue", "White", "Black"];
 const colorHex = {
   "Red": "#CC3E22",
   "Green": "#3cc89b",
   "Blue": "#3c9bc8",
-  "Black": "#212121",
-  "White": "#FFFFFF"
+  "White": "#FFFFFF",
+  "Black": "#212121"
 };
 
 function createTeamRow(team, teamColors, teamSide) {
@@ -2985,8 +2946,8 @@ function createTeamRow(team, teamColors, teamSide) {
 
   const teamColorContainer = document.createElement("div");
   const totalProfileImage = document.createElement('img');
-  totalProfileImage.src = `/assets/team_total.jpg`;
-  totalProfileImage.className = 'champion-tile';
+  totalProfileImage.src = `/assets/team_total_${teamSide}.png`;
+  totalProfileImage.className = 'team-total-img';
   teamColorContainer.appendChild(totalProfileImage);
 
   const colorTitle = document.createElement("p");

@@ -244,3 +244,9 @@ body::before {
 .button-new:hover:after {
     left: calc(100% - 27px);
 }
+#nav-btn {
+    transition: all 0.13s ease-in-out;
+}
+#nav-btn:hover {
+    transform: scale(1.06);
+}

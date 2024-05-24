@@ -98,6 +98,7 @@ footer {
     text-align: center;
     margin: auto;
     padding: 8px 20px;
+    margin-top: 120px;
 }
 #info-bar {
     display: flex;
@@ -150,6 +151,8 @@ header {
     opacity: 0.5;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
+    flex: 1;
+    align-self: flex-end;
 }
 
 #discord-icon:hover {

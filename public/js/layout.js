@@ -10,4 +10,7 @@
 const navBtn = document.getElementById('nav-btn');
 navBtn.style.width = '150px';
 navBtn.href = '/draft-draw';
-navBtn.innerHTML = '<span>Draft Draw</span>';
+navBtn.style.backgroundImage = 'url(/assets/draft-draw-btn.png)';
+navBtn.style.backgroundSize = 'cover';
+navBtn.style.backgroundPosition = 'center';
+navBtn.style.backgroundRepeat = 'no-repeat';
