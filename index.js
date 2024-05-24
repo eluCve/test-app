@@ -69,6 +69,10 @@ app.get('/', (req, res) => {
 app.get('/draft-draw', (req, res) => {
   return res.render('draftDraw', { page: 'draftDraw'})
 })
+app.get('/log', (req, res) => {
+  const requestIP = req.ip;
+  console.log(getFormattedAthensTime() + ' | ' + requestIP);
+})
 app.use('/data', express.static('data'));
 
 app.use('/summoner', live);
@@ -85,3 +89,19 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });
+
+function getFormattedAthensTime() {
+  const now = new Date();
+  const options = {
+      weekday: 'long', // "Monday", "Tuesday", etc.
+      year: 'numeric', // "2021"
+      month: 'long', // "July"
+      day: 'numeric', // "31"
+      hour: '2-digit', // "12" AM/PM
+      minute: '2-digit', // "59"
+      second: '2-digit', // "59"
+      timeZoneName: 'short' // "GMT+3"
+  };
+  const athensTime = now.toLocaleString('en-US', { timeZone: 'Europe/Athens', ...options });
+  return athensTime;
+}
