@@ -38,9 +38,9 @@ router.post('/', async (req, res) => {
             itemsString += `${item}(item_id: ${findItem.id}, STATS:${itemDescription} PROBABILITY: ${percentage}), `;
           }
         }
-        const prompt = `I play ${playingChamp} on team ${team_color}. Red Team: ${red_team}. Blue Team: ${blue_team}. Red Team Jungler: ${jungler_red}. Blue Team Jungler: ${jungler_blue}. Help me make an item build for this game, to counter the enemy team, out of these and ONLY these items: ${itemsString}, Berserker's Greaves(item_id: 3006), Boots of Swiftness(item_id: 3009), Ionian Boots of Lucidity(item_id: 3158), Mercury's Treads(item_id: 3111), Mobility Boots(item_id: 3117), Plated Steelcaps(item_id: 3047), Sorcerer's Shoes(item_id: 3020).  Probability means how often players include the item into their build. The highest probability items are the most common, it's the current meta for ${playingChamp}, and usualy chosen as first items, core build. I want your response to be a JSON object as it will be parsed in JavaScript with JSON.parse, never use linebreaks and have this structure: {"item1":{"id": "", "reason": ""},"item2":{"id": "", "reason": ""},"item3":{"id": "", "reason": ""},"item4":{"id": "", "reason": ""},"item5":{"id": "", "reason": ""},"item6":{"id": "", "reason": ""}}. For reason you should say why you chose that item against these enemies and item1 must be boots. If you see Monkey King somewhere in the data please call him Wukong instead.`;
+        const prompt = `I play ${playingChamp} on team ${team_color}. Red Team: ${red_team}. Blue Team: ${blue_team}. Red Team Jungler: ${jungler_red}. Blue Team Jungler: ${jungler_blue}. Help me make an item build for this game, to counter the enemy team, out of these and ONLY these items: ${itemsString}, Berserker's Greaves(item_id: 3006), Boots of Swiftness(item_id: 3009), Ionian Boots of Lucidity(item_id: 3158), Mercury's Treads(item_id: 3111), Mobility Boots(item_id: 3117), Plated Steelcaps(item_id: 3047), Sorcerer's Shoes(item_id: 3020).  Probability means how often players include the item into their build. The highest probability items are the most common, it's the current meta for ${playingChamp}, and usualy chosen as first items, core build. I want your response to be a JSON object as it will be parsed in JavaScript with JSON.parse, never use linebreaks and have this structure: {"item1":{"id": ""},"item2":{"id": ""},"item3":{"id": ""},"item4":{"id": ""},"item5":{"id": ""},"item6":{"id": ""}}. Here are the lists of items that should not co-exist in the same build of a champion so don't put them on the same build: List1: [Lord Dominik's Regards, Terminus, Mortal Reminder], List2: [Abyssal Mask, Terminus, Void Staff, Cryptbloom], List3: [Winter's Approach, Archangel's Staff, Manamune], List4: [Trailblazer, Dead Man's Plate], List5: [Iceborn Gauntlet, Trinity Force, Lich Bane], List6: [Hollow Radiance, Sunfire Aegis], List7: [Edge of Night, Banshee's Veil], List8: [Archangel's Staff, Immortal Shieldbow, Maw of Malmortius, Sterak's Gage], List9: [Archangel's Staff, Manamune, Immortal Shieldbow, Maw of Malmortius, Sterak's Gage, Winter's Approach], List10: [Lord Dominik's Regards, Terminus, Mortal Reminder, Black Cleaver, Serylda's Grudge], List11: [Terminus, Lord Dominik's Regards, Mortal Reminder, Black Cleaver, Serylda's Grudge, Void Staff, Cryptbloom, Abyssal Mask], List12:[Profane Hydra, Stridebreaker, Ravenous Hydra, Titanic Hydra].${(playingChamp === "Yuumi" || playingChamp === "Cassiopeia") ? `dont add boots because ${playingChamp} doesn't need boots at all` : "item1 must be boots"}. If you see Monkey King somewhere in the data please call him Wukong instead.`;
         const msg = await anthropic.messages.create({
-          model: "claude-3-haiku-20240307",
+          model: "claude-3-sonnet-20240229",
           max_tokens: 1024,
           messages: [{ role: "user", content: `${prompt}` },{"role": "assistant","content": "{"}],
         });
@@ -49,37 +49,31 @@ router.post('/', async (req, res) => {
         let data = {
           "item1": {
             "id": responseJSON.item1.id,
-            "reason": responseJSON.item1.reason,
             "name": allItems[responseJSON.item1.id].name,
             "description": allItems[responseJSON.item1.id].description
           },
           "item2": {
             "id": responseJSON.item2.id,
-            "reason": responseJSON.item2.reason,
             "name": allItems[responseJSON.item2.id].name,
             "description": allItems[responseJSON.item2.id].description
           },
           "item3": {
             "id": responseJSON.item3.id,
-            "reason": responseJSON.item3.reason,
             "name": allItems[responseJSON.item3.id].name,
             "description": allItems[responseJSON.item3.id].description
           },
           "item4": {
             "id": responseJSON.item4.id,
-            "reason": responseJSON.item4.reason,
             "name": allItems[responseJSON.item4.id].name,
             "description": allItems[responseJSON.item4.id].description
           },
           "item5": {
             "id": responseJSON.item5.id,
-            "reason": responseJSON.item5.reason,
             "name": allItems[responseJSON.item5.id].name,
             "description": allItems[responseJSON.item5.id].description
           },
           "item6": {
             "id": responseJSON.item6.id,
-            "reason": responseJSON.item6.reason,
             "name": allItems[responseJSON.item5.id].name,
             "description": allItems[responseJSON.item6.id].description
           },

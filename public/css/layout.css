@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Inter:slnt,wght@-10..0,100..900&display=swap');
 /* Customize the scrollbar for webkit-based browsers */
 ::-webkit-scrollbar {
     width: 2px; /* Adjust the width to make it shorter */
@@ -131,21 +131,6 @@ header {
     display: flex;
     gap: 20px;
 }
-#background-image {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 100vh;
-    opacity: 0.1;
-    /* filter: contrast(100%) saturate(100%) brightness(100%); */
-    z-index: -1;
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
-}
 
 #discord-icon {
     opacity: 0.5;
@@ -158,4 +143,20 @@ header {
 #discord-icon:hover {
     opacity: 0.7;
     transform: scale(1.1);
+}
+
+.btn a{
+    background-color: #CE3E3E; /* Button color */
+    padding: 8px 30px; /* Adjust padding to fit your text or button size */
+    color: white; /* Text color */
+    font-size: 16px; /* Adjust font size as needed */
+    border: 2px solid transparent; /* No border unless you want one */
+    cursor: pointer; /* Pointer cursor on hover */
+    clip-path: polygon(0% 100%, 15% 0%, 100% 0%, 85% 100%); /* Clip-path for the slanted edges */
+    text-decoration: none;
+    transition: all 0.2s ease; /* Transition effect on hover */
+}
+
+.btn a:hover {
+    border: 2px solid #e8bfbf; /* Border color on hover */
 }

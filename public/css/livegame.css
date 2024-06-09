@@ -47,7 +47,7 @@
     width: 70px;
     height: 70px;
     border-radius: 50%;
-    border: 2px solid #28A9E1;
+    border: 2px solid #CE3E3E;
 }
 
 #summoner-name {
@@ -55,7 +55,7 @@
 }
 
 #summoner-region {
-    background-color: #28A9E1;
+    background-color: #CE3E3E;
     padding: 3px 6px;
     border-radius: 4px;
     width: min-content;
@@ -65,7 +65,7 @@
 
 #summoner-level {
     position: absolute;
-    background-color: #28A9E1;
+    background-color: #CE3E3E;
     padding: 3px 7px;
     border-radius: 4px;
     font-size: 14px;
@@ -84,55 +84,6 @@
 }
 #loading h3 {
     z-index: 1;
-}
-#loading-animation {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: 0;
-    margin-top: -100px;
-}
-
-#loading-animation .content {
-    width: 350px;
-    height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transform-style: preserve-3d;
-}
-
-#loading-animation .surface {
-    background: 
-        radial-gradient(circle at 34.3% 49.65%, #000 2vmin, #32b3eb 4vmin 4vmin, #fff0 5vmin 100% ),
-        radial-gradient(circle at 34.3% 49.65%, #000 2vmin, #32b3eb 4vmin 4vmin, #fff0 5vmin 100% ),
-        #050712;
-    width:350px;
-    height:1450px;
-    transform: rotateX(80deg);
-    background-repeat: no-repeat;
-    background-size: 50% 30%, 50% 30%, 100% 100%;
-    background-position: 11% 49%, 120% 49%, 0 0;
-}
-
-.loader { 
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background: url('/assets/poromentor.png') no-repeat center center / cover;
-    background-size: 5vmin 5vmin;
-    background-position: 0.1vmin 47%, 0.05vmin 48%, 0.025vmin 50%, 0.0125vmin 53%, 0.0125vmin 56%;
-    background-repeat: no-repeat;
-    animation: loading-right 4s ease-out 0.3s infinite;
-}
-
-@keyframes loading-right {
-    0% { transform: rotate(0deg); }
-    83% { transform: rotate(360deg); }
-    100% { transform: rotate(360deg); }
 }
 
 #main {
@@ -170,9 +121,8 @@
 .row {
     display: flex;
     flex: 1;
-    gap: 25px;
+    gap: 5px;
     width: 100%;
-    margin-top: 25px;
 }
 
 .tools {
@@ -265,60 +215,6 @@
         transform: scaleY(1);
     }
 }
-.button-new {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
-    width: 120px;
-    height: 35px;
-    color: #fff;
-    background-color: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.1);
-    backdrop-filter: blur(30px);
-    color: rgba(255,255,255,0.8);
-    font-size: 15px;
-    font-weight: bold;
-    text-decoration: none;
-    cursor: pointer;
-    transition: 0.25s ease;
-}
-
-.button-new::after {
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-}
-.button-new::after {
-    content: "";
-    background-image: url('../assets/poromentor.png');
-    background-size: cover; 
-    width: 14px;
-    height: 14px;
-    position: absolute;
-    left: -20%;
-    transition: 0.25s ease;
-}
-.button-new span {
-    transition: 0.25s ease;
-}
-.button-new:hover span {
-    margin-left: 20px;
-}
-.button-new:hover:after {
-    left: 20px;
-}
-.button-new::after {
-    left: 120%;
-}
-.button-new:hover span {
-    margin-left: 0;
-    margin-right: 20px;
-}
-.button-new:hover:after {
-    left: calc(100% - 27px);
-}
 
 .chart {
     margin-top: -15px;
@@ -381,7 +277,7 @@
     width: 70%;
     height: 15px;
     margin-top: 2px;
-    background: linear-gradient(120deg, #1F1F1F 0%, #2d2d2d 30%, #2d2d2d 45%, #1F1F1F 100%);
+    background: linear-gradient(120deg, #1a1f3b 0%, #2a2f4d 30%, #2a2f4d 45%, #1a1f3b 100%);
     background-size: 200% 100%;
     background-position: 100% 0;
     border-radius: 4px;
@@ -432,7 +328,7 @@ img[src=""] {
 }
 
 .item-container {
-    background: linear-gradient(120deg, #1F1F1F 0%, #2d2d2d 30%, #2d2d2d 45%, #1F1F1F 100%);
+    background: linear-gradient(120deg, #1a1f3b 0%, #2a2f4d 30%, #2a2f4d 45%, #1a1f3b 100%);
     background-size: 200% 100%;
     background-position: 100% 0;
     animation: loading-last 2s infinite;
@@ -456,5 +352,80 @@ attention {
     to {
       opacity: 1;
       transform: translateY(0);
+    }
+  }
+  #search-game-btn {
+    width: 3.5em;
+    height: 3.5em;
+    position: relative;
+    scale: 1.5;
+  }
+  
+  .search-game-label {
+    cursor: pointer;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid #0c1022;
+    background-color: transparent;
+    background-image: linear-gradient(145deg, #08091a, #1a1f3d);
+    box-sizing: border-box;
+    box-shadow: inset 1px 1px 0 #2a3055, inset -1px -1px 0px #050814;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  #search-game-btn input {
+    display: none;
+  }
+  
+  .search-game-label::before {
+    position: absolute;
+    content: "";
+    width: 3.75em;
+    height: 3.75em;
+    border-radius: inherit;
+    background-color: transparent;
+    background-image: linear-gradient(145deg, #0c1022, #1a1f3d);
+    z-index: -1;
+    box-shadow: 10px 10px 20px #020309, -5px -5px 20px #1a1f3d;
+  }
+  
+  .search-game-label .search-game-icon {
+    width: 17px;
+    height: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .search-game-label .search-game-icon svg {
+    height: 100%;
+    width: 100%;
+    fill: #8892b0;
+  }
+  
+  #search-game-btn input:checked + .search-game-label {
+    box-shadow: inset -1px -1px 0 #2a3055, inset 1px 1px 0 #050814;
+    border: 2px solid rgba(34, 177, 76, 1);
+    animation: animeBorder 0.6s linear alternate-reverse infinite;
+  }
+  
+  #search-game-btn input:checked + .search-game-label .search-game-icon svg {
+    fill: rgb(34, 177, 76);
+    animation: animeFill 0.6s linear alternate-reverse infinite;
+  }
+  
+  @keyframes animeFill {
+    to {
+      fill: rgba(50, 205, 50, 0.1);
+    }
+  }
+  
+  @keyframes animeBorder {
+    to {
+      border-color: rgba(50, 205, 50, 0.1);
     }
   }

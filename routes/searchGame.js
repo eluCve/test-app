@@ -4,13 +4,12 @@ const axios = require('axios');
 const Summoner = require('../models/summoner');
 const RIOT_API_KEY = process.env.RIOT_API_KEY;
 const championIDs = require('../data/champions.json');
-const championPowers = require('../data/champion_powers.json');
 
 router.post('/', async (req, res) => {
   try {
     let { summonerId, tag, region } = req.body;
     const liveGame = await axios.get(`https://${region}.api.riotgames.com/lol/spectator/v5/active-games/by-summoner/${summonerId}?api_key=${RIOT_API_KEY}`);
-// HAVE TO CHECK IF THERE IS NO MATCH AVAILABLE TO SEND BACK A STATUS CODE RELEVANT TO NOTIFY THE FRONT END
+
     if(liveGame.status === 202) return res.status(202);
     
     if(liveGame && liveGame.status === 200) {
@@ -33,10 +32,7 @@ router.post('/', async (req, res) => {
         summoner.liveGame.enemy_color = gameData.enemy_color;
         summoner.liveGame.jungler_red = gameData.jungler_red;
         summoner.liveGame.jungler_blue = gameData.jungler_blue;
-        summoner.liveGame.red_team_power = gameData.red_team_power;
-        summoner.liveGame.blue_team_power = gameData.blue_team_power;
         summoner.liveGame.playingChamp = gameData.playingChamp;
-        summoner.liveGame.teamsPower = null;
         summoner.liveGame.items = null;
         summoner.liveGame.analysis = null;
         await summoner.save();
@@ -57,23 +53,14 @@ let gameDataExtract = (liveGame, summonerId) => {
   let enemy_color = "";
   let jungler_blue = null;
   let jungler_red = null;
-  let blue_team_power = [0,0,0,0,0];
-  let red_team_power = [0,0,0,0,0];
   let playingChamp = "";
   for (let i = 0; i < liveGame.data.participants.length; i++) {
     let participant = liveGame.data.participants[i];
     let championId = championIDs[participant.championId];
-    let championPower = championPowers[championId];
     if (i < 5) {
         blue_team.push(championId);
-        for (let i = 0; i < championPower.length; i++) {
-          blue_team_power[i] += championPower[i] * 2;
-        }
     } else {
         red_team.push(championId);
-        for (let i = 0; i < championPower.length; i++) {
-          red_team_power[i] += championPower[i] * 2;
-        }
     }
     if (participant.puuid === summonerId) {
       team_color = participant.teamId === 100 ? "blue" : "red";
@@ -88,15 +75,6 @@ let gameDataExtract = (liveGame, summonerId) => {
       }
     }
   }
-
-  for (let i = 0; i < blue_team_power.length; i++) {
-    blue_team_power[i] = blue_team_power[i] / 5;
-    blue_team_power[i] = Math.round(blue_team_power[i]);
-  }
-  for (let i = 0; i < red_team_power.length; i++) {
-    red_team_power[i] = red_team_power[i] / 5;
-    red_team_power[i] = Math.round(red_team_power[i]);
-  }
   let gameData = {
     red_team,
     blue_team,
@@ -104,8 +82,6 @@ let gameDataExtract = (liveGame, summonerId) => {
     enemy_color,
     jungler_red,
     jungler_blue,
-    blue_team_power,
-    red_team_power,
     playingChamp,
   };
 

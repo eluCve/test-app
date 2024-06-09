@@ -1,22 +1,18 @@
 const express = require('express');
 const router = express.Router();
 const Summoner = require('../models/summoner');
-const OpenAI = require('openai');
+const Anthropic = require('@anthropic-ai/sdk');
 
-const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
+const ANT_API_KEY = process.env.ANT_API_KEY;
 
-const openai = new OpenAI({
-  apiKey: OPENAI_API_KEY,
+const anthropic = new Anthropic({
+  apiKey: ANT_API_KEY,
 });
-
-
-const championPositions = require('../data/champion-positions.json');
 
 router.post('/', async (req, res) => {
   try {
     const clientIP = req.ip;
-    const { summonerId, tag, region, red_team, blue_team , team_color, jungler_blue, jungler_red, playingChamp } = req.body;
-    
+    const { summonerId, tag, region, playingChamp, playingPosition, enemyLaner} = req.body;
     let summoner = await Summoner.findOne({ 
       summonerId: summonerId,
       tag: tag,
@@ -24,64 +20,53 @@ router.post('/', async (req, res) => {
     }).exec();
 
     if (summoner.liveGame.analysis === null) {
-      let redPositions = assignPositions(red_team, jungler_red); 
-      let bluePositions = assignPositions(blue_team, jungler_blue);  
-      const prompt = `Give 5 tips AND 5 warnings that will help me play better for this league of legends game. Focus 70% of your tips and warnings on laning phase, meaning how to win the lane, and the 30% on the overall gameplay. In this game I play ${playingChamp} on team ${team_color}. Red Team: ${redPositions}. Blue Team: ${bluePositions}. Your response should ALWAYS be in this EXACT JSON format making sure you fill tip 1-5 and warning 1-5: {\"tip1\":\" \",\"tip2\":\" \",\"tip3\":\" \",\"tip4\":\" \",\"tip5\":\" \",\"warning1\":\" \",\"warning2\":\" \",\"warning3\":\" \",\"warning4\":\" \",\"warning5\":\" \"}`;
-      const openAIResponse = await openai.chat.completions.create({
-        messages: [
-          {
-            role: "system",
-            content: "You are a league of legends coach that helps people analyze their games before a match starts. You give 5 tips and 5 warnings that will help players play better on the specific champion. Your response should ALWAYS be in this EXACT JSON format making sure you fill tip 1-5 and warning 1-5: {\"tip1\":\" \",\"tip2\":\" \",\"tip3\":\" \",\"tip4\":\" \",\"tip5\":\" \",\"warning1\":\" \",\"warning2\":\" \",\"warning3\":\" \",\"warning4\":\" \",\"warning5\":\" \"}",
-          },
-          {"role": "user", "content": `${prompt}`},
-        ],
-        model: "ft:gpt-3.5-turbo-0125:personal:generateanalysis:95d3RaQO",
-        response_format: { type: "json_object" },
+      const prompt = `You are an AI assistant that helps League of Legends players succeed in their ranked games by providing strategic tips and advice. For this task, you will be given information about a specific lane matchup in a game and will need to provide 3 key tips for the player to win their lane and the game.You will be given the following information:<player_champion>${playingChamp}</player_champion><enemy_champion>${enemyLaner}</enemy_champion><lane_matchup>${playingPosition}</lane_matchup>First, carefully analyze the matchup dynamics based on the player's champion, the enemy champion, and whether it is a winning, losing, or skill-based matchup. Think through the key factors that will influence how the lane should be played. Consider things like champion powerspikes, item breakpoints, gank setup/vulnerability, scaling potential, etc.Write out your analysis in a <scratchpad> section before giving your final tips. This scratchpad is just for your own reasoning and will not be shown to the player.After you have fully analyzed the matchup, provide 3 key tips that will best help the player succeed in the lane and the game. Write each tip inside <tip> tags. Tips should be about how to play well against the specific enemy champion and win the lane. Include what to expect, what to be careful of, how the lane should be played, and any other relevant strategic advice based on the matchup.Remember, your goal is to help the player win their lane and climb the ranked ladder, so make sure your tips are insightful, specific to the given matchup, and actionable. Avoid generic advice that could apply to any matchup.Do not mention anything about the task instructions themselves in your response. Speak directly to the player as if you are their personal coach. For tips avoid giving item suggestions as they may be out of the current meta or even removed from the current patch. Also keep all text as concise as possible and when referring to champion abilities don't say the whole ability name, just say the key like Q, W, E, R.Provide your analysis and tips in the following format:<scratchpad>[Your matchup analysis here]</scratchpad><tip1>[First tip here]</tip1><tip2>[Second tip here]</tip2><tip3>[Third tip here]</tip3>`;
+      const msg = await anthropic.messages.create({
+        model: "claude-3-sonnet-20240229",
+        max_tokens: 1024,
+        messages: [{ role: "user", content: `${prompt}` }],
       });
-      const jsonResponse = JSON.parse(openAIResponse.choices[0].message.content);
-      if (jsonResponse.warning1 && jsonResponse.warning2 && jsonResponse.warning3 && jsonResponse.warning4 && jsonResponse.warning5) {
-        summoner.liveGame.analysis = openAIResponse.choices[0].message.content;
+      let response = msg.content[0].text;
+      const regexTip1 = /<tip1>(.*?)<\/tip1>/;
+      const regexTip2 = /<tip2>(.*?)<\/tip2>/;
+      const regexTip3 = /<tip3>(.*?)<\/tip3>/;
+      const tip1 = response.match(regexTip1)?.[1];
+      const tip2 = response.match(regexTip2)?.[1];
+      const tip3 = response.match(regexTip3)?.[1];
+
+      if (tip1 && tip2 && tip3) {
+        summoner.liveGame.analysis = response;
         await summoner.save();
         console.log(getFormattedAthensTime() + ' | ANALYSIS | ' + clientIP + ' | ' + summonerId);
         res.send(summoner.liveGame.analysis);
       } else {
-        console.log("Not all warnings were included in the response. Retrying...", openAIResponse.choices[0].message.content)
-        const openAIResponse2 = await openai.chat.completions.create({
-          messages: [
-            {
-              role: "system",
-              content: "You are a league of legends coach that helps people analyze their games before a match starts. You give 5 tips and 5 warnings that will help players play better on the specific champion. Your response should ALWAYS be in this EXACT JSON format making sure you fill tip 1-5 and warning 1-5: {\"tip1\":\" \",\"tip2\":\" \",\"tip3\":\" \",\"tip4\":\" \",\"tip5\":\" \",\"warning1\":\" \",\"warning2\":\" \",\"warning3\":\" \",\"warning4\":\" \",\"warning5\":\" \"}",
-            },
-            {"role": "user", "content": `${prompt}`},
-          ],
-          model: "ft:gpt-3.5-turbo-0125:personal:generateanalysis:95d3RaQO",
-          response_format: { type: "json_object" },
+        console.log("Not all tips were included in the response. Retrying...", response)
+        const msg2 = await anthropic.messages.create({
+          model: "claude-3-sonnet-20240229",
+          max_tokens: 1024,
+          messages: [{ role: "user", content: `${prompt}` }],
         });
-        const jsonResponse2 = JSON.parse(openAIResponse2.choices[0].message.content);
-        if (jsonResponse2.warning1 && jsonResponse2.warning2 && jsonResponse2.warning3 && jsonResponse2.warning4 && jsonResponse2.warning5) {
-          summoner.liveGame.analysis = openAIResponse2.choices[0].message.content;
+        let response2 = msg2.content[0].text;
+        const tip1 = response2.match(regexTip1)?.[1];
+        const tip2 = response2.match(regexTip2)?.[1];
+        const tip3 = response2.match(regexTip3)?.[1];
+        if (tip1 && tip2 && tip3) {
+          summoner.liveGame.analysis = response2;
           await summoner.save();
           console.log(getFormattedAthensTime() + ' | ANALYSIS | ' + clientIP + ' | ' + summonerId);
           res.send(summoner.liveGame.analysis);
         } else {
-          console.log("Not all warnings were included in the response. Retrying...", openAIResponse2.choices[0].message.content)
-          const openAIResponse3 = await openai.chat.completions.create({
-            messages: [
-              {
-                role: "system",
-                content: "You are a league of legends coach that helps people analyze their games before a match starts. You give 5 tips and 5 warnings that will help players play better on the specific champion. Your response should ALWAYS be in this EXACT JSON format making sure you fill tip 1-5 and warning 1-5: {\"tip1\":\" \",\"tip2\":\" \",\"tip3\":\" \",\"tip4\":\" \",\"tip5\":\" \",\"warning1\":\" \",\"warning2\":\" \",\"warning3\":\" \",\"warning4\":\" \",\"warning5\":\" \"}",
-              },
-              {"role": "user", "content": `${prompt}`},
-            ],
-            model: "ft:gpt-3.5-turbo-0125:personal:generateanalysis:95d3RaQO",
-            response_format: { type: "json_object" },
+          console.log("Not all tips were included in the response. Retrying...", response2)
+          const msg3 = await anthropic.messages.create({
+            model: "claude-3-sonnet-20240229",
+            max_tokens: 1024,
+            messages: [{ role: "user", content: `${prompt}` }],
           });
-          summoner.liveGame.analysis = openAIResponse3.choices[0].message.content;
+          summoner.liveGame.analysis = msg3.content[0].text;
           await summoner.save();
           console.log(getFormattedAthensTime() + ' | ANALYSIS | ' + clientIP + ' | ' + summonerId);
           res.send(summoner.liveGame.analysis);
         }
-        
       }
     } else {
       res.send(summoner.liveGame.analysis);
@@ -91,42 +76,6 @@ router.post('/', async (req, res) => {
     res.status(500).send('An error occurred: ' + error.message);
   }
 });
-
-function assignPositions(team, jungler) {
-  let positionUsage = {};
-  let assignments = {};
-  let prompt = "";
-
-  // Assign the Jungler position to the specified champion
-  assignments[jungler] = "Jungler";
-  positionUsage["Jungler"] = true;
-
-  // Create a list of all positions with their preferences sorted by percentage,
-  // excluding the Jungler champion entirely from further processing.
-  let allPositions = team.filter(champion => champion !== jungler) // Exclude the Jungler champion
-    .flatMap(champion => 
-      Object.entries(championPositions[champion].positions).map(([position, percentage]) => ({
-          champion,
-          position,
-          percentage: parseFloat(percentage)
-      }))
-    ).sort((a, b) => b.percentage - a.percentage); // Sort by highest percentage first
-
-  // Assign positions to team based on the sorted preferences.
-  allPositions.forEach(({champion, position}) => {
-      if (!assignments[champion] && !positionUsage[position]) {
-          assignments[champion] = position;
-          positionUsage[position] = true;
-      }
-  });
-
-  // Generate the prompt string
-  for(let champion in assignments) {
-    prompt += `${assignments[champion]}:${champion} `
-  }
-  
-  return prompt.trim(); // Added trim to clean up any trailing space
-}
 
 function getFormattedAthensTime() {
   const now = new Date();
