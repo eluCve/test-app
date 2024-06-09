@@ -48,102 +48,102 @@ async function searchLiveGame() {
           });
         }
         generateAnalysis(gameData.playingChamp, enemyLaner, playingPosition);
-      });
-      
-      fetch('/data/champion-winrates.json').then(response => response.json()).then(data => {
-        let playingChamp;
-        for (let champion in data) {
-          data[champion] = data[champion].map(str => parseFloat(str));
-        }
-        if(gameData.playingChamp === 'MonkeyKing') {
-          playingChamp = 'Wukong';
-        } else {
-          playingChamp = gameData.playingChamp;
-        }
-        if(enemyLaner === 'MonkeyKing') {
-          enemyLaner = 'Wukong';
-        } else {
-          enemyLaner = enemyLaner;
-        }
-        document.getElementById('your-champion').textContent = playingChamp;
-        document.getElementById('enemy-champion').textContent = enemyLaner;
-        updateGradient(data[playingChamp], 'gradient1');
-        updateGradient(data[enemyLaner], 'gradient2');
-        let yourTeamWinRates = [0, 0, 0, 0, 0, 0, 0];
-        let enemyTeamWinRates = [0, 0, 0, 0, 0, 0, 0];
-        if(gameData.team_color === 'blue') {
-          gameData.blue_team.forEach(champion => {
-            yourTeamWinRates[0] += data[champion][0];
-            yourTeamWinRates[1] += data[champion][1];
-            yourTeamWinRates[2] += data[champion][2];
-            yourTeamWinRates[3] += data[champion][3];
-            yourTeamWinRates[4] += data[champion][4];
-            yourTeamWinRates[5] += data[champion][5];
-            yourTeamWinRates[6] += data[champion][6];
-        }
-        );
-        gameData.red_team.forEach(champion => {
-          enemyTeamWinRates[0] += data[champion][0];
-          enemyTeamWinRates[1] += data[champion][1];
-          enemyTeamWinRates[2] += data[champion][2];
-          enemyTeamWinRates[3] += data[champion][3];
-          enemyTeamWinRates[4] += data[champion][4];
-          enemyTeamWinRates[5] += data[champion][5];
-          enemyTeamWinRates[6] += data[champion][6];
-        }
-        );
-        } else {
+      }).then(() => {
+        fetch('/data/champion-winrates.json').then(response => response.json()).then(data => {
+          let playingChamp;
+          for (let champion in data) {
+            data[champion] = data[champion].map(str => parseFloat(str));
+          }
+          if(gameData.playingChamp === 'MonkeyKing') {
+            playingChamp = 'Wukong';
+          } else {
+            playingChamp = gameData.playingChamp;
+          }
+          if(enemyLaner === 'MonkeyKing') {
+            enemyLaner = 'Wukong';
+          } else {
+            enemyLaner = enemyLaner;
+          }
+          document.getElementById('your-champion').textContent = playingChamp;
+          document.getElementById('enemy-champion').textContent = enemyLaner;
+          updateGradient(data[playingChamp], 'gradient1');
+          updateGradient(data[enemyLaner], 'gradient2');
+          let yourTeamWinRates = [0, 0, 0, 0, 0, 0, 0];
+          let enemyTeamWinRates = [0, 0, 0, 0, 0, 0, 0];
+          if(gameData.team_color === 'blue') {
+            gameData.blue_team.forEach(champion => {
+              yourTeamWinRates[0] += data[champion][0];
+              yourTeamWinRates[1] += data[champion][1];
+              yourTeamWinRates[2] += data[champion][2];
+              yourTeamWinRates[3] += data[champion][3];
+              yourTeamWinRates[4] += data[champion][4];
+              yourTeamWinRates[5] += data[champion][5];
+              yourTeamWinRates[6] += data[champion][6];
+          }
+          );
           gameData.red_team.forEach(champion => {
-            yourTeamWinRates[0] += data[champion][0];
-            yourTeamWinRates[1] += data[champion][1];
-            yourTeamWinRates[2] += data[champion][2];
-            yourTeamWinRates[3] += data[champion][3];
-            yourTeamWinRates[4] += data[champion][4];
-            yourTeamWinRates[5] += data[champion][5];
-            yourTeamWinRates[6] += data[champion][6];
-        }
-        );
-        gameData.blue_team.forEach(champion => {
-          enemyTeamWinRates[0] += data[champion][0];
-          enemyTeamWinRates[1] += data[champion][1];
-          enemyTeamWinRates[2] += data[champion][2];
-          enemyTeamWinRates[3] += data[champion][3];
-          enemyTeamWinRates[4] += data[champion][4];
-          enemyTeamWinRates[5] += data[champion][5];
-          enemyTeamWinRates[6] += data[champion][6];
-        }
-        );
-        }
-        yourTeamWinRates[0] /= 5;
-        yourTeamWinRates[1] /= 5;
-        yourTeamWinRates[2] /= 5;
-        yourTeamWinRates[3] /= 5;
-        yourTeamWinRates[4] /= 5;
-        yourTeamWinRates[5] /= 5;
-        yourTeamWinRates[6] /= 5;
-        enemyTeamWinRates[0] /= 5;
-        enemyTeamWinRates[1] /= 5;
-        enemyTeamWinRates[2] /= 5;
-        enemyTeamWinRates[3] /= 5;
-        enemyTeamWinRates[4] /= 5;
-        enemyTeamWinRates[5] /= 5;
-        enemyTeamWinRates[6] /= 5;
-        yourTeamWinRates[0] = Math.round(yourTeamWinRates[0]);
-        yourTeamWinRates[1] = Math.round(yourTeamWinRates[1]);
-        yourTeamWinRates[2] = Math.round(yourTeamWinRates[2]);
-        yourTeamWinRates[3] = Math.round(yourTeamWinRates[3]);
-        yourTeamWinRates[4] = Math.round(yourTeamWinRates[4]);
-        yourTeamWinRates[5] = Math.round(yourTeamWinRates[5]);
-        yourTeamWinRates[6] = Math.round(yourTeamWinRates[6]);
-        enemyTeamWinRates[0] = Math.round(enemyTeamWinRates[0]);
-        enemyTeamWinRates[1] = Math.round(enemyTeamWinRates[1]);
-        enemyTeamWinRates[2] = Math.round(enemyTeamWinRates[2]);
-        enemyTeamWinRates[3] = Math.round(enemyTeamWinRates[3]);
-        enemyTeamWinRates[4] = Math.round(enemyTeamWinRates[4]);
-        enemyTeamWinRates[5] = Math.round(enemyTeamWinRates[5]);
-        enemyTeamWinRates[6] = Math.round(enemyTeamWinRates[6]);
-        updateGradient(yourTeamWinRates, 'gradient3');
-        updateGradient(enemyTeamWinRates, 'gradient4');
+            enemyTeamWinRates[0] += data[champion][0];
+            enemyTeamWinRates[1] += data[champion][1];
+            enemyTeamWinRates[2] += data[champion][2];
+            enemyTeamWinRates[3] += data[champion][3];
+            enemyTeamWinRates[4] += data[champion][4];
+            enemyTeamWinRates[5] += data[champion][5];
+            enemyTeamWinRates[6] += data[champion][6];
+          }
+          );
+          } else {
+            gameData.red_team.forEach(champion => {
+              yourTeamWinRates[0] += data[champion][0];
+              yourTeamWinRates[1] += data[champion][1];
+              yourTeamWinRates[2] += data[champion][2];
+              yourTeamWinRates[3] += data[champion][3];
+              yourTeamWinRates[4] += data[champion][4];
+              yourTeamWinRates[5] += data[champion][5];
+              yourTeamWinRates[6] += data[champion][6];
+          }
+          );
+          gameData.blue_team.forEach(champion => {
+            enemyTeamWinRates[0] += data[champion][0];
+            enemyTeamWinRates[1] += data[champion][1];
+            enemyTeamWinRates[2] += data[champion][2];
+            enemyTeamWinRates[3] += data[champion][3];
+            enemyTeamWinRates[4] += data[champion][4];
+            enemyTeamWinRates[5] += data[champion][5];
+            enemyTeamWinRates[6] += data[champion][6];
+          }
+          );
+          }
+          yourTeamWinRates[0] /= 5;
+          yourTeamWinRates[1] /= 5;
+          yourTeamWinRates[2] /= 5;
+          yourTeamWinRates[3] /= 5;
+          yourTeamWinRates[4] /= 5;
+          yourTeamWinRates[5] /= 5;
+          yourTeamWinRates[6] /= 5;
+          enemyTeamWinRates[0] /= 5;
+          enemyTeamWinRates[1] /= 5;
+          enemyTeamWinRates[2] /= 5;
+          enemyTeamWinRates[3] /= 5;
+          enemyTeamWinRates[4] /= 5;
+          enemyTeamWinRates[5] /= 5;
+          enemyTeamWinRates[6] /= 5;
+          yourTeamWinRates[0] = Math.round(yourTeamWinRates[0]);
+          yourTeamWinRates[1] = Math.round(yourTeamWinRates[1]);
+          yourTeamWinRates[2] = Math.round(yourTeamWinRates[2]);
+          yourTeamWinRates[3] = Math.round(yourTeamWinRates[3]);
+          yourTeamWinRates[4] = Math.round(yourTeamWinRates[4]);
+          yourTeamWinRates[5] = Math.round(yourTeamWinRates[5]);
+          yourTeamWinRates[6] = Math.round(yourTeamWinRates[6]);
+          enemyTeamWinRates[0] = Math.round(enemyTeamWinRates[0]);
+          enemyTeamWinRates[1] = Math.round(enemyTeamWinRates[1]);
+          enemyTeamWinRates[2] = Math.round(enemyTeamWinRates[2]);
+          enemyTeamWinRates[3] = Math.round(enemyTeamWinRates[3]);
+          enemyTeamWinRates[4] = Math.round(enemyTeamWinRates[4]);
+          enemyTeamWinRates[5] = Math.round(enemyTeamWinRates[5]);
+          enemyTeamWinRates[6] = Math.round(enemyTeamWinRates[6]);
+          updateGradient(yourTeamWinRates, 'gradient3');
+          updateGradient(enemyTeamWinRates, 'gradient4');
+        });
       });
       fetch('/data/champion-comps.json').then(response => response.json()).then(data => {
         if(gameData.team_color === 'blue') {
