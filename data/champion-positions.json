@@ -2,1671 +2,1671 @@
   "Aatrox": {
     "champion": "Aatrox",
     "positions": {
-      "Top": "95.49%",
-      "Mid": "2.88%",
-      "Jungler": "0.69%",
-      "Support": "0.66%",
-      "AD Carry": "0.28%"
+      "Top": "96.27%",
+      "Mid": "2.46%",
+      "Support": "0.55%",
+      "Jungler": "0.55%",
+      "AD Carry": "0.17%"
     }
   },
   "Ahri": {
     "champion": "Ahri",
     "positions": {
-      "Mid": "96.85%",
-      "Support": "1.56%",
-      "Top": "1.09%",
-      "AD Carry": "0.47%",
-      "Jungler": "0.03%"
+      "Mid": "96.38%",
+      "Support": "1.79%",
+      "Top": "1.23%",
+      "AD Carry": "0.56%",
+      "Jungler": "0.05%"
     }
   },
   "Akali": {
     "champion": "Akali",
     "positions": {
-      "Mid": "73.12%",
-      "Top": "26.14%",
-      "Support": "0.53%",
-      "AD Carry": "0.17%",
-      "Jungler": "0.05%"
+      "Mid": "74.30%",
+      "Top": "25.14%",
+      "Support": "0.39%",
+      "AD Carry": "0.13%",
+      "Jungler": "0.04%"
     }
   },
   "Akshan": {
     "champion": "Akshan",
     "positions": {
-      "Mid": "78.39%",
-      "Top": "15.83%",
-      "AD Carry": "4.37%",
-      "Support": "0.92%",
-      "Jungler": "0.49%"
+      "Mid": "84.29%",
+      "Top": "11.77%",
+      "AD Carry": "2.68%",
+      "Support": "0.84%",
+      "Jungler": "0.42%"
     }
   },
   "Alistar": {
     "champion": "Alistar",
     "positions": {
-      "Support": "96.87%",
-      "Top": "1.77%",
-      "Mid": "0.90%",
-      "Jungler": "0.30%",
-      "AD Carry": "0.16%"
+      "Support": "97.06%",
+      "Top": "1.88%",
+      "Mid": "0.69%",
+      "Jungler": "0.22%",
+      "AD Carry": "0.14%"
     }
   },
   "Amumu": {
     "champion": "Amumu",
     "positions": {
-      "Jungler": "83.70%",
-      "Support": "13.29%",
-      "Top": "2.59%",
-      "Mid": "0.32%",
-      "AD Carry": "0.10%"
+      "Jungler": "89.74%",
+      "Support": "9.31%",
+      "Top": "0.71%",
+      "Mid": "0.17%",
+      "AD Carry": "0.07%"
     }
   },
   "Anivia": {
     "champion": "Anivia",
     "positions": {
-      "Mid": "82.46%",
-      "Support": "10.90%",
-      "Top": "4.29%",
-      "AD Carry": "2.25%",
-      "Jungler": "0.10%"
+      "Mid": "82.57%",
+      "Support": "10.86%",
+      "Top": "4.82%",
+      "AD Carry": "1.67%",
+      "Jungler": "0.09%"
     }
   },
   "Annie": {
     "champion": "Annie",
     "positions": {
-      "Mid": "80.26%",
-      "Support": "15.89%",
-      "Top": "2.29%",
-      "AD Carry": "1.43%",
-      "Jungler": "0.12%"
+      "Mid": "82.90%",
+      "Support": "13.26%",
+      "Top": "2.82%",
+      "AD Carry": "0.97%",
+      "Jungler": "0.06%"
     }
   },
   "Aphelios": {
     "champion": "Aphelios",
     "positions": {
-      "AD Carry": "98.68%",
-      "Mid": "0.68%",
-      "Top": "0.52%",
-      "Jungler": "0.06%",
+      "AD Carry": "98.58%",
+      "Mid": "0.72%",
+      "Top": "0.56%",
+      "Jungler": "0.07%",
       "Support": "0.06%"
     }
   },
   "Ashe": {
     "champion": "Ashe",
     "positions": {
-      "AD Carry": "76.77%",
-      "Support": "21.32%",
-      "Top": "1.20%",
-      "Mid": "0.65%",
-      "Jungler": "0.06%"
+      "AD Carry": "84.00%",
+      "Support": "14.89%",
+      "Top": "0.65%",
+      "Mid": "0.42%",
+      "Jungler": "0.03%"
     }
   },
   "AurelionSol": {
     "champion": "AurelionSol",
     "positions": {
-      "Mid": "92.43%",
-      "Top": "3.22%",
-      "AD Carry": "3.05%",
-      "Support": "0.97%",
-      "Jungler": "0.32%"
+      "Mid": "92.87%",
+      "Top": "3.47%",
+      "AD Carry": "2.28%",
+      "Support": "0.93%",
+      "Jungler": "0.45%"
     }
   },
   "Azir": {
     "champion": "Azir",
     "positions": {
-      "Mid": "93.49%",
-      "Top": "4.67%",
-      "AD Carry": "0.91%",
-      "Support": "0.86%",
-      "Jungler": "0.07%"
+      "Mid": "93.86%",
+      "Top": "4.35%",
+      "Support": "0.83%",
+      "AD Carry": "0.82%",
+      "Jungler": "0.13%"
     }
   },
   "Bard": {
     "champion": "Bard",
     "positions": {
-      "Support": "97.69%",
-      "Top": "0.79%",
-      "Mid": "0.73%",
-      "AD Carry": "0.48%",
-      "Jungler": "0.31%"
+      "Support": "98.32%",
+      "Top": "0.76%",
+      "Mid": "0.45%",
+      "AD Carry": "0.28%",
+      "Jungler": "0.19%"
     }
   },
   "Belveth": {
     "champion": "Belveth",
     "positions": {
-      "Jungler": "96.34%",
-      "Top": "1.89%",
-      "Support": "0.82%",
+      "Jungler": "96.61%",
+      "Top": "1.67%",
+      "Support": "0.85%",
       "Mid": "0.77%",
-      "AD Carry": "0.18%"
+      "AD Carry": "0.10%"
     }
   },
   "Blitzcrank": {
     "champion": "Blitzcrank",
     "positions": {
-      "Support": "99.17%",
-      "Mid": "0.31%",
-      "Jungler": "0.27%",
-      "Top": "0.17%",
-      "AD Carry": "0.08%"
+      "Support": "99.39%",
+      "Mid": "0.20%",
+      "Top": "0.19%",
+      "Jungler": "0.17%",
+      "AD Carry": "0.05%"
     }
   },
   "Brand": {
     "champion": "Brand",
     "positions": {
-      "Support": "40.61%",
-      "Jungler": "28.92%",
-      "Mid": "24.25%",
-      "AD Carry": "4.48%",
-      "Top": "1.74%"
+      "Mid": "31.43%",
+      "Jungler": "30.48%",
+      "Support": "28.79%",
+      "AD Carry": "7.48%",
+      "Top": "1.81%"
     }
   },
   "Braum": {
     "champion": "Braum",
     "positions": {
-      "Support": "99.31%",
-      "Top": "0.39%",
-      "Jungler": "0.13%",
-      "Mid": "0.10%",
-      "AD Carry": "0.07%"
+      "Support": "99.54%",
+      "Top": "0.28%",
+      "Jungler": "0.09%",
+      "Mid": "0.06%",
+      "AD Carry": "0.03%"
     }
   },
   "Briar": {
     "champion": "Briar",
     "positions": {
-      "Jungler": "90.54%",
-      "Top": "5.74%",
-      "Mid": "2.71%",
-      "Support": "0.71%",
-      "AD Carry": "0.30%"
+      "Jungler": "83.01%",
+      "Top": "13.30%",
+      "Mid": "2.89%",
+      "Support": "0.61%",
+      "AD Carry": "0.19%"
     }
   },
   "Caitlyn": {
     "champion": "Caitlyn",
     "positions": {
-      "AD Carry": "96.84%",
-      "Mid": "1.62%",
-      "Top": "0.78%",
-      "Support": "0.73%",
+      "AD Carry": "97.39%",
+      "Mid": "1.59%",
+      "Top": "0.51%",
+      "Support": "0.49%",
       "Jungler": "0.03%"
     }
   },
   "Camille": {
     "champion": "Camille",
     "positions": {
-      "Top": "71.06%",
-      "Support": "25.96%",
-      "Mid": "1.70%",
-      "Jungler": "0.90%",
-      "AD Carry": "0.39%"
+      "Top": "76.27%",
+      "Support": "21.25%",
+      "Mid": "1.51%",
+      "Jungler": "0.75%",
+      "AD Carry": "0.21%"
     }
   },
   "Cassiopeia": {
     "champion": "Cassiopeia",
     "positions": {
-      "Mid": "68.50%",
-      "Top": "22.66%",
-      "AD Carry": "7.94%",
-      "Support": "0.80%",
-      "Jungler": "0.09%"
+      "Mid": "69.57%",
+      "Top": "23.19%",
+      "AD Carry": "6.50%",
+      "Support": "0.64%",
+      "Jungler": "0.11%"
     }
   },
   "Chogath": {
     "champion": "Chogath",
     "positions": {
-      "Top": "69.45%",
-      "Mid": "15.74%",
-      "Support": "6.23%",
-      "Jungler": "4.55%",
-      "AD Carry": "4.02%"
+      "Top": "72.52%",
+      "Mid": "13.40%",
+      "Jungler": "6.04%",
+      "Support": "5.36%",
+      "AD Carry": "2.68%"
     }
   },
   "Corki": {
     "champion": "Corki",
     "positions": {
-      "Mid": "93.50%",
-      "AD Carry": "3.41%",
-      "Top": "2.27%",
-      "Support": "0.47%",
-      "Jungler": "0.34%"
+      "AD Carry": "66.03%",
+      "Mid": "31.81%",
+      "Top": "1.56%",
+      "Support": "0.44%",
+      "Jungler": "0.16%"
     }
   },
   "Darius": {
     "champion": "Darius",
     "positions": {
-      "Top": "93.77%",
-      "Jungler": "3.44%",
-      "Mid": "1.33%",
-      "Support": "0.80%",
-      "AD Carry": "0.66%"
+      "Top": "94.47%",
+      "Jungler": "2.89%",
+      "Mid": "1.31%",
+      "Support": "0.88%",
+      "AD Carry": "0.44%"
     }
   },
   "Diana": {
     "champion": "Diana",
     "positions": {
-      "Jungler": "63.94%",
-      "Mid": "34.57%",
-      "Top": "0.97%",
-      "Support": "0.41%",
-      "AD Carry": "0.11%"
+      "Jungler": "65.11%",
+      "Mid": "33.53%",
+      "Top": "0.93%",
+      "Support": "0.34%",
+      "AD Carry": "0.09%"
     }
   },
   "Draven": {
     "champion": "Draven",
     "positions": {
-      "AD Carry": "96.94%",
-      "Top": "1.53%",
-      "Mid": "1.32%",
-      "Jungler": "0.12%",
-      "Support": "0.08%"
+      "AD Carry": "96.44%",
+      "Top": "1.94%",
+      "Mid": "1.31%",
+      "Jungler": "0.24%",
+      "Support": "0.07%"
     }
   },
   "DrMundo": {
     "champion": "DrMundo",
     "positions": {
-      "Top": "92.87%",
-      "Jungler": "3.99%",
-      "Mid": "1.77%",
-      "Support": "0.90%",
-      "AD Carry": "0.48%"
+      "Top": "92.30%",
+      "Jungler": "4.48%",
+      "Mid": "1.68%",
+      "Support": "1.15%",
+      "AD Carry": "0.38%"
     }
   },
   "Ekko": {
     "champion": "Ekko",
     "positions": {
-      "Jungler": "58.31%",
-      "Mid": "39.30%",
-      "Top": "1.35%",
-      "Support": "0.80%",
-      "AD Carry": "0.23%"
+      "Jungler": "60.34%",
+      "Mid": "37.78%",
+      "Top": "1.11%",
+      "Support": "0.58%",
+      "AD Carry": "0.19%"
     }
   },
   "Elise": {
     "champion": "Elise",
     "positions": {
-      "Jungler": "94.18%",
-      "Support": "3.23%",
-      "Mid": "1.35%",
-      "Top": "1.09%",
-      "AD Carry": "0.14%"
+      "Jungler": "94.09%",
+      "Support": "2.75%",
+      "Top": "1.88%",
+      "Mid": "1.18%",
+      "AD Carry": "0.10%"
     }
   },
   "Evelynn": {
     "champion": "Evelynn",
     "positions": {
-      "Jungler": "98.59%",
-      "Support": "0.81%",
-      "Mid": "0.32%",
-      "Top": "0.23%",
-      "AD Carry": "0.06%"
+      "Jungler": "98.57%",
+      "Support": "0.74%",
+      "Mid": "0.41%",
+      "Top": "0.24%",
+      "AD Carry": "0.04%"
     }
   },
   "Ezreal": {
     "champion": "Ezreal",
     "positions": {
-      "AD Carry": "94.69%",
-      "Mid": "3.65%",
-      "Support": "0.94%",
-      "Top": "0.52%",
-      "Jungler": "0.20%"
+      "AD Carry": "93.45%",
+      "Mid": "4.48%",
+      "Support": "1.09%",
+      "Top": "0.72%",
+      "Jungler": "0.27%"
     }
   },
   "Fiddlesticks": {
     "champion": "Fiddlesticks",
     "positions": {
-      "Jungler": "77.15%",
-      "Support": "13.83%",
-      "Top": "4.39%",
-      "Mid": "4.34%",
-      "AD Carry": "0.28%"
+      "Jungler": "79.58%",
+      "Support": "12.47%",
+      "Top": "4.25%",
+      "Mid": "3.59%",
+      "AD Carry": "0.11%"
     }
   },
   "Fiora": {
     "champion": "Fiora",
     "positions": {
-      "Top": "98.08%",
-      "Mid": "1.32%",
-      "AD Carry": "0.29%",
-      "Support": "0.21%",
+      "Top": "98.17%",
+      "Mid": "1.25%",
+      "Support": "0.25%",
+      "AD Carry": "0.24%",
       "Jungler": "0.09%"
     }
   },
   "Fizz": {
     "champion": "Fizz",
     "positions": {
-      "Mid": "95.74%",
-      "Top": "1.77%",
-      "Support": "1.55%",
-      "Jungler": "0.51%",
-      "AD Carry": "0.43%"
+      "Mid": "96.15%",
+      "Top": "1.87%",
+      "Support": "1.14%",
+      "Jungler": "0.48%",
+      "AD Carry": "0.35%"
     }
   },
   "Galio": {
     "champion": "Galio",
     "positions": {
-      "Mid": "77.76%",
-      "Support": "16.29%",
-      "Top": "5.03%",
-      "Jungler": "0.53%",
-      "AD Carry": "0.39%"
+      "Mid": "82.00%",
+      "Support": "12.98%",
+      "Top": "4.32%",
+      "Jungler": "0.43%",
+      "AD Carry": "0.27%"
     }
   },
   "Gangplank": {
     "champion": "Gangplank",
     "positions": {
-      "Top": "87.96%",
-      "Mid": "11.33%",
-      "AD Carry": "0.36%",
-      "Support": "0.23%",
-      "Jungler": "0.12%"
+      "Top": "90.22%",
+      "Mid": "9.24%",
+      "Support": "0.24%",
+      "AD Carry": "0.20%",
+      "Jungler": "0.10%"
     }
   },
   "Garen": {
     "champion": "Garen",
     "positions": {
-      "Top": "88.97%",
-      "Mid": "7.07%",
-      "Jungler": "3.13%",
-      "AD Carry": "0.45%",
-      "Support": "0.38%"
+      "Top": "90.28%",
+      "Mid": "5.98%",
+      "Jungler": "3.17%",
+      "AD Carry": "0.32%",
+      "Support": "0.26%"
     }
   },
   "Gnar": {
     "champion": "Gnar",
     "positions": {
-      "Top": "97.65%",
-      "Mid": "1.09%",
-      "AD Carry": "0.64%",
-      "Support": "0.40%",
-      "Jungler": "0.22%"
+      "Top": "97.99%",
+      "Mid": "1.10%",
+      "AD Carry": "0.38%",
+      "Support": "0.31%",
+      "Jungler": "0.21%"
     }
   },
   "Gragas": {
     "champion": "Gragas",
     "positions": {
-      "Top": "43.32%",
-      "Jungler": "41.60%",
-      "Mid": "10.83%",
-      "Support": "3.95%",
-      "AD Carry": "0.31%"
+      "Top": "45.66%",
+      "Jungler": "40.15%",
+      "Mid": "10.41%",
+      "Support": "3.56%",
+      "AD Carry": "0.22%"
     }
   },
   "Graves": {
     "champion": "Graves",
     "positions": {
-      "Jungler": "86.89%",
-      "Mid": "7.26%",
-      "Top": "4.97%",
-      "AD Carry": "0.68%",
-      "Support": "0.19%"
+      "Jungler": "93.62%",
+      "Top": "3.16%",
+      "Mid": "2.72%",
+      "AD Carry": "0.39%",
+      "Support": "0.11%"
     }
   },
   "Gwen": {
     "champion": "Gwen",
     "positions": {
-      "Top": "80.95%",
-      "Jungler": "15.77%",
-      "Mid": "2.97%",
-      "AD Carry": "0.22%",
-      "Support": "0.09%"
+      "Top": "81.57%",
+      "Jungler": "15.60%",
+      "Mid": "2.59%",
+      "AD Carry": "0.17%",
+      "Support": "0.08%"
     }
   },
   "Hecarim": {
     "champion": "Hecarim",
     "positions": {
-      "Jungler": "99.23%",
-      "Top": "0.58%",
-      "Mid": "0.10%",
-      "Support": "0.05%",
-      "AD Carry": "0.04%"
+      "Jungler": "99.40%",
+      "Top": "0.45%",
+      "Mid": "0.08%",
+      "Support": "0.06%",
+      "AD Carry": "0.02%"
     }
   },
   "Heimerdinger": {
     "champion": "Heimerdinger",
     "positions": {
-      "Top": "51.91%",
-      "Mid": "23.50%",
-      "Support": "17.73%",
-      "AD Carry": "6.28%",
-      "Jungler": "0.58%"
+      "Top": "58.37%",
+      "Mid": "21.05%",
+      "Support": "14.26%",
+      "AD Carry": "5.73%",
+      "Jungler": "0.59%"
     }
   },
   "Hwei": {
     "champion": "Hwei",
     "positions": {
-      "Mid": "69.05%",
-      "Support": "25.56%",
-      "AD Carry": "4.18%",
-      "Top": "1.15%",
-      "Jungler": "0.05%"
+      "Mid": "75.74%",
+      "Support": "19.50%",
+      "AD Carry": "3.58%",
+      "Top": "1.14%",
+      "Jungler": "0.04%"
     }
   },
   "Illaoi": {
     "champion": "Illaoi",
     "positions": {
-      "Top": "96.01%",
-      "Mid": "2.94%",
-      "Support": "0.73%",
-      "AD Carry": "0.26%",
-      "Jungler": "0.06%"
+      "Top": "97.03%",
+      "Mid": "2.29%",
+      "Support": "0.49%",
+      "AD Carry": "0.15%",
+      "Jungler": "0.05%"
     }
   },
   "Irelia": {
     "champion": "Irelia",
     "positions": {
-      "Top": "50.26%",
-      "Mid": "48.45%",
-      "AD Carry": "1.02%",
-      "Support": "0.17%",
-      "Jungler": "0.10%"
+      "Top": "50.48%",
+      "Mid": "48.52%",
+      "AD Carry": "0.76%",
+      "Support": "0.16%",
+      "Jungler": "0.07%"
     }
   },
   "Ivern": {
     "champion": "Ivern",
     "positions": {
-      "Jungler": "86.28%",
-      "Support": "9.59%",
-      "Top": "2.40%",
-      "Mid": "1.32%",
-      "AD Carry": "0.42%"
+      "Jungler": "87.96%",
+      "Support": "7.55%",
+      "Top": "2.14%",
+      "Mid": "2.12%",
+      "AD Carry": "0.23%"
     }
   },
   "Janna": {
     "champion": "Janna",
     "positions": {
-      "Support": "98.95%",
-      "Mid": "0.49%",
-      "Top": "0.44%",
-      "AD Carry": "0.07%",
-      "Jungler": "0.05%"
+      "Support": "98.31%",
+      "Top": "1.16%",
+      "Mid": "0.38%",
+      "AD Carry": "0.09%",
+      "Jungler": "0.06%"
     }
   },
   "JarvanIV": {
     "champion": "JarvanIV",
     "positions": {
-      "Jungler": "91.57%",
-      "Support": "4.13%",
-      "Top": "2.19%",
-      "Mid": "1.53%",
-      "AD Carry": "0.58%"
+      "Jungler": "92.60%",
+      "Support": "3.97%",
+      "Top": "1.70%",
+      "Mid": "1.40%",
+      "AD Carry": "0.32%"
     }
   },
   "Jax": {
     "champion": "Jax",
     "positions": {
-      "Top": "57.72%",
-      "Jungler": "40.18%",
-      "Mid": "1.22%",
-      "Support": "0.64%",
-      "AD Carry": "0.24%"
+      "Top": "69.80%",
+      "Jungler": "28.17%",
+      "Mid": "1.18%",
+      "Support": "0.67%",
+      "AD Carry": "0.18%"
     }
   },
   "Jayce": {
     "champion": "Jayce",
     "positions": {
-      "Top": "64.41%",
-      "Mid": "34.14%",
-      "AD Carry": "0.65%",
-      "Support": "0.45%",
-      "Jungler": "0.35%"
+      "Top": "74.74%",
+      "Mid": "24.13%",
+      "AD Carry": "0.42%",
+      "Support": "0.38%",
+      "Jungler": "0.34%"
     }
   },
   "Jhin": {
     "champion": "Jhin",
     "positions": {
-      "AD Carry": "98.07%",
-      "Mid": "1.19%",
-      "Top": "0.35%",
-      "Support": "0.32%",
-      "Jungler": "0.07%"
+      "AD Carry": "98.35%",
+      "Mid": "1.05%",
+      "Support": "0.28%",
+      "Top": "0.27%",
+      "Jungler": "0.06%"
     }
   },
   "Jinx": {
     "champion": "Jinx",
     "positions": {
       "AD Carry": "99.57%",
-      "Mid": "0.26%",
-      "Top": "0.10%",
-      "Support": "0.03%",
+      "Mid": "0.28%",
+      "Top": "0.08%",
+      "Support": "0.04%",
       "Jungler": "0.03%"
     }
   },
   "Kaisa": {
     "champion": "Kaisa",
     "positions": {
-      "AD Carry": "96.11%",
-      "Mid": "2.58%",
-      "Top": "0.84%",
-      "Jungler": "0.23%",
-      "Support": "0.23%"
+      "AD Carry": "96.13%",
+      "Mid": "2.51%",
+      "Top": "0.95%",
+      "Jungler": "0.24%",
+      "Support": "0.17%"
     }
   },
   "Kalista": {
     "champion": "Kalista",
     "positions": {
-      "AD Carry": "91.93%",
-      "Top": "4.49%",
-      "Support": "1.79%",
-      "Mid": "1.69%",
-      "Jungler": "0.09%"
+      "AD Carry": "89.67%",
+      "Support": "4.11%",
+      "Top": "3.98%",
+      "Mid": "2.20%",
+      "Jungler": "0.05%"
     }
   },
   "Karma": {
     "champion": "Karma",
     "positions": {
-      "Support": "77.51%",
-      "Mid": "17.36%",
-      "Top": "4.57%",
-      "AD Carry": "0.51%",
+      "Support": "88.16%",
+      "Mid": "7.05%",
+      "Top": "4.42%",
+      "AD Carry": "0.34%",
       "Jungler": "0.04%"
     }
   },
   "Karthus": {
     "champion": "Karthus",
     "positions": {
-      "Jungler": "80.12%",
-      "AD Carry": "10.08%",
-      "Mid": "6.24%",
-      "Top": "2.05%",
-      "Support": "1.50%"
+      "Jungler": "87.45%",
+      "AD Carry": "5.94%",
+      "Mid": "4.09%",
+      "Top": "1.63%",
+      "Support": "0.88%"
     }
   },
   "Kassadin": {
     "champion": "Kassadin",
     "positions": {
-      "Mid": "97.05%",
-      "Top": "2.59%",
-      "AD Carry": "0.13%",
-      "Jungler": "0.12%",
-      "Support": "0.11%"
+      "Mid": "97.06%",
+      "Top": "2.64%",
+      "Jungler": "0.11%",
+      "Support": "0.11%",
+      "AD Carry": "0.09%"
     }
   },
   "Katarina": {
     "champion": "Katarina",
     "positions": {
-      "Mid": "96.43%",
-      "Top": "1.72%",
-      "AD Carry": "1.14%",
-      "Support": "0.55%",
-      "Jungler": "0.16%"
+      "Mid": "96.49%",
+      "Top": "1.78%",
+      "AD Carry": "1.12%",
+      "Support": "0.46%",
+      "Jungler": "0.14%"
     }
   },
   "Kayle": {
     "champion": "Kayle",
     "positions": {
-      "Top": "85.52%",
-      "Mid": "12.80%",
-      "Support": "0.68%",
-      "AD Carry": "0.61%",
-      "Jungler": "0.39%"
+      "Top": "84.02%",
+      "Mid": "14.70%",
+      "Support": "0.56%",
+      "AD Carry": "0.42%",
+      "Jungler": "0.30%"
     }
   },
   "Kayn": {
     "champion": "Kayn",
     "positions": {
-      "Jungler": "96.11%",
-      "Top": "3.27%",
-      "Mid": "0.46%",
-      "Support": "0.11%",
-      "AD Carry": "0.06%"
+      "Jungler": "96.89%",
+      "Top": "2.65%",
+      "Mid": "0.37%",
+      "Support": "0.06%",
+      "AD Carry": "0.03%"
     }
   },
   "Kennen": {
     "champion": "Kennen",
     "positions": {
-      "Top": "74.80%",
-      "Mid": "18.89%",
-      "Support": "4.77%",
-      "AD Carry": "1.37%",
-      "Jungler": "0.17%"
+      "Top": "78.78%",
+      "Mid": "17.18%",
+      "Support": "3.32%",
+      "AD Carry": "0.62%",
+      "Jungler": "0.09%"
     }
   },
   "Khazix": {
     "champion": "Khazix",
     "positions": {
-      "Jungler": "99.20%",
-      "Top": "0.40%",
-      "Mid": "0.26%",
-      "Support": "0.09%",
-      "AD Carry": "0.05%"
+      "Jungler": "99.60%",
+      "Top": "0.19%",
+      "Mid": "0.15%",
+      "Support": "0.05%",
+      "AD Carry": "0.01%"
     }
   },
   "Kindred": {
     "champion": "Kindred",
     "positions": {
-      "Jungler": "97.22%",
-      "AD Carry": "1.59%",
-      "Mid": "0.72%",
-      "Top": "0.32%",
-      "Support": "0.15%"
+      "Jungler": "97.58%",
+      "AD Carry": "1.28%",
+      "Mid": "0.63%",
+      "Top": "0.34%",
+      "Support": "0.17%"
     }
   },
   "Kled": {
     "champion": "Kled",
     "positions": {
-      "Top": "88.08%",
-      "Mid": "8.58%",
-      "Support": "1.68%",
-      "AD Carry": "1.27%",
-      "Jungler": "0.39%"
+      "Top": "89.81%",
+      "Mid": "7.62%",
+      "Support": "1.49%",
+      "AD Carry": "0.73%",
+      "Jungler": "0.35%"
     }
   },
   "KogMaw": {
     "champion": "KogMaw",
     "positions": {
-      "AD Carry": "93.63%",
-      "Mid": "4.28%",
-      "Support": "1.05%",
-      "Top": "0.96%",
-      "Jungler": "0.07%"
+      "AD Carry": "87.12%",
+      "Mid": "9.04%",
+      "Support": "2.42%",
+      "Top": "1.24%",
+      "Jungler": "0.18%"
     }
   },
   "KSante": {
     "champion": "KSante",
     "positions": {
-      "Top": "93.60%",
-      "Mid": "5.04%",
-      "Support": "0.71%",
-      "AD Carry": "0.45%",
-      "Jungler": "0.19%"
+      "Top": "94.34%",
+      "Mid": "4.60%",
+      "Support": "0.54%",
+      "AD Carry": "0.36%",
+      "Jungler": "0.16%"
     }
   },
   "Leblanc": {
     "champion": "Leblanc",
     "positions": {
-      "Mid": "88.50%",
-      "Support": "9.29%",
-      "Top": "1.68%",
-      "AD Carry": "0.43%",
-      "Jungler": "0.09%"
+      "Mid": "89.78%",
+      "Support": "8.39%",
+      "Top": "1.50%",
+      "AD Carry": "0.25%",
+      "Jungler": "0.07%"
     }
   },
   "LeeSin": {
     "champion": "LeeSin",
     "positions": {
-      "Jungler": "94.78%",
-      "Top": "2.37%",
-      "Mid": "1.32%",
-      "Support": "1.28%",
-      "AD Carry": "0.24%"
+      "Jungler": "95.23%",
+      "Top": "2.24%",
+      "Support": "1.29%",
+      "Mid": "1.04%",
+      "AD Carry": "0.20%"
     }
   },
   "Leona": {
     "champion": "Leona",
     "positions": {
-      "Support": "99.12%",
-      "Top": "0.40%",
-      "Jungler": "0.22%",
-      "Mid": "0.17%",
-      "AD Carry": "0.09%"
+      "Support": "99.34%",
+      "Top": "0.29%",
+      "Jungler": "0.18%",
+      "Mid": "0.14%",
+      "AD Carry": "0.05%"
     }
   },
   "Lillia": {
     "champion": "Lillia",
     "positions": {
-      "Jungler": "93.60%",
-      "Top": "4.92%",
-      "Mid": "0.85%",
-      "Support": "0.52%",
-      "AD Carry": "0.11%"
+      "Jungler": "96.53%",
+      "Top": "2.72%",
+      "Mid": "0.51%",
+      "Support": "0.19%",
+      "AD Carry": "0.06%"
     }
   },
   "Lissandra": {
     "champion": "Lissandra",
     "positions": {
-      "Mid": "89.44%",
-      "Support": "6.43%",
-      "Top": "3.43%",
-      "AD Carry": "0.58%",
+      "Mid": "90.65%",
+      "Support": "4.83%",
+      "Top": "4.00%",
+      "AD Carry": "0.40%",
       "Jungler": "0.12%"
     }
   },
   "Lucian": {
     "champion": "Lucian",
     "positions": {
-      "AD Carry": "94.74%",
+      "AD Carry": "94.88%",
       "Mid": "3.68%",
-      "Top": "1.41%",
-      "Support": "0.11%",
-      "Jungler": "0.06%"
+      "Top": "1.28%",
+      "Support": "0.12%",
+      "Jungler": "0.04%"
     }
   },
   "Lulu": {
     "champion": "Lulu",
     "positions": {
-      "Support": "98.98%",
-      "Mid": "0.51%",
-      "Top": "0.38%",
+      "Support": "98.75%",
+      "Mid": "0.64%",
+      "Top": "0.50%",
       "AD Carry": "0.08%",
-      "Jungler": "0.05%"
+      "Jungler": "0.03%"
     }
   },
   "Lux": {
     "champion": "Lux",
     "positions": {
-      "Support": "61.78%",
-      "Mid": "35.73%",
-      "AD Carry": "2.01%",
-      "Top": "0.43%",
-      "Jungler": "0.05%"
+      "Support": "56.30%",
+      "Mid": "41.61%",
+      "AD Carry": "1.66%",
+      "Top": "0.38%",
+      "Jungler": "0.04%"
     }
   },
   "Malphite": {
     "champion": "Malphite",
     "positions": {
-      "Top": "59.64%",
-      "Mid": "29.70%",
-      "Support": "7.13%",
-      "Jungler": "3.21%",
-      "AD Carry": "0.32%"
+      "Top": "63.28%",
+      "Mid": "27.37%",
+      "Support": "6.25%",
+      "Jungler": "2.88%",
+      "AD Carry": "0.23%"
     }
   },
   "Malzahar": {
     "champion": "Malzahar",
     "positions": {
-      "Mid": "90.89%",
-      "Top": "5.38%",
-      "Support": "2.08%",
-      "AD Carry": "1.40%",
-      "Jungler": "0.25%"
+      "Mid": "91.36%",
+      "Top": "6.03%",
+      "Support": "1.25%",
+      "AD Carry": "1.01%",
+      "Jungler": "0.35%"
     }
   },
   "Maokai": {
     "champion": "Maokai",
     "positions": {
-      "Support": "70.64%",
-      "Jungler": "17.43%",
-      "Top": "10.73%",
-      "Mid": "0.61%",
-      "AD Carry": "0.58%"
+      "Support": "68.83%",
+      "Jungler": "16.69%",
+      "Top": "13.06%",
+      "AD Carry": "0.79%",
+      "Mid": "0.62%"
     }
   },
   "MasterYi": {
     "champion": "MasterYi",
     "positions": {
-      "Jungler": "94.74%",
-      "Top": "3.25%",
-      "Mid": "1.25%",
-      "Support": "0.40%",
-      "AD Carry": "0.36%"
+      "Jungler": "97.04%",
+      "Top": "1.50%",
+      "Mid": "0.96%",
+      "AD Carry": "0.29%",
+      "Support": "0.21%"
     }
   },
   "Milio": {
     "champion": "Milio",
     "positions": {
       "Support": "99.82%",
-      "Mid": "0.10%",
+      "Mid": "0.09%",
       "Top": "0.05%",
-      "AD Carry": "0.02%",
+      "AD Carry": "0.03%",
       "Jungler": "0.01%"
     }
   },
   "MissFortune": {
     "champion": "MissFortune",
     "positions": {
-      "AD Carry": "93.01%",
-      "Support": "5.36%",
-      "Mid": "1.39%",
-      "Top": "0.22%",
-      "Jungler": "0.02%"
+      "AD Carry": "89.52%",
+      "Support": "8.66%",
+      "Mid": "1.59%",
+      "Top": "0.19%",
+      "Jungler": "0.04%"
     }
   },
   "MonkeyKing": {
     "champion": "MonkeyKing",
     "positions": {
-      "Jungler": "56.83%",
-      "Top": "36.78%",
-      "Mid": "4.01%",
+      "Jungler": "59.04%",
+      "Top": "34.06%",
+      "Mid": "4.47%",
       "Support": "1.70%",
-      "AD Carry": "0.69%"
+      "AD Carry": "0.74%"
     }
   },
   "Mordekaiser": {
     "champion": "Mordekaiser",
     "positions": {
-      "Top": "88.69%",
-      "Jungler": "6.62%",
-      "Mid": "3.48%",
-      "Support": "0.72%",
-      "AD Carry": "0.49%"
+      "Top": "88.86%",
+      "Jungler": "6.84%",
+      "Mid": "3.21%",
+      "Support": "0.70%",
+      "AD Carry": "0.38%"
     }
   },
   "Morgana": {
     "champion": "Morgana",
     "positions": {
-      "Support": "88.66%",
-      "Mid": "5.91%",
-      "Jungler": "4.15%",
-      "Top": "0.75%",
-      "AD Carry": "0.53%"
+      "Support": "76.32%",
+      "Jungler": "16.66%",
+      "Mid": "5.85%",
+      "Top": "0.74%",
+      "AD Carry": "0.43%"
     }
   },
   "Naafiri": {
     "champion": "Naafiri",
     "positions": {
-      "Mid": "78.60%",
-      "Top": "12.51%",
-      "Jungler": "7.23%",
-      "Support": "0.90%",
-      "AD Carry": "0.76%"
+      "Mid": "77.25%",
+      "Top": "13.52%",
+      "Jungler": "7.87%",
+      "Support": "0.75%",
+      "AD Carry": "0.62%"
     }
   },
   "Nami": {
     "champion": "Nami",
     "positions": {
-      "Support": "99.79%",
-      "Mid": "0.11%",
-      "AD Carry": "0.05%",
+      "Support": "99.84%",
+      "Mid": "0.10%",
       "Top": "0.04%",
+      "AD Carry": "0.02%",
       "Jungler": "0.01%"
     }
   },
   "Nasus": {
     "champion": "Nasus",
     "positions": {
-      "Top": "86.71%",
-      "Mid": "7.37%",
-      "Jungler": "3.93%",
-      "Support": "1.54%",
-      "AD Carry": "0.45%"
+      "Top": "84.27%",
+      "Mid": "9.32%",
+      "Support": "3.64%",
+      "Jungler": "2.27%",
+      "AD Carry": "0.50%"
     }
   },
   "Nautilus": {
     "champion": "Nautilus",
     "positions": {
-      "Support": "96.09%",
-      "Top": "2.00%",
-      "Jungler": "0.76%",
-      "Mid": "0.67%",
-      "AD Carry": "0.48%"
+      "Support": "97.44%",
+      "Top": "0.94%",
+      "AD Carry": "0.64%",
+      "Jungler": "0.51%",
+      "Mid": "0.46%"
     }
   },
   "Neeko": {
     "champion": "Neeko",
     "positions": {
-      "Support": "58.22%",
-      "Mid": "33.91%",
-      "Top": "3.81%",
-      "Jungler": "2.68%",
-      "AD Carry": "1.38%"
+      "Support": "61.82%",
+      "Mid": "28.99%",
+      "Top": "4.15%",
+      "Jungler": "3.95%",
+      "AD Carry": "1.09%"
     }
   },
   "Nidalee": {
     "champion": "Nidalee",
     "positions": {
-      "Jungler": "92.74%",
-      "Support": "3.49%",
-      "Top": "2.26%",
-      "Mid": "1.21%",
-      "AD Carry": "0.31%"
+      "Jungler": "95.29%",
+      "Support": "2.57%",
+      "Top": "1.35%",
+      "Mid": "0.66%",
+      "AD Carry": "0.13%"
     }
   },
   "Nilah": {
     "champion": "Nilah",
     "positions": {
-      "AD Carry": "98.66%",
-      "Top": "0.58%",
-      "Mid": "0.48%",
-      "Jungler": "0.22%",
+      "AD Carry": "98.60%",
+      "Top": "0.69%",
+      "Mid": "0.37%",
+      "Jungler": "0.29%",
       "Support": "0.05%"
     }
   },
   "Nocturne": {
     "champion": "Nocturne",
     "positions": {
-      "Jungler": "97.04%",
-      "Top": "1.57%",
-      "Mid": "1.24%",
-      "Support": "0.11%",
-      "AD Carry": "0.05%"
+      "Jungler": "97.49%",
+      "Top": "1.54%",
+      "Mid": "0.86%",
+      "Support": "0.08%",
+      "AD Carry": "0.02%"
     }
   },
   "Nunu": {
     "champion": "Nunu",
     "positions": {
-      "Jungler": "88.06%",
-      "Mid": "7.67%",
-      "Support": "3.07%",
-      "Top": "0.72%",
-      "AD Carry": "0.49%"
+      "Jungler": "88.49%",
+      "Mid": "7.71%",
+      "Support": "2.68%",
+      "Top": "0.75%",
+      "AD Carry": "0.37%"
     }
   },
   "Olaf": {
     "champion": "Olaf",
     "positions": {
-      "Top": "76.94%",
-      "Jungler": "21.33%",
-      "Mid": "1.24%",
-      "AD Carry": "0.33%",
-      "Support": "0.17%"
+      "Top": "83.09%",
+      "Jungler": "14.93%",
+      "Mid": "1.42%",
+      "AD Carry": "0.32%",
+      "Support": "0.24%"
     }
   },
   "Orianna": {
     "champion": "Orianna",
     "positions": {
-      "Mid": "95.77%",
-      "Support": "2.59%",
-      "Top": "0.91%",
-      "AD Carry": "0.70%",
-      "Jungler": "0.03%"
+      "Mid": "95.83%",
+      "Support": "2.80%",
+      "Top": "0.82%",
+      "AD Carry": "0.50%",
+      "Jungler": "0.04%"
     }
   },
   "Ornn": {
     "champion": "Ornn",
     "positions": {
-      "Top": "92.67%",
-      "Support": "2.86%",
-      "Mid": "2.45%",
-      "AD Carry": "1.09%",
-      "Jungler": "0.93%"
+      "Top": "92.13%",
+      "Support": "2.80%",
+      "Mid": "2.16%",
+      "AD Carry": "2.08%",
+      "Jungler": "0.82%"
     }
   },
   "Pantheon": {
     "champion": "Pantheon",
     "positions": {
-      "Support": "43.09%",
-      "Top": "32.61%",
-      "Mid": "15.84%",
-      "Jungler": "7.12%",
-      "AD Carry": "1.33%"
+      "Top": "41.13%",
+      "Support": "33.26%",
+      "Mid": "14.91%",
+      "Jungler": "9.85%",
+      "AD Carry": "0.85%"
     }
   },
   "Poppy": {
     "champion": "Poppy",
     "positions": {
-      "Jungler": "51.71%",
-      "Top": "28.32%",
-      "Support": "18.69%",
-      "Mid": "1.00%",
-      "AD Carry": "0.28%"
+      "Jungler": "39.35%",
+      "Top": "32.56%",
+      "Support": "27.08%",
+      "Mid": "0.84%",
+      "AD Carry": "0.17%"
     }
   },
   "Pyke": {
     "champion": "Pyke",
     "positions": {
-      "Support": "96.14%",
-      "Mid": "2.88%",
-      "AD Carry": "0.53%",
-      "Top": "0.25%",
-      "Jungler": "0.20%"
+      "Support": "97.10%",
+      "Mid": "2.13%",
+      "AD Carry": "0.41%",
+      "Jungler": "0.18%",
+      "Top": "0.18%"
     }
   },
   "Qiyana": {
     "champion": "Qiyana",
     "positions": {
-      "Mid": "84.84%",
-      "Jungler": "9.78%",
-      "Top": "3.60%",
-      "Support": "1.30%",
-      "AD Carry": "0.48%"
+      "Mid": "85.59%",
+      "Jungler": "8.76%",
+      "Top": "3.92%",
+      "Support": "1.32%",
+      "AD Carry": "0.43%"
     }
   },
   "Quinn": {
     "champion": "Quinn",
     "positions": {
-      "Top": "80.69%",
-      "Mid": "11.27%",
-      "AD Carry": "3.43%",
-      "Jungler": "2.56%",
-      "Support": "2.05%"
+      "Top": "72.43%",
+      "Mid": "21.57%",
+      "AD Carry": "2.73%",
+      "Jungler": "1.69%",
+      "Support": "1.58%"
     }
   },
   "Rakan": {
     "champion": "Rakan",
     "positions": {
-      "Support": "99.01%",
-      "Mid": "0.68%",
-      "Top": "0.22%",
-      "Jungler": "0.05%",
-      "AD Carry": "0.04%"
+      "Support": "98.99%",
+      "Mid": "0.66%",
+      "Top": "0.24%",
+      "Jungler": "0.07%",
+      "AD Carry": "0.03%"
     }
   },
   "Rammus": {
     "champion": "Rammus",
     "positions": {
-      "Jungler": "82.39%",
-      "Top": "14.10%",
-      "Support": "2.27%",
-      "Mid": "0.93%",
-      "AD Carry": "0.30%"
+      "Jungler": "76.30%",
+      "Top": "20.14%",
+      "Support": "2.50%",
+      "Mid": "0.89%",
+      "AD Carry": "0.16%"
     }
   },
   "RekSai": {
     "champion": "RekSai",
     "positions": {
-      "Jungler": "84.37%",
-      "Top": "13.82%",
-      "Support": "0.82%",
-      "Mid": "0.80%",
-      "AD Carry": "0.19%"
+      "Jungler": "94.84%",
+      "Top": "3.76%",
+      "Support": "0.74%",
+      "Mid": "0.56%",
+      "AD Carry": "0.10%"
     }
   },
   "Rell": {
     "champion": "Rell",
     "positions": {
-      "Support": "97.89%",
-      "Jungler": "1.38%",
-      "Top": "0.52%",
-      "Mid": "0.15%",
-      "AD Carry": "0.05%"
+      "Support": "99.01%",
+      "Jungler": "0.57%",
+      "Top": "0.29%",
+      "Mid": "0.08%",
+      "AD Carry": "0.06%"
     }
   },
   "Renata": {
     "champion": "Renata",
     "positions": {
-      "Support": "99.43%",
-      "Top": "0.22%",
+      "Support": "99.44%",
       "Mid": "0.22%",
-      "AD Carry": "0.10%",
+      "Top": "0.16%",
+      "AD Carry": "0.15%",
       "Jungler": "0.02%"
     }
   },
   "Renekton": {
     "champion": "Renekton",
     "positions": {
-      "Top": "92.21%",
-      "Mid": "7.15%",
-      "AD Carry": "0.28%",
-      "Support": "0.20%",
-      "Jungler": "0.16%"
+      "Top": "93.07%",
+      "Mid": "6.42%",
+      "AD Carry": "0.20%",
+      "Support": "0.18%",
+      "Jungler": "0.13%"
     }
   },
   "Rengar": {
     "champion": "Rengar",
     "positions": {
-      "Jungler": "81.25%",
-      "Top": "15.06%",
-      "AD Carry": "2.00%",
-      "Support": "1.57%",
-      "Mid": "0.12%"
+      "Jungler": "84.19%",
+      "Top": "13.09%",
+      "AD Carry": "1.51%",
+      "Support": "1.16%",
+      "Mid": "0.05%"
     }
   },
   "Riven": {
     "champion": "Riven",
     "positions": {
-      "Top": "91.06%",
-      "Mid": "6.56%",
-      "Jungler": "1.50%",
-      "Support": "0.47%",
-      "AD Carry": "0.41%"
+      "Top": "93.50%",
+      "Mid": "4.84%",
+      "Jungler": "1.05%",
+      "Support": "0.33%",
+      "AD Carry": "0.27%"
     }
   },
   "Rumble": {
     "champion": "Rumble",
     "positions": {
-      "Top": "60.26%",
-      "Support": "14.52%",
-      "Jungler": "13.90%",
-      "Mid": "10.81%",
-      "AD Carry": "0.50%"
+      "Top": "64.74%",
+      "Jungler": "17.51%",
+      "Mid": "9.89%",
+      "Support": "7.61%",
+      "AD Carry": "0.25%"
     }
   },
   "Ryze": {
     "champion": "Ryze",
     "positions": {
-      "Mid": "75.81%",
-      "Top": "22.59%",
-      "AD Carry": "0.85%",
-      "Support": "0.45%",
-      "Jungler": "0.30%"
+      "Mid": "70.90%",
+      "Top": "27.47%",
+      "AD Carry": "0.69%",
+      "Support": "0.62%",
+      "Jungler": "0.32%"
     }
   },
   "Samira": {
     "champion": "Samira",
     "positions": {
-      "AD Carry": "98.76%",
-      "Mid": "0.79%",
-      "Top": "0.36%",
-      "Jungler": "0.05%",
+      "AD Carry": "98.90%",
+      "Mid": "0.66%",
+      "Top": "0.34%",
+      "Jungler": "0.06%",
       "Support": "0.04%"
     }
   },
   "Sejuani": {
     "champion": "Sejuani",
     "positions": {
-      "Jungler": "89.83%",
-      "Top": "6.90%",
-      "Support": "2.09%",
-      "Mid": "0.81%",
-      "AD Carry": "0.36%"
+      "Jungler": "83.05%",
+      "Top": "13.45%",
+      "Support": "1.91%",
+      "Mid": "1.40%",
+      "AD Carry": "0.18%"
     }
   },
   "Senna": {
     "champion": "Senna",
     "positions": {
-      "Support": "88.92%",
-      "AD Carry": "9.34%",
-      "Top": "1.09%",
-      "Mid": "0.62%",
-      "Jungler": "0.03%"
+      "Support": "92.51%",
+      "AD Carry": "5.43%",
+      "Top": "1.45%",
+      "Mid": "0.55%",
+      "Jungler": "0.07%"
     }
   },
   "Seraphine": {
     "champion": "Seraphine",
     "positions": {
-      "Support": "82.62%",
-      "AD Carry": "10.74%",
-      "Mid": "6.35%",
-      "Top": "0.25%",
-      "Jungler": "0.05%"
+      "Support": "80.36%",
+      "AD Carry": "13.77%",
+      "Mid": "5.61%",
+      "Top": "0.23%",
+      "Jungler": "0.03%"
     }
   },
   "Sett": {
     "champion": "Sett",
     "positions": {
-      "Top": "89.90%",
-      "Support": "4.47%",
-      "Mid": "4.09%",
-      "Jungler": "0.91%",
-      "AD Carry": "0.63%"
+      "Top": "91.31%",
+      "Support": "3.35%",
+      "Mid": "3.26%",
+      "Jungler": "1.69%",
+      "AD Carry": "0.39%"
     }
   },
   "Shaco": {
     "champion": "Shaco",
     "positions": {
-      "Jungler": "72.20%",
-      "Support": "23.63%",
-      "Top": "3.39%",
-      "Mid": "0.53%",
-      "AD Carry": "0.24%"
+      "Jungler": "76.96%",
+      "Support": "18.76%",
+      "Top": "3.73%",
+      "Mid": "0.44%",
+      "AD Carry": "0.11%"
     }
   },
   "Shen": {
     "champion": "Shen",
     "positions": {
-      "Top": "74.43%",
-      "Support": "12.17%",
-      "Mid": "10.31%",
-      "Jungler": "2.67%",
-      "AD Carry": "0.42%"
+      "Top": "77.99%",
+      "Support": "10.81%",
+      "Jungler": "6.18%",
+      "Mid": "4.79%",
+      "AD Carry": "0.24%"
     }
   },
   "Shyvana": {
     "champion": "Shyvana",
     "positions": {
-      "Jungler": "88.58%",
-      "Top": "8.41%",
-      "Mid": "2.70%",
-      "Support": "0.24%",
-      "AD Carry": "0.08%"
+      "Jungler": "90.08%",
+      "Top": "7.87%",
+      "Mid": "1.92%",
+      "Support": "0.10%",
+      "AD Carry": "0.03%"
     }
   },
   "Singed": {
     "champion": "Singed",
     "positions": {
-      "Top": "82.46%",
-      "Mid": "7.07%",
-      "Jungler": "4.90%",
-      "Support": "4.30%",
-      "AD Carry": "1.27%"
+      "Top": "85.27%",
+      "Mid": "5.48%",
+      "Jungler": "4.74%",
+      "Support": "3.47%",
+      "AD Carry": "1.04%"
     }
   },
   "Sion": {
     "champion": "Sion",
     "positions": {
-      "Top": "77.37%",
-      "Mid": "11.98%",
-      "Jungler": "4.20%",
-      "Support": "4.17%",
-      "AD Carry": "2.28%"
+      "Top": "81.31%",
+      "Mid": "10.17%",
+      "Jungler": "3.55%",
+      "Support": "3.32%",
+      "AD Carry": "1.66%"
     }
   },
   "Sivir": {
     "champion": "Sivir",
     "positions": {
-      "AD Carry": "98.30%",
-      "Mid": "1.24%",
-      "Top": "0.33%",
-      "Support": "0.09%",
-      "Jungler": "0.04%"
+      "AD Carry": "98.17%",
+      "Mid": "1.41%",
+      "Top": "0.32%",
+      "Support": "0.08%",
+      "Jungler": "0.02%"
     }
   },
   "Skarner": {
     "champion": "Skarner",
     "positions": {
-      "Jungler": "51.41%",
-      "Top": "39.88%",
-      "Support": "7.14%",
-      "Mid": "1.26%",
-      "AD Carry": "0.32%"
+      "Top": "47.77%",
+      "Jungler": "43.78%",
+      "Support": "7.39%",
+      "Mid": "0.88%",
+      "AD Carry": "0.17%"
     }
   },
   "Smolder": {
     "champion": "Smolder",
     "positions": {
-      "AD Carry": "85.43%",
-      "Mid": "7.05%",
-      "Top": "6.97%",
-      "Support": "0.50%",
-      "Jungler": "0.04%"
+      "AD Carry": "81.25%",
+      "Top": "10.87%",
+      "Mid": "7.36%",
+      "Support": "0.49%",
+      "Jungler": "0.03%"
     }
   },
   "Sona": {
     "champion": "Sona",
     "positions": {
-      "Support": "98.84%",
-      "Mid": "0.57%",
-      "AD Carry": "0.36%",
-      "Top": "0.18%",
-      "Jungler": "0.04%"
+      "Support": "98.96%",
+      "Mid": "0.49%",
+      "Top": "0.27%",
+      "AD Carry": "0.23%",
+      "Jungler": "0.06%"
     }
   },
   "Soraka": {
     "champion": "Soraka",
     "positions": {
-      "Support": "97.76%",
-      "Top": "1.11%",
-      "Mid": "0.69%",
-      "AD Carry": "0.33%",
-      "Jungler": "0.11%"
+      "Support": "97.64%",
+      "Top": "1.27%",
+      "Mid": "0.79%",
+      "AD Carry": "0.22%",
+      "Jungler": "0.09%"
     }
   },
   "Swain": {
     "champion": "Swain",
     "positions": {
-      "Support": "60.17%",
-      "Mid": "20.94%",
-      "AD Carry": "9.80%",
-      "Top": "8.99%",
-      "Jungler": "0.10%"
+      "Support": "59.23%",
+      "Mid": "22.65%",
+      "AD Carry": "9.17%",
+      "Top": "8.87%",
+      "Jungler": "0.09%"
     }
   },
   "Sylas": {
     "champion": "Sylas",
     "positions": {
-      "Mid": "66.52%",
-      "Jungler": "20.28%",
-      "Top": "6.51%",
-      "Support": "6.30%",
-      "AD Carry": "0.40%"
+      "Mid": "67.37%",
+      "Jungler": "20.61%",
+      "Top": "6.66%",
+      "Support": "5.10%",
+      "AD Carry": "0.27%"
     }
   },
   "Syndra": {
     "champion": "Syndra",
     "positions": {
-      "Mid": "92.94%",
-      "Support": "3.29%",
-      "AD Carry": "2.61%",
-      "Top": "1.14%",
+      "Mid": "95.07%",
+      "Support": "2.15%",
+      "AD Carry": "1.64%",
+      "Top": "1.12%",
       "Jungler": "0.02%"
     }
   },
   "TahmKench": {
     "champion": "TahmKench",
     "positions": {
-      "Top": "66.58%",
-      "Support": "23.59%",
-      "AD Carry": "6.84%",
-      "Mid": "2.51%",
-      "Jungler": "0.48%"
+      "Top": "62.68%",
+      "Support": "27.51%",
+      "AD Carry": "6.90%",
+      "Mid": "2.49%",
+      "Jungler": "0.42%"
     }
   },
   "Taliyah": {
     "champion": "Taliyah",
     "positions": {
-      "Mid": "49.85%",
-      "Jungler": "44.80%",
-      "Support": "3.40%",
-      "AD Carry": "1.23%",
-      "Top": "0.71%"
+      "Jungler": "58.82%",
+      "Mid": "37.53%",
+      "Support": "2.32%",
+      "AD Carry": "0.82%",
+      "Top": "0.51%"
     }
   },
   "Talon": {
     "champion": "Talon",
     "positions": {
-      "Mid": "68.40%",
-      "Jungler": "29.67%",
-      "Top": "1.43%",
+      "Mid": "64.74%",
+      "Jungler": "33.38%",
+      "Top": "1.40%",
       "Support": "0.27%",
-      "AD Carry": "0.22%"
+      "AD Carry": "0.21%"
     }
   },
   "Taric": {
     "champion": "Taric",
     "positions": {
-      "Support": "93.02%",
-      "Jungler": "3.74%",
-      "Top": "1.96%",
-      "AD Carry": "0.69%",
-      "Mid": "0.59%"
+      "Support": "94.46%",
+      "Jungler": "2.85%",
+      "Top": "1.82%",
+      "AD Carry": "0.48%",
+      "Mid": "0.39%"
     }
   },
   "Teemo": {
     "champion": "Teemo",
     "positions": {
-      "Top": "73.56%",
-      "Support": "10.64%",
-      "Jungler": "7.77%",
-      "Mid": "4.59%",
-      "AD Carry": "3.45%"
+      "Top": "75.90%",
+      "Support": "9.75%",
+      "Jungler": "8.52%",
+      "Mid": "4.14%",
+      "AD Carry": "1.69%"
     }
   },
   "Thresh": {
     "champion": "Thresh",
     "positions": {
-      "Support": "99.14%",
-      "Top": "0.41%",
-      "Mid": "0.20%",
-      "AD Carry": "0.20%",
+      "Support": "99.27%",
+      "Top": "0.36%",
+      "Mid": "0.16%",
+      "AD Carry": "0.15%",
       "Jungler": "0.05%"
     }
   },
   "Tristana": {
     "champion": "Tristana",
     "positions": {
-      "AD Carry": "60.90%",
-      "Mid": "35.81%",
-      "Top": "2.59%",
-      "Jungler": "0.39%",
-      "Support": "0.31%"
+      "Mid": "49.83%",
+      "AD Carry": "47.28%",
+      "Top": "2.29%",
+      "Support": "0.32%",
+      "Jungler": "0.27%"
     }
   },
   "Trundle": {
     "champion": "Trundle",
     "positions": {
-      "Top": "80.93%",
-      "Jungler": "16.18%",
-      "Support": "1.28%",
-      "Mid": "1.04%",
-      "AD Carry": "0.57%"
+      "Top": "78.56%",
+      "Jungler": "18.25%",
+      "Support": "1.65%",
+      "Mid": "1.14%",
+      "AD Carry": "0.40%"
     }
   },
   "Tryndamere": {
     "champion": "Tryndamere",
     "positions": {
-      "Top": "86.61%",
-      "Mid": "7.13%",
-      "Jungler": "5.71%",
-      "AD Carry": "0.36%",
-      "Support": "0.19%"
+      "Top": "82.16%",
+      "Mid": "15.05%",
+      "Jungler": "2.51%",
+      "AD Carry": "0.18%",
+      "Support": "0.11%"
     }
   },
   "TwistedFate": {
     "champion": "TwistedFate",
     "positions": {
-      "Mid": "74.49%",
-      "Top": "18.50%",
-      "AD Carry": "3.38%",
-      "Support": "3.07%",
-      "Jungler": "0.56%"
+      "Mid": "63.77%",
+      "Top": "30.17%",
+      "Support": "4.17%",
+      "AD Carry": "1.61%",
+      "Jungler": "0.27%"
     }
   },
   "Twitch": {
     "champion": "Twitch",
     "positions": {
-      "AD Carry": "85.87%",
-      "Support": "5.78%",
-      "Mid": "4.91%",
-      "Jungler": "3.06%",
-      "Top": "0.37%"
+      "AD Carry": "85.33%",
+      "Support": "6.08%",
+      "Mid": "4.31%",
+      "Jungler": "3.85%",
+      "Top": "0.43%"
     }
   },
   "Udyr": {
     "champion": "Udyr",
     "positions": {
-      "Jungler": "64.83%",
-      "Top": "32.85%",
-      "Mid": "1.55%",
-      "Support": "0.55%",
-      "AD Carry": "0.21%"
+      "Jungler": "76.79%",
+      "Top": "21.87%",
+      "Mid": "0.93%",
+      "Support": "0.32%",
+      "AD Carry": "0.10%"
     }
   },
   "Urgot": {
     "champion": "Urgot",
     "positions": {
-      "Top": "94.85%",
-      "Mid": "2.14%",
-      "Jungler": "1.52%",
-      "AD Carry": "0.78%",
-      "Support": "0.71%"
+      "Top": "95.46%",
+      "Mid": "2.20%",
+      "Jungler": "1.11%",
+      "Support": "0.68%",
+      "AD Carry": "0.56%"
     }
   },
   "Varus": {
     "champion": "Varus",
     "positions": {
-      "AD Carry": "89.55%",
-      "Top": "5.52%",
-      "Mid": "3.63%",
+      "AD Carry": "89.27%",
+      "Top": "5.74%",
+      "Mid": "3.70%",
       "Support": "1.24%",
-      "Jungler": "0.06%"
+      "Jungler": "0.04%"
     }
   },
   "Vayne": {
     "champion": "Vayne",
     "positions": {
-      "AD Carry": "67.40%",
-      "Top": "30.20%",
-      "Mid": "1.86%",
-      "Jungler": "0.35%",
-      "Support": "0.20%"
+      "AD Carry": "63.61%",
+      "Top": "33.08%",
+      "Mid": "2.80%",
+      "Jungler": "0.32%",
+      "Support": "0.19%"
     }
   },
   "Veigar": {
     "champion": "Veigar",
     "positions": {
-      "Mid": "78.55%",
-      "AD Carry": "11.14%",
-      "Support": "7.59%",
-      "Top": "2.68%",
-      "Jungler": "0.03%"
+      "Mid": "81.63%",
+      "AD Carry": "7.90%",
+      "Support": "7.35%",
+      "Top": "3.08%",
+      "Jungler": "0.04%"
     }
   },
   "Velkoz": {
     "champion": "Velkoz",
     "positions": {
-      "Support": "68.55%",
-      "Mid": "27.44%",
-      "AD Carry": "2.59%",
-      "Top": "1.38%",
-      "Jungler": "0.05%"
+      "Support": "56.05%",
+      "Mid": "39.95%",
+      "AD Carry": "2.78%",
+      "Top": "1.20%",
+      "Jungler": "0.02%"
     }
   },
   "Vex": {
     "champion": "Vex",
     "positions": {
-      "Mid": "94.35%",
-      "Support": "3.97%",
-      "Top": "1.03%",
-      "AD Carry": "0.59%",
-      "Jungler": "0.05%"
+      "Mid": "95.88%",
+      "Support": "2.91%",
+      "Top": "0.81%",
+      "AD Carry": "0.34%",
+      "Jungler": "0.06%"
     }
   },
   "Vi": {
     "champion": "Vi",
     "positions": {
-      "Jungler": "94.61%",
-      "Mid": "2.19%",
-      "Top": "2.03%",
-      "Support": "0.99%",
-      "AD Carry": "0.17%"
+      "Jungler": "96.66%",
+      "Mid": "1.48%",
+      "Support": "0.90%",
+      "Top": "0.83%",
+      "AD Carry": "0.12%"
     }
   },
   "Viego": {
     "champion": "Viego",
     "positions": {
-      "Jungler": "97.70%",
-      "Mid": "1.08%",
-      "Top": "0.95%",
-      "Support": "0.19%",
+      "Jungler": "93.09%",
+      "Mid": "3.60%",
+      "Top": "3.08%",
+      "Support": "0.15%",
       "AD Carry": "0.08%"
     }
   },
   "Viktor": {
     "champion": "Viktor",
     "positions": {
-      "Mid": "94.99%",
-      "Top": "3.18%",
-      "AD Carry": "1.18%",
-      "Support": "0.62%",
-      "Jungler": "0.03%"
+      "Mid": "95.57%",
+      "Top": "3.10%",
+      "AD Carry": "0.97%",
+      "Support": "0.33%",
+      "Jungler": "0.02%"
     }
   },
   "Vladimir": {
     "champion": "Vladimir",
     "positions": {
-      "Mid": "77.32%",
-      "Top": "21.45%",
-      "AD Carry": "1.01%",
-      "Support": "0.17%",
+      "Mid": "66.86%",
+      "Top": "32.18%",
+      "AD Carry": "0.62%",
+      "Support": "0.29%",
       "Jungler": "0.05%"
     }
   },
   "Volibear": {
     "champion": "Volibear",
     "positions": {
-      "Jungler": "50.97%",
-      "Top": "47.28%",
-      "Mid": "1.12%",
-      "Support": "0.47%",
-      "AD Carry": "0.15%"
+      "Top": "63.70%",
+      "Jungler": "34.86%",
+      "Mid": "0.99%",
+      "Support": "0.34%",
+      "AD Carry": "0.11%"
     }
   },
   "Warwick": {
     "champion": "Warwick",
     "positions": {
-      "Jungler": "71.94%",
-      "Top": "26.58%",
-      "Mid": "0.73%",
-      "Support": "0.59%",
-      "AD Carry": "0.16%"
+      "Jungler": "68.63%",
+      "Top": "30.16%",
+      "Mid": "0.70%",
+      "Support": "0.41%",
+      "AD Carry": "0.11%"
     }
   },
   "Xayah": {
     "champion": "Xayah",
     "positions": {
-      "AD Carry": "99.33%",
-      "Mid": "0.37%",
-      "Top": "0.20%",
-      "Jungler": "0.05%",
-      "Support": "0.04%"
+      "AD Carry": "99.19%",
+      "Mid": "0.53%",
+      "Top": "0.22%",
+      "Jungler": "0.04%",
+      "Support": "0.03%"
     }
   },
   "Xerath": {
     "champion": "Xerath",
     "positions": {
-      "Support": "56.89%",
-      "Mid": "41.05%",
-      "AD Carry": "1.68%",
-      "Top": "0.35%",
-      "Jungler": "0.03%"
+      "Support": "52.04%",
+      "Mid": "46.49%",
+      "AD Carry": "1.13%",
+      "Top": "0.31%",
+      "Jungler": "0.02%"
     }
   },
   "XinZhao": {
     "champion": "XinZhao",
     "positions": {
-      "Jungler": "88.54%",
-      "Top": "6.98%",
-      "Mid": "2.85%",
-      "Support": "1.16%",
-      "AD Carry": "0.47%"
+      "Jungler": "90.44%",
+      "Top": "6.06%",
+      "Mid": "2.47%",
+      "Support": "0.76%",
+      "AD Carry": "0.27%"
     }
   },
   "Yasuo": {
     "champion": "Yasuo",
     "positions": {
-      "Mid": "68.07%",
-      "Top": "16.65%",
-      "AD Carry": "14.35%",
-      "Support": "0.58%",
-      "Jungler": "0.35%"
+      "Mid": "75.69%",
+      "Top": "15.76%",
+      "AD Carry": "7.75%",
+      "Support": "0.46%",
+      "Jungler": "0.33%"
     }
   },
   "Yone": {
     "champion": "Yone",
     "positions": {
-      "Mid": "51.82%",
-      "Top": "45.96%",
-      "AD Carry": "1.16%",
-      "Support": "0.59%",
-      "Jungler": "0.47%"
+      "Mid": "57.49%",
+      "Top": "40.73%",
+      "AD Carry": "0.90%",
+      "Support": "0.52%",
+      "Jungler": "0.35%"
     }
   },
   "Yorick": {
     "champion": "Yorick",
     "positions": {
-      "Top": "90.53%",
-      "Mid": "4.48%",
-      "Jungler": "4.06%",
-      "AD Carry": "0.49%",
-      "Support": "0.43%"
+      "Top": "91.45%",
+      "Jungler": "4.45%",
+      "Mid": "3.45%",
+      "Support": "0.36%",
+      "AD Carry": "0.28%"
     }
   },
   "Yuumi": {
     "champion": "Yuumi",
     "positions": {
-      "Support": "99.22%",
-      "Mid": "0.24%",
-      "Top": "0.23%",
-      "Jungler": "0.22%",
-      "AD Carry": "0.08%"
+      "Support": "99.15%",
+      "Jungler": "0.29%",
+      "Top": "0.27%",
+      "Mid": "0.22%",
+      "AD Carry": "0.07%"
     }
   },
   "Zac": {
     "champion": "Zac",
     "positions": {
-      "Jungler": "56.98%",
-      "Top": "27.57%",
-      "Support": "11.35%",
-      "Mid": "3.81%",
-      "AD Carry": "0.29%"
+      "Jungler": "61.02%",
+      "Top": "24.05%",
+      "Support": "10.25%",
+      "Mid": "4.48%",
+      "AD Carry": "0.20%"
     }
   },
   "Zed": {
     "champion": "Zed",
     "positions": {
-      "Mid": "85.79%",
-      "Jungler": "10.17%",
-      "Top": "3.05%",
-      "Support": "0.56%",
-      "AD Carry": "0.43%"
+      "Mid": "86.14%",
+      "Jungler": "9.82%",
+      "Top": "3.26%",
+      "Support": "0.48%",
+      "AD Carry": "0.31%"
     }
   },
   "Zeri": {
     "champion": "Zeri",
     "positions": {
-      "AD Carry": "97.25%",
-      "Mid": "1.02%",
-      "Top": "0.91%",
-      "Jungler": "0.76%",
-      "Support": "0.05%"
+      "AD Carry": "96.79%",
+      "Mid": "1.50%",
+      "Top": "0.95%",
+      "Jungler": "0.65%",
+      "Support": "0.10%"
     }
   },
   "Ziggs": {
     "champion": "Ziggs",
     "positions": {
-      "AD Carry": "49.98%",
-      "Mid": "38.26%",
-      "Support": "10.55%",
-      "Top": "1.17%",
-      "Jungler": "0.04%"
+      "Mid": "56.08%",
+      "AD Carry": "34.89%",
+      "Support": "7.62%",
+      "Top": "1.27%",
+      "Jungler": "0.14%"
     }
   },
   "Zilean": {
     "champion": "Zilean",
     "positions": {
-      "Support": "88.39%",
-      "Mid": "8.73%",
+      "Support": "87.90%",
+      "Mid": "9.33%",
       "Top": "2.33%",
-      "AD Carry": "0.49%",
+      "AD Carry": "0.38%",
       "Jungler": "0.06%"
     }
   },
   "Zoe": {
     "champion": "Zoe",
     "positions": {
-      "Mid": "84.43%",
-      "Support": "13.73%",
-      "AD Carry": "0.96%",
-      "Top": "0.84%",
-      "Jungler": "0.05%"
+      "Mid": "84.51%",
+      "Support": "13.70%",
+      "Top": "0.87%",
+      "AD Carry": "0.84%",
+      "Jungler": "0.08%"
     }
   },
   "Zyra": {
     "champion": "Zyra",
     "positions": {
-      "Support": "90.56%",
-      "Jungler": "5.11%",
-      "Mid": "3.27%",
-      "AD Carry": "0.65%",
-      "Top": "0.41%"
+      "Support": "88.75%",
+      "Jungler": "6.31%",
+      "Mid": "3.67%",
+      "AD Carry": "0.74%",
+      "Top": "0.53%"
     }
   }
 }
