@@ -31,7 +31,7 @@ router.post('/', async (req, res) => {
             let findItem = null;
             for (const id in allItems) {
               if (allItems[id].name === item) {
-                findItem = { id: id, data: allItems[id]};;
+                findItem = { id: id, data: allItems[id]};
               }
             }
             let itemDescription = findItem.data.description.replace(/<[^>]*>/g, ' ').replace(/\s{2,}/g, ' ');
