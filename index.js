@@ -51,6 +51,12 @@ app.use(cors({
 app.use(express.json());
 app.use(express.static('public'));
 
+app.use((req, res, next) => {
+  if (req.hostname === 'poromentor.gg') {
+    return res.redirect(301, 'https://hexakill.gg' + req.originalUrl);
+  }
+  next();
+});
 
 // view engine
 app.set('view engine', 'ejs');
