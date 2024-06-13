@@ -44,7 +44,8 @@ app.use(helmet({
       'connect-src': [
         "'self'",
         'https://region1.google-analytics.com',
-        'https://pagead2.googlesyndication.com'
+        'https://pagead2.googlesyndication.com',
+        'https://fundingchoicesmessages.google.com'
       ],
     }
   }
