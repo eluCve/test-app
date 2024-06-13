@@ -24,23 +24,27 @@ app.use(helmet({
   contentSecurityPolicy: {
     directives: {
       ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-      "frame-src": ["'self'", 'https://player.vimeo.com'],
+      "frame-src": ["'self'", 'https://pagead2.googlesyndication.com/', 'https://tpc.googlesyndication.com/'],
       "script-src": [
         "'self'",
         'https://www.googletagmanager.com',
         'https://region1.google-analytics.com',
         'https://www.paypalobjects.com',
-        'https://cdn.jsdelivr.net/npm/chart.js',
-        'https://cdn.jsdelivr.net/npm/konva@8.3.10/konva.min.js',
+        'https://pagead2.googlesyndication.com',
+        'https://fundingchoicesmessages.google.com',
+        'https://tpc.googlesyndication.com',
+        'nonce-78syRZeYFa66Z3RObGPVjQ'
       ],
       'img-src': [
         "'self'",
         'data:',
-        'https://ddragon.leagueoflegends.com'
+        'https://ddragon.leagueoflegends.com',
+        'https://pagead2.googlesyndication.com'
       ],
       'connect-src': [
         "'self'",
         'https://region1.google-analytics.com',
+        'https://pagead2.googlesyndication.com'
       ],
     }
   }
@@ -72,6 +76,11 @@ const gameAnalysis = require('./routes/gameAnalysis');
 app.get('/', (req, res) => {
   return res.render('home', { page: 'home'})
 })
+
+app.use('/privacy-policy', (req, res) => {
+  return res.render('privacy-policy', { page: 'privacy-policy' });
+});
+
 app.use('/data', express.static('data'));
 
 app.use('/summoner', live);
