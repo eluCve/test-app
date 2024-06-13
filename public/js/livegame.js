@@ -24,72 +24,72 @@ async function searchLiveGame() {
       document.getElementById("main").style.display = "block"; 
       document.getElementById('background-src').src = `https://ddragon.leagueoflegends.com/cdn/img/champion/centered/${gameData.playingChamp}_0.jpg`;
 
-      const encodedSummoner = encodeURIComponent(summonerName);
-      const porofessorCodedSummoner = summonerName.replace(/\s/g, "+");
+      const decodedSummonerName = decodeURI(summonerName);
+      const porofessorCodedSummoner = decodedSummonerName.replace(/\s/g, "+");
       if (region === "na1") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/na/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/na/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/na1/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/na/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/na1/${summonerName}-${tag}/live-game`;
       } else if (region === "euw1") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/euw/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/euw/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/euw1/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/euw/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/euw1/${summonerName}-${tag}/live-game`;
       } else if (region === "eun1") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/eune/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/eune/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/eun1/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/eune/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/eun1/${summonerName}-${tag}/live-game`;
       } else if (region === "kr") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/kr/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/kr/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/kr/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/kr/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/kr/${summonerName}-${tag}/live-game`;
       } else if (region === "br1") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/br/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/br/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/br1/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/br/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/br1/${summonerName}-${tag}/live-game`;
       } else if (region === "jp1") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/jp/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/jp/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/jp1/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/jp/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/jp1/${summonerName}-${tag}/live-game`;
       } else if (region === "ru") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/ru/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/ru/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/ru/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/ru/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/ru/${summonerName}-${tag}/live-game`;
       } else if (region === "oc1") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/oce/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/oce/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/oc1/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/oce/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/oc1/${summonerName}-${tag}/live-game`;
       } else if (region === "tr1") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/tr/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/tr/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/tr1/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/tr/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/tr1/${summonerName}-${tag}/live-game`;
       } else if (region === "la1") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/lan/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/lan/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/la1/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/lan/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/la1/${summonerName}-${tag}/live-game`;
       } else if (region === "la2") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/las/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/las/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/la2/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/las/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/la2/${summonerName}-${tag}/live-game`;
       } else if (region === "ph2") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/ph/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/ph/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/ph2/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/ph/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/ph2/${summonerName}-${tag}/live-game`;
       } else if (region === "sg2") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/sg/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/sg/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/sg2/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/sg/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/sg2/${summonerName}-${tag}/live-game`;
       } else if (region === "th2") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/th/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/th/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/th2/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/th/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/th2/${summonerName}-${tag}/live-game`;
       } else if (region === "tw2") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/tw/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/tw/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/tw2/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/tw/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/tw2/${summonerName}-${tag}/live-game`;
       } else if (region === "vn2") {
         document.getElementById('porofessor').href = `https://porofessor.gg/live/vn/${porofessorCodedSummoner}-${tag}`;
-        document.getElementById('opgg').href = `https://www.op.gg/summoners/vn/${encodedSummoner}-${tag}/ingame`;
-        document.getElementById('ugg').href = `https://u.gg/lol/profile/vn2/${encodedSummoner}-${tag}/live-game`;
+        document.getElementById('opgg').href = `https://www.op.gg/summoners/vn/${summonerName}-${tag}/ingame`;
+        document.getElementById('ugg').href = `https://u.gg/lol/profile/vn2/${summonerName}-${tag}/live-game`;
       }
       
 
