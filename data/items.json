@@ -177,7 +177,6 @@
       "6670",
       "3086",
       "3033",
-      "3036",
       "3508",
       "3095",
       "6676"
@@ -601,6 +600,7 @@
       "2020",
       "3031",
       "3153",
+      "3087",
       "3053",
       "3032",
       "3039",
@@ -1477,7 +1477,7 @@
   },
   "1502": {
     "name": "Reinforced Armor",
-    "description": "<mainText><stats></stats><br><br><mainText><unique>Reinforced:</unique> Reduces incoming damage by 80% and becomes immune to True Damage when no enemy minions are nearby.</mainText></mainText>",
+    "description": "<mainText><stats></stats><br><br><mainText><unique>Reinforced:</unique> Reduces incoming damage by 80%, including True Damage, when no enemy Lane Minions or Rift Herald are nearby.</mainText></mainText>",
     "colloq": "",
     "plaintext": "",
     "inStore": false,
@@ -1594,7 +1594,7 @@
   },
   "1506": {
     "name": "Reinforced Armor",
-    "description": "<mainText><stats></stats><br><br><mainText><unique>Reinforced:</unique> Reduces incoming damage by 66% and becomes immune to True Damage when no enemy minions are nearby.<br><unique>Regeneration: </unique>Base turrets have health regeneration, but cannot regenerate past their current segment. Base turrets are segmented at 33%, 66% and 100% health.</mainText></mainText>",
+    "description": "<mainText><stats></stats><br><br><mainText><unique>Reinforced:</unique> Reduces incoming damage by 66%, including True Damage, when no enemy Lane Minions or Rift Herald are nearby.<br><unique>Regeneration: </unique>Base turrets have health regeneration, but cannot regenerate past their current segment. Base turrets are segmented at 33%, 66% and 100% health.</mainText></mainText>",
     "colloq": "",
     "plaintext": "",
     "inStore": false,
@@ -2172,7 +2172,7 @@
   },
   "2003": {
     "name": "Health Potion",
-    "description": "<mainText><stats></stats><br><br><active>Active - Consume:</active> Drink the potion to restore <healing>120 Health</healing> over 15 seconds.<br><br><rules>You may carry up to 5 Health Potions.</rules></mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Consume</active><br>Restores <healing>120 Health</healing> over 15 seconds.</mainText>",
     "colloq": ";",
     "plaintext": "Consume to restore Health over time",
     "stacks": 5,
@@ -2478,7 +2478,7 @@
   },
   "2031": {
     "name": "Refillable Potion",
-    "description": "<mainText><stats></stats><br><br><active>Active - Consume:</active> Consumes a charge to restore <healing>100 Health</healing> over 12 seconds. Holds up to 2 charges and refills upon visiting the shop.</mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Consume</active><br>Restores <healing>100 Health</healing> over 12 seconds. <br><br>Holds 2 charges and refills upon visiting the shop.</mainText>",
     "colloq": ";",
     "plaintext": "Restores Health over time. Refills at shop.",
     "into": [
@@ -2709,7 +2709,7 @@
   },
   "2055": {
     "name": "Control Ward",
-    "description": "<mainText><stats></stats><br><br><active>Active - Consume:</active> Places a powerful Control Ward that grants vision of the surrounding area. This device will also reveal <keywordStealth>Invisible</keywordStealth> traps, reveal <keywordStealth>Camouflaged</keywordStealth> enemies, and reveal (and disable) enemy Stealth Wards.<br><br><rules>You may carry up to 2 Control Wards. Control Wards do not disable other Control Wards.</rules></mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Control Ward</active><br>Places a Control Ward that grants vision and reveals enemy Stealth Wards, traps and <keywordStealth>Camouflaged</keywordStealth> enemies.</mainText>",
     "colloq": "orange;",
     "plaintext": "Used to disable wards and invisible traps in an area.",
     "stacks": 2,
@@ -2838,7 +2838,7 @@
   },
   "2138": {
     "name": "Elixir of Iron",
-    "description": "<mainText><stats></stats><br><br><active>Active - Consume:</active> Drink to gain <scaleHealth>300 Health</scaleHealth>, 25% Tenacity, and increased champion size for 3 minutes. While active, moving leaves a path behind that boosts allied champions' <speed>Move Speed by 15%</speed>.<br><br><rules>Drinking a different Elixir will replace the existing one's effects.</rules></mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Consume</active><br>Grants <scaleHealth>300 Health</scaleHealth>, 25% Tenacity, and increased champion size for 3 minutes. While active, moving leaves a path behind that boosts allied champions' <speed>Move Speed by 15%</speed>.</mainText>",
     "colloq": ";white",
     "plaintext": "Temporarily increases defenses. Leaves a trail for allies to follow.",
     "consumed": true,
@@ -2885,7 +2885,7 @@
   },
   "2139": {
     "name": "Elixir of Sorcery",
-    "description": "<mainText><stats></stats><br><br><br><br><rules>Champion level <attention>9</attention> or greater required to purchase. Elixir of Sorcery's true damage effect has no cooldown when attacking turrets. Drinking a different Elixir will replace the existing one's effects.</rules><active>Active - Consume:</active> Drink to gain <scaleAP>50 Ability Power</scaleAP> and <scaleMana>15% Mana Regen</scaleMana> for 3 minutes. While active, damaging a champion or turret deals <trueDamage>25 bonus true damage</trueDamage> (5s cooldown).</mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Consume</active><br>Grants <scaleAP>50 Ability Power</scaleAP> and <scaleMana>15% Mana Regen</scaleMana> for 3 minutes. While active, damaging a champion or turret deals <trueDamage>25 bonus true damage</trueDamage> (5s against champions).</mainText>",
     "colloq": ";blue",
     "plaintext": "Temporarily grants Ability Power and Bonus Damage to champions and turrets.",
     "consumed": true,
@@ -2931,7 +2931,7 @@
   },
   "2140": {
     "name": "Elixir of Wrath",
-    "description": "<mainText><stats></stats><br><br><active>Active - Consume:</active> Drink to gain <scaleAD>30 Attack Damage</scaleAD> and <lifeSteal>12% Physical Vamp</lifeSteal> (against champions) for 3 minutes.<br><br><rules>Drinking a different Elixir will replace the existing one's effects.</rules></mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Consume</active><br>Grants <scaleAD>30 Attack Damage</scaleAD> and <lifeSteal>12% Physical Vamp</lifeSteal> against champions for 3 minutes.</mainText>",
     "colloq": ";red",
     "plaintext": "Temporarily grants Attack Damage and heals you when dealing physical damage to champions.",
     "consumed": true,
@@ -3122,7 +3122,6 @@
     "colloq": "",
     "plaintext": "",
     "consumed": true,
-    "consumeOnFull": true,
     "inStore": false,
     "image": {
       "full": "2145.png",
@@ -3153,7 +3152,7 @@
   },
   "2150": {
     "name": "Elixir of Skill",
-    "description": "<mainText><stats></stats><br><br><active>Active - Consume:</active> Grants 1 Skill Point.<br><br><rules>This item does not increase your level or allow allocating skill points past the normal maximum in a skill</rules></mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Consume</active><br>Grants 1 Skill Point.<br><br><rules>This item does not increase your level or allow allocating skill points past the normal maximum in a skill</rules></mainText>",
     "colloq": "",
     "plaintext": "",
     "consumed": true,
@@ -3187,7 +3186,7 @@
   },
   "2151": {
     "name": "Elixir of Avarice",
-    "description": "<mainText><stats></stats><br><br><active>Active - Consume:</active> Drink to gain <trueDamage>5 true damage</trueDamage> on hit against minions for 60 seconds. When this effect expires, gain 40 gold. </mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Consume</active><br>Grants <trueDamage>5 true damage</trueDamage> on hit against minions for 60 seconds. When this effect expires, gain 40 gold. </mainText>",
     "colloq": "",
     "plaintext": "",
     "consumed": true,
@@ -3223,7 +3222,7 @@
   },
   "2152": {
     "name": "Elixir of Force",
-    "description": "<mainText><stats></stats><br><br><active>Active - Consume:</active> Drink to gain 20 Adaptive Force for 60 seconds. </mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Consume</active><br>Grants 20 Adaptive Force for 60 seconds. </mainText>",
     "colloq": "",
     "plaintext": "",
     "consumed": true,
@@ -3907,7 +3906,7 @@
   },
   "3009": {
     "name": "Boots of Swiftness",
-    "description": "<mainText><stats><attention>60</attention> Move Speed</stats><br><br>Reduce the effectiveness of <keyword>Slows</keyword> by 25%.</mainText>",
+    "description": "<mainText><stats><attention>60</attention> Move Speed</stats><br><br><passive>Fleetfooted</passive><br>Reduce the effectiveness of <keyword>Slows</keyword> by 25%.</mainText>",
     "colloq": ";",
     "plaintext": "Enhances Move Speed and reduces the effect of slows",
     "from": [
@@ -3945,7 +3944,7 @@
   },
   "3010": {
     "name": "Symbiotic Soles",
-    "description": "<mainText><stats><attention>35</attention> Move Speed</stats><br><br>Gain Empowered Recall.<br><br>After Traveling 150000 units of distance, transform into <rarityLegendary>Synchronized Souls</rarityLegendary>.</mainText>",
+    "description": "<mainText><stats><attention>35</attention> Move Speed</stats><br><br><passive>Voidborn</passive><br>Gain Empowered Recall.<br><br><passive>Symbiosis</passive><br>After traveling 150000 units of distance, transform into <rarityLegendary>Synchronized Souls</rarityLegendary>.</mainText>",
     "colloq": ";",
     "plaintext": "Spend Mana to recover Health",
     "from": [
@@ -4069,7 +4068,7 @@
   },
   "3013": {
     "name": "Synchronized Souls",
-    "description": "<mainText><stats><attention>45</attention> Move Speed</stats><br><br>Your Recall is empowered.<br><br>Gain <speed>45 Move Speed</speed> when out of combat.</mainText>",
+    "description": "<mainText><stats><attention>45</attention> Move Speed</stats><br><br><passive>Voidborn</passive><br>Gain Empowered Recall.<br><br><passive>Synchrony</passive><br>Gain <speed>45 Move Speed</speed> when out of combat.</mainText>",
     "colloq": "",
     "plaintext": "",
     "from": [
@@ -4469,7 +4468,7 @@
     "plaintext": "Overcomes enemies with high health and armor",
     "from": [
       "3035",
-      "1018"
+      "6670"
     ],
     "image": {
       "full": "3036.png",
@@ -4481,7 +4480,7 @@
       "h": 48
     },
     "gold": {
-      "base": 950,
+      "base": 150,
       "purchasable": true,
       "total": 3000,
       "sell": 2100
@@ -4776,7 +4775,7 @@
   },
   "3047": {
     "name": "Plated Steelcaps",
-    "description": "<mainText><stats><attention>25</attention> Armor<br><attention>45</attention> Move Speed</stats><br><br>Reduces incoming damage from Attacks by 8%.</mainText>",
+    "description": "<mainText><stats><attention>25</attention> Armor<br><attention>45</attention> Move Speed</stats><br><br><passive>Plating</passive><br>Reduces incoming damage from Attacks by 8%.</mainText>",
     "colloq": ";",
     "plaintext": "Enhances Move Speed and reduces incoming basic attack damage",
     "from": [
@@ -5296,7 +5295,7 @@
   },
   "3072": {
     "name": "Bloodthirster",
-    "description": "<mainText><stats><attention>80</attention> Attack Damage<br><attention>18%</attention> Life Steal</stats><br><br><passive>Ichorshield</passive><br>Convert excess healing recieved from your lifesteal into a Shield.</mainText>",
+    "description": "<mainText><stats><attention>80</attention> Attack Damage<br><attention>18%</attention> Life Steal</stats><br><br><passive>Ichorshield</passive><br>Convert healing received from your Lifesteal in excess of your maximum Health into a Shield.</mainText>",
     "colloq": ";bt",
     "plaintext": "Grants Attack Damage, Life Steal and Life Steal now overheals",
     "from": [
@@ -5766,7 +5765,7 @@
       "h": 48
     },
     "gold": {
-      "base": 600,
+      "base": 700,
       "purchasable": true,
       "total": 2600,
       "sell": 1820
@@ -5852,12 +5851,13 @@
   },
   "3087": {
     "name": "Statikk Shiv",
-    "description": "<mainText><stats><attention>55</attention> Attack Damage<br><attention>45%</attention> Attack Speed<br><attention>7%</attention> Move Speed</stats><br><br><passive>Electroshock</passive><br>Your Energized Attack fires a chain lightning that deals magic damage. </mainText>",
+    "description": "<mainText><stats><attention>55</attention> Attack Damage<br><attention>45%</attention> Attack Speed<br><attention>7%</attention> Move Speed</stats><br><br><passive>Electrospark</passive><br>Killing minions or monsters fires chain lightning, dealing magic damage.<br><br><passive>Electroshock</passive> <br>Takedowns on Champions fire chain lightning that deals even more magic damage.</mainText>",
     "colloq": ";",
     "plaintext": "Movement builds charges that release chain lightning on basic attack",
     "from": [
       "3144",
-      "6690"
+      "6690",
+      "1037"
     ],
     "image": {
       "full": "3087.png",
@@ -5869,7 +5869,7 @@
       "h": 48
     },
     "gold": {
-      "base": 1000,
+      "base": 225,
       "purchasable": true,
       "total": 2800,
       "sell": 1960
@@ -5999,7 +5999,7 @@
       "h": 48
     },
     "gold": {
-      "base": 600,
+      "base": 700,
       "purchasable": true,
       "total": 2600,
       "sell": 1820
@@ -7167,7 +7167,7 @@
   },
   "3135": {
     "name": "Void Staff",
-    "description": "<mainText><stats><attention>80</attention> Ability Power<br><attention>40%</attention> Magic Penetration</stats><br><br></mainText>",
+    "description": "<mainText><stats><attention>90</attention> Ability Power<br><attention>40%</attention> Magic Penetration</stats><br><br></mainText>",
     "colloq": ";",
     "plaintext": "Increases magic damage",
     "from": [
@@ -7201,7 +7201,7 @@
       "30": false
     },
     "stats": {
-      "FlatMagicDamageMod": 80
+      "FlatMagicDamageMod": 90
     },
     "depth": 3
   },
@@ -7248,7 +7248,7 @@
   },
   "3139": {
     "name": "Mercurial Scimitar",
-    "description": "<mainText><stats><attention>40</attention> Attack Damage<br><attention>50</attention> Magic Resist<br><attention>10%</attention> Life Steal</stats><br><br><br><br><active>ACTIVE</active> (0s)<br><active>Quicksilver</active><br>Removes all crowd control debuffs (excluding <keyword>Airborne</keyword>) and grants <speed>50% Move Speed</speed> for 1.5 seconds.</mainText>",
+    "description": "<mainText><stats><attention>40</attention> Attack Damage<br><attention>50</attention> Magic Resist<br><attention>10%</attention> Life Steal</stats><br><br><br><br><active>ACTIVE</active><br><active>Quicksilver</active><br>Removes all crowd control debuffs (excluding <keyword>Airborne</keyword>) and grants Move Speed.</mainText>",
     "colloq": ";",
     "plaintext": "Activate to remove all crowd control debuffs and grant massive Move Speed",
     "from": [
@@ -7443,6 +7443,7 @@
     "colloq": ";",
     "plaintext": "Activate to deal magic damage and slow target champion",
     "from": [
+      "1042",
       "1042"
     ],
     "into": [
@@ -7460,10 +7461,10 @@
       "h": 48
     },
     "gold": {
-      "base": 600,
+      "base": 200,
       "purchasable": true,
-      "total": 900,
-      "sell": 630
+      "total": 800,
+      "sell": 560
     },
     "tags": [
       "AttackSpeed"
@@ -7851,7 +7852,7 @@
   },
   "3158": {
     "name": "Ionian Boots of Lucidity",
-    "description": "<mainText><stats><attention>15</attention> Ability Haste<br><attention>45</attention> Move Speed</stats><br><br>Gain 12 Summoner Spell Haste.<br><br></mainText>",
+    "description": "<mainText><stats><attention>15</attention> Ability Haste<br><attention>45</attention> Move Speed</stats><br><br><passive>Ionian Insight</passive><br>Gain 12 Summoner Spell Haste.<br><br></mainText>",
     "colloq": "",
     "plaintext": "Increases Move Speed and Cooldown Reduction",
     "from": [
@@ -8137,7 +8138,7 @@
     ],
     "maps": {
       "11": true,
-      "12": false,
+      "12": true,
       "21": true,
       "22": false,
       "30": false
@@ -8470,7 +8471,7 @@
   },
   "3340": {
     "name": "Stealth Ward",
-    "description": "<mainText><stats></stats><br><br><active>Active - Trinket:</active> Places a Stealth Ward on the ground that is <keywordStealth>Invisible</keywordStealth> to enemies but grants your team vision of the surrounding area. Stores up to 2 Stealth Wards.</mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Ward</active><br>Places an <keyword>Invisible</keyword> Stealth Ward that grants vision.<br><br>Holds  2 charges, generating a charge periodically. </mainText>",
     "colloq": "yellow; totem; trinket",
     "plaintext": "Periodically place a Stealth Ward",
     "image": {
@@ -8590,7 +8591,7 @@
   },
   "3363": {
     "name": "Farsight Alteration",
-    "description": "<mainText><stats></stats><br><br><active>Active - Trinket:</active> Places a visible and fragile Ward up to 4000 units away.</mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Scry</active><br>Reveals a distant area and leaves a Ward that expires upon spotting an enemy champion.</mainText>",
     "colloq": "blue; totem; trinket",
     "plaintext": "Grants increased range and reveals the targetted area",
     "image": {
@@ -8641,7 +8642,7 @@
   },
   "3364": {
     "name": "Oracle Lens",
-    "description": "<mainText><stats></stats><br><br><active>Active - Trinket:</active> Scans around you, warning against hidden enemy units, revealing invisible traps and revealing (and temporarily disabling) enemy Stealth Wards. Has 2 recharges.</mainText>",
+    "description": "<mainText><stats></stats><br><br><active>ACTIVE</active><br><active>Sweep</active><br>Reveals enemy Stealth Wards and traps around you for 6 seconds.<br><br>Holds 2 charges, generating a new charge periodically.</mainText>",
     "colloq": "red; lens; trinket",
     "plaintext": "Disables nearby invisible wards and traps for a duration",
     "image": {
@@ -12551,15 +12552,17 @@
   },
   "6670": {
     "name": "Noonquiver",
-    "description": "<mainText><stats><attention>25</attention> Attack Damage<br><attention>20%</attention> Critical Strike Chance</stats><br><br></mainText>",
+    "description": "<mainText><stats><attention>20</attention> Attack Damage<br><attention>20%</attention> Critical Strike Chance</stats><br><br></mainText>",
     "colloq": "",
     "plaintext": "",
     "from": [
       "1036",
-      "1018"
+      "1018",
+      "1036"
     ],
     "into": [
       "3032",
+      "3036",
       "3095",
       "6673"
     ],
@@ -12573,7 +12576,7 @@
       "h": 48
     },
     "gold": {
-      "base": 450,
+      "base": 100,
       "purchasable": true,
       "total": 1400,
       "sell": 980
@@ -12591,7 +12594,7 @@
     },
     "stats": {
       "FlatCritChanceMod": 0.2,
-      "FlatPhysicalDamageMod": 25
+      "FlatPhysicalDamageMod": 20
     },
     "depth": 2
   },
