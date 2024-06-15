@@ -86,7 +86,7 @@ router.post('/', async (req, res) => {
           },
           "item6": {
             "id": responseJSON.item6.id,
-            "name": allItems[responseJSON.item5.id].name,
+            "name": allItems[responseJSON.item6.id].name,
             "description": allItems[responseJSON.item6.id].description
           },
         }
