@@ -70,7 +70,6 @@ app.use(ejs_layouts);
 
 const live = require('./routes/live');
 const searchGame = require('./routes/searchGame');
-const teamsPower = require('./routes/teamsPower');
 const items = require('./routes/items');
 const gameAnalysis = require('./routes/gameAnalysis');
 
@@ -86,7 +85,6 @@ app.use('/data', express.static('data'));
 
 app.use('/summoner', live);
 app.use('/search-game', searchGame);
-app.use('/get-teams-power', teamsPower);
 app.use('/get-items', items);
 app.use('/get-analysis', gameAnalysis);
 

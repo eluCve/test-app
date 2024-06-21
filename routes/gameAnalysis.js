@@ -58,7 +58,7 @@ router.post('/', async (req, res) => {
         } else {
           console.log("Not all tips were included in the response. Retrying...", response2)
           const msg3 = await anthropic.messages.create({
-            model: "claude-3-sonnet-20240229",
+            model: "claude-3-5-sonnet-20240620",
             max_tokens: 1024,
             messages: [{ role: "user", content: `${prompt}` }],
           });
