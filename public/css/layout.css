@@ -127,6 +127,20 @@ header {
 #logo:hover {
     transform: scale(1.02);
 }
+#nav {
+    display: flex;
+    gap: 20px;
+}
+.nav-item {
+    font-size: 17px;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+.nav-item:hover {
+    transform: scale(1.1);
+}
 #summoner-info {
     display: flex;
     gap: 20px;

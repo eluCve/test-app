@@ -51,7 +51,7 @@ app.use(helmet({
   }
 }));
 app.use(cors({
-  origin: 'https://poromentor.gg'
+  origin: 'https://hexakill.gg'
 }));
 app.use(express.json());
 app.use(express.static('public'));
@@ -87,6 +87,15 @@ app.use('/summoner', live);
 app.use('/search-game', searchGame);
 app.use('/get-items', items);
 app.use('/get-analysis', gameAnalysis);
+
+app.get('/blogs/:blogname', (req, res) => {
+  const blogname = req.params.blogname;
+  res.render(`blogs/${blogname}`, { page: "blog-post" });
+});
+app.use('/blogs', (req, res) => {
+  return res.render('blogs', { page: 'blogs' });
+});
+
 
 app.get('*', (req, res) => {
   res.redirect('/');
