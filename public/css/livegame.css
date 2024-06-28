@@ -451,10 +451,16 @@ attention {
         z-index: -1 !important;
     }
     body {
-        overflow-x: hidden;
+        overflow-x: hidden !important;
     }
     .third-party-apps {
         position: relative;
         margin: 10px 0px;
+    }
+    .container-1 {
+        gap: 20px;
+    }
+    .container-1 p {
+        font-size: 10px;
     }
   }
