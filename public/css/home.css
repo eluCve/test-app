@@ -145,8 +145,6 @@ select {
     width: 220px;
     height: 220px;
     background-image: url('/assets/riven.png');
-    margin-top: -40px;
-    margin-left: -70px;
 }
 body::before {
     content: '';
@@ -166,4 +164,49 @@ body::before {
 }
 #nav-btn:hover {
     transform: scale(1.06);
+}
+
+@media screen and (max-width: 800px) {
+    .boxes {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 0px;
+    }
+    .box {
+        margin-top: 70px;
+
+    }
+    #search-summoner {
+        width: 90%;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+    #search-summoner input{
+        font-size: 13px !important;
+
+    }
+    #search-summoner #summonerName {
+        width: 30%;
+    }
+    #search-summoner #tag {
+        width: 12%;
+    }
+    #search-summoner #serverSelect {
+        width: 15%;
+    }
+    #search-summoner svg {
+        width: 15px;
+        margin: 0px !important;
+    }
+    #searchButton {
+        width: 20%;
+    }
+    #logo {
+        border-bottom: 1px solid #21284b;
+        width: 100%;
+        display: flex;
+    }
+    a {
+        margin: auto;
+    }
 }

@@ -55,3 +55,12 @@ ul li {
     font-size: 15px;
     font-weight: 100;
 }
+
+@media screen and (max-width: 800px) {
+    .blog-container {
+        padding: 10px 10px;
+    }
+    .blog-content img {
+        height: 200px;
+    }
+}

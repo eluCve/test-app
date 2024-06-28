@@ -174,3 +174,31 @@ header {
 .btn a:hover {
     border: 2px solid #e8bfbf; /* Border color on hover */
 }
+#patch {
+    position: absolute; 
+    top: 10px; 
+    right: 40px;
+}
+
+@media screen and (max-width: 800px) {
+    #header {
+        padding: 30px 10px;
+        flex-wrap: wrap;
+    }
+    body::before {
+        display: none;
+    }
+    body {
+        padding: 15px;
+    }
+    #patch {
+        right: 10px;
+    }
+    h1 {
+        font-size: 35px;
+        line-height: 38px !important;
+    }
+    footer {
+        margin-top: 60px;
+    }
+}
