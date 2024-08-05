@@ -1,0 +1,214 @@
+<div id="summonerInfo" style="display: none;" data-region="<%= region %>" data-riotName="<%= riotName %>" data-riotTag="<%= riotTag %>" data-puuid="<%= puuid %>"
+    data-accountTier="<%= accountTier %>" data-accountRank="<%= accountRank %>" data-accountLP="<%= accountLP %>"
+    data-accountWins="<%= accountWins %>" data-accountLosses="<%= accountLosses %>" data-accountWinrate="<%= accountWinrate %>"
+    data-summonerIcon="<%= summonerIcon %>" data-summonerLevel="<%= summonerLevel %>"></div>
+
+    <div style="display: flex; justify-content: center; align-items: center; margin-top: 100px; flex-direction: column;">
+    <div style="width: 650px; display: flex; justify-content: center; flex-direction: column; align-items: center;">
+        <h2 style="font-weight: 400;">LoL Account <span style="color: #FF4655; font-weight: bold;">Health Check</span></h2>
+        <form id="search-summoner">
+            <select id="serverSelect" name="region" required>
+              <option value="na1">NA</option>
+              <option value="euw1">EUW</option>
+              <option value="eun1">EUNE</option>
+              <option value="kr">KR</option>
+              <option value="br1">BR</option>
+              <option value="jp1">JP</option>
+              <option value="ru">RU</option>
+              <option value="oc1">OCE</option>
+              <option value="tr1">TR</option>
+              <option value="la1">LAN</option>
+              <option value="la2">LAS</option>
+              <option value="ph2">PH</option>
+              <option value="sg2">SG</option>
+              <option value="th2">TH</option>
+              <option value="tw2">TW</option>
+              <option value="vn2">VN</option>
+            </select>
+            <svg style="margin: 0 10px;" width="3" height="25" viewBox="0 0 3 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="1.5" y1="0.4375" x2="1.5" y2="26.3625" stroke="#9a9a9a" stroke-width="1"/>
+            </svg>
+            <svg width="18" height="18" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M11.4375 1.7C6.73828 1.7 2.9375 5.50078 2.9375 10.2C2.9375 14.8992 6.73828 18.7 11.4375 18.7C13.1152 18.7 14.668 18.2078 15.9844 17.3719L22.125 23.5125L24.25 21.3875L18.1875 15.3406C19.2773 13.9109 19.9375 12.1394 19.9375 10.2C19.9375 5.50078 16.1367 1.7 11.4375 1.7ZM11.4375 3.7C15.0371 3.7 17.9375 6.60039 17.9375 10.2C17.9375 13.7996 15.0371 16.7 11.4375 16.7C7.83789 16.7 4.9375 13.7996 4.9375 10.2C4.9375 6.60039 7.83789 3.7 11.4375 3.7Z" fill="#9a9a9a"/>
+            </svg>      
+            <input id="summonerName" type="text" name="summoner" required placeholder="Summoner Name">
+            <p style="color: #9a9a9a;">#</p>
+            <input id="tag" type="text" name="tag" required placeholder="TAG">
+            <button id="searchButton" type="submit">SEARCH</button>
+          </form>
+          <h2>Results</h2>
+          <div id="result-bar">
+            <div id="result-container">
+                <div id="percentage-bar"></div>
+            </div>
+            <p id="result-text"></p>
+          </div>
+          <p id="result-info"></p>
+    </div>
+</div>
+
+<div id="analysis-container">
+    <div id="summoner-info">
+        <div style="position: relative; display: flex; justify-content: center; align-items: center;">
+            <img id="summoner-icon" src="" style="border: 2px solid #CC9600;">
+            <p id="summoner-level" style="position: absolute; bottom: 4px; background-color: #000; border: 2px solid #CC9600; padding: 4px 10px; font-size: 11px; color: #fff; border-radius: 15px;"></p>
+        </div>
+        <div style="display: flex; justify-content: center; align-items: start; flex-direction: column; gap: 8px;">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 8px;">
+                <p id="summoner-name" style="color: #fff; font-size: 17px; font-weight: 400;"></p>
+                <p id="region" style="background-color: #fff; font-size: 14px; font-weight: 600; padding: 4px; border-radius: 5px;"></p>
+            </div>
+            <a href="" id="update-btn">Update</a>
+        </div>
+      </div>
+    <div style="width: 1050px; margin-top: 30px;">
+        <h4 id="account-stats-title" style="margin-bottom: 10px;"></h4>
+    </div>
+    <div id="account-stats">
+        <div id="account-ranks">
+            <div id="current-rank" class="rank-box">
+                <img src="">
+                <div>
+                    <h4 style="font-size: 14px; color: #292929; margin-bottom: 5px;">Current Rank</h4>
+                    <p style="font-size: 14px; font-weight: 500;"></p>
+                </div>
+            </div>
+            <div id="performance-rank" class="rank-box">
+                <img src="">
+                <div>
+                    <h4 style="font-size: 14px; color: #292929; margin-bottom: 5px;">Your Performance</h4>
+                    <p style="font-size: 14px; font-weight: 500;"></p>
+                </div>
+            </div>
+        </div>
+        <div id="performance-chart-container">
+            <canvas id="performance-chart"></canvas>
+        </div>
+        <div id="overall-account-stats">
+            <div class="overall-account-stats-box" style="flex-direction: row;">
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px;">
+                    <p style="font-size: 13px; font-weight: 500;">Recent Games</p>
+                    <div style=" width: 50px; height: 50px;">
+                        <canvas id="recent-winrate-chart"></canvas>
+                    </div>
+                    <p id="recent-overall-winrate" style="position: absolute; font-size: 13px; font-weight: 500;"></p>
+                    <p id="recent-overall-total-games" style="font-size: 12px; font-weight: 500;"></p>
+                </div>
+                <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px;">
+                    <p style="font-size: 13px; font-weight: 500;">Overall Winrate</p>
+                    <div style=" width: 50px; height: 50px;">
+                        <canvas id="winrate-chart"></canvas>
+                    </div>
+                    <p id="overall-winrate" style="position: absolute; font-size: 13px; font-weight: 500;"></p>
+                    <p id="overall-total-games" style="font-size: 12px; font-weight: 500;"></p>
+                </div>
+            </div>
+            <div class="overall-account-stats-box" style="flex-direction: column;">
+                <p id="score-averages" style="font-size: 13px; font-weight: 500;"></p>
+                <div style="display: flex; justify-content: space-evenly; align-items: center; flex: 1; width: 100%;">
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px;">
+                        <div style=" width: 50px; height: 50px;">
+                            <canvas id="player-average-score-chart"></canvas>
+                        </div>
+                        <p id="player-average-score" style="position: absolute; font-size: 12px; margin-bottom: 12px; font-weight: 500;"></p>
+                        <p style="font-size: 12px; font-weight: 500;">Your Score</p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px;">
+                        <div style=" width: 50px; height: 50px;">
+                            <canvas id="team-average-score-chart"></canvas>
+                        </div>
+                        <p id="team-average-score" style="position: absolute; font-size: 12px; margin-bottom: 12px; font-weight: 500;"></p>
+                        <p style="font-size: 12px; font-weight: 500;"> Team Score</p>
+                    </div>
+                    <div style="display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 3px;">
+                        <div style=" width: 50px; height: 50px;">
+                            <canvas id="enemy-average-score-chart"></canvas>
+                        </div>
+                        <p id="enemy-average-score" style="position: absolute; font-size: 12px; margin-bottom: 12px; font-weight: 500;"></p>
+                        <p style="font-size: 12px; font-weight: 500;">Enemy Score</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="match-history">
+    <div style="width: 1050px;" id="matches-container">
+        <h4 style="margin-bottom: 10px;">Ranked Solo Queue <span style="font-size: 12px; color: #666666;">(Displays up to 100 recent matches. Some may be omitted due to data limitations)</span></h4>
+    </div>
+</div>
+<div id="load-more-container">
+    <div id="load-more-btn" style="display: none;">
+        <p>+ More</p>
+    </div>
+    <div id="loader">
+        <img src="/assets/loading.gif" width="35" height="35"/>
+    </div>
+</div>
+<div id="no-matches" style="display: none; width: 100%; justify-content: center; align-items: center;">
+    <h5>No more matches to display</h5>
+</div>
+
+<!-- POPUP -->
+<div id="popup">
+    <p style="font-weight: 400; font-size: 15px; color: #c4c4c4;">Performance</p>
+    <div id="popup-profile">
+        <img id="popup-profile-img" src="" style="border-radius: 50%; width: 25px; height: 25px;">
+        <div>
+            <p id="popup-playername" style="font-size: 13px; margin-bottom: 3px;"></p>
+            <p id="popup-kda" style="color: #FF6262; font-size: 12px;">KDA: <span id="kda"></span></p>
+        </div>
+    </div>
+    <div id="popup-scores">
+        <div class="popup-score-container">
+            <p>Laning</p>
+            <div class="popup-chart-container">
+                <canvas id="popup-laning-dominance-score-chart"></canvas>
+                <small id="popup-lane-dominance-score" class="popup-score">0</small>
+            </div>
+        </div>
+        <div class="popup-score-container">
+            <p>Farming</p>
+            <div class="popup-chart-container">
+                <canvas id="popup-farming-efficiency-score-chart"></canvas>
+                <small id="popup-farming-efficiency-score" class="popup-score">0</small>
+            </div>
+        </div>
+        <div class="popup-score-container">
+            <p>Objectives</p>
+            <div class="popup-chart-container">
+                <canvas id="popup-objectives-contribution-chart"></canvas>
+                <small id="popup-objective-contribution-score" class="popup-score">0</small>
+            </div>
+        </div>
+        <div class="popup-score-container">
+            <p>Combat</p>
+            <div class="popup-chart-container">
+                <canvas id="popup-combat-effectiveness-score-chart"></canvas>
+                <small id="popup-combat-effectiveness-score" class="popup-score">0</small>
+            </div>
+        </div>
+        <div class="popup-score-container">
+            <p>Teamfight</p>
+            <div class="popup-chart-container">
+                <canvas id="popup-teamfight-contribution-score-chart"></canvas>
+                <small id="popup-teamfight-contribution-score" class="popup-score">0</small>
+            </div>
+        </div>
+        <div class="popup-score-container">
+            <p>Vision</p>
+            <div class="popup-chart-container">
+                <canvas id="popup-vision-score-chart"></canvas>
+                <small id="popup-vision-score" class="popup-score">0</small>
+            </div>
+        </div>
+        <div id="total-score" class="popup-score-container">
+            <p>= Total</p>
+            <div class="popup-chart-container">
+                <canvas id="popup-total-score-chart"></canvas>
+                <small id="popup-total-score" class="popup-score">0</small>
+            </div>
+        </div>
+        <img id="popup-arrow" src="/assets/popup-arrow.svg">
+    </div>
+</div>

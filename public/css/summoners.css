@@ -93,29 +93,59 @@ select {
     max-width: 500px;
 }
 #analysis-container {
-    margin-top: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
+#summoner-info {
+    display: flex;
+    width: 1050px;
+    background: url('/assets/profile-background.png') no-repeat center center;
+    background-size: cover;
+    padding: 20px;
+    height: 150px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    gap: 12px;
+}
+#summoner-icon {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+}
+#update-btn {
+    background-color: #5393CA;
+    color: white;
+    padding: 7px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+#update-btn:hover {
+    background-color: #3A7FA4;
+}
+
 #account-stats {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
     width: 1050px;
+    gap: 5px;
+}
+#account-ranks {
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
 }
 .rank-box {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    margin: 0 5px;
-    padding: 20px;
+    padding-right: 20px;
     background-color: #fff;
     border: 1px solid #E5E7EB;
-    width: 170px;
-    height: 120px;
+    min-height: 110px;
+    gap: 10px;
 }
 #rank-chart {
     flex: 1;
@@ -126,6 +156,36 @@ select {
 }
 .rank-box img {
     height:80px;
+}
+#performance-chart-container {
+    padding: 10px;
+    border: 1px solid #E5E7EB;
+    flex: 1;
+    width: 100%;
+    height: 229px;
+    box-sizing: border-box;
+}
+#performance-chart {
+    width: 100% !important;
+    height: auto !important;
+}
+#overall-account-stats {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+    width: 270px;
+    min-height: 229px;
+    box-sizing: border-box;
+    gap: 5px;
+}
+.overall-account-stats-box {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    flex: 1;
+    border: 1px solid #E5E7EB;
 }
 #match-history {
     display: flex;
@@ -157,11 +217,12 @@ select {
     height: 50px;
     width: 50px;
 }
-.winner-match {
-    background-color: #67ff791f;
+.win-match {
+    background-color: #EBF3FB;
 }
-.loser-match {
-    background-color: #ff465617;
+.lose-match {
+    background-color: #FFEAEA;
+    border-color: #F6E5E7;
 }
 .ally-team-players a, .enemy-team-players a {
     color: #000;
@@ -191,13 +252,13 @@ select {
 }
 .win-banner {
     position: relative;
-    background-color: #67FF79;
+    background-color: #5393CA;
     width: 4px;
     height: 90px;
 }
 .lose-banner {
     position: relative;
-    background-color: #FF4655;
+    background-color: #ED6767;
     width: 4px;
     height: 90px;
 }
@@ -207,8 +268,7 @@ select {
     color: #666666;
 }
 .score-big {
-    font-size: 17px;
-    font-style: italic;
+    font-size: 18px;
     color: #000;
     margin: 5px 0px;
 }
@@ -279,9 +339,14 @@ select {
     margin-top: 5px;
 }
 #load-more-btn {
+    display: none;
+}
+#loader {
+    display: flex;
+}
+#load-more-btn, #loader {
     width: 1050px;
     height: 50px;
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
