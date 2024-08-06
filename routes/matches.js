@@ -32,74 +32,84 @@ router.post('/', async (req, res) => {
         const matchIds = matches.data;
         let response = [];
         for (const matchId of matchIds) {
-          const matchExists = await Match.findOne({ matchId: matchId });
-          if (matchExists) {
-              response.push(matchExists);
-              continue;
-          }
-          const match = await axios.get(`https://${continent}.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${RIOT_API_KEY}`);
-          const matchData = match.data;
-          if (!validateMatchData(matchData)) continue;
-          const matchJson = saveMatch(matchData);
-          if (matchJson === null || matchJson === undefined) {
-            console.log('MatchJson is null or undefined');
+          try {
+              const matchExists = await Match.findOne({ matchId: matchId });
+              if (matchExists) {
+                  response.push(matchExists);
+                  continue;
+              }
+              const match = await axios.get(`https://${continent}.api.riotgames.com/lol/match/v5/matches/${matchId}?api_key=${RIOT_API_KEY}`);
+              const matchData = match.data;
+              if (!validateMatchData(matchData)) continue;
+              const matchJson = saveMatch(matchData);
+              if (matchJson === null || matchJson === undefined) {
+                console.log('MatchJson is null or undefined');
+                continue;
+              }
+    
+              const hasInvalidPlayer = [...Object.values(matchJson[100]), ...Object.values(matchJson[200])].some(
+                player => player.riotIdGameName === null || player.riotIdGameName === undefined ||
+                          player.riotTagLine === null || player.riotTagLine === undefined
+              );
+    
+              if (hasInvalidPlayer) {
+                console.log('Invalid player data found, ending request');
+                return res.status(205).json({ message: 'No more matches to display' });
+              }
+    
+              const winningTeam = matchData.info.teams.find(team => team.win === true).teamId;
+              const newMatch = new Match({
+                  matchId: matchId,
+                  gameCreation: matchJson.gameCreation,
+                  gameDuration: matchJson.gameDuration,
+                  winningTeam: winningTeam,
+                  blueTeam: Object.values(matchJson[100]).map(player => ({
+                      puuid: player.puuid,
+                      riotGameName: player.riotIdGameName,
+                      riotTagLine: player.riotTagLine,
+                      summonerName: player.summonerName,
+                      profileIcon: player.profileIcon,
+                      championName: player.championName,
+                      individualPosition: player.individualPosition,
+                      kda: player.kda,
+                      laneDominanceScore: player.laneDominanceScore,
+                      farmingEfficiencyScore: player.farmingEfficiencyScore,
+                      objectiveControlScore: player.objectiveControlScore,
+                      combatEffectivenessScore: player.combatEffectivenessScore,
+                      teamfightContributionScore: player.teamfightContributionScore,
+                      visionControlScore: player.visionControlScore,
+                      totalScore: player.totalScore
+                  })),
+                  redTeam: Object.values(matchJson[200]).map(player => ({
+                      puuid: player.puuid,
+                      riotGameName: player.riotIdGameName,
+                      riotTagLine: player.riotTagLine,
+                      summonerName: player.summonerName,
+                      profileIcon: player.profileIcon,
+                      championName: player.championName,
+                      individualPosition: player.individualPosition,
+                      kda: player.kda,
+                      laneDominanceScore: player.laneDominanceScore,
+                      farmingEfficiencyScore: player.farmingEfficiencyScore,
+                      objectiveControlScore: player.objectiveControlScore,
+                      combatEffectivenessScore: player.combatEffectivenessScore,
+                      teamfightContributionScore: player.teamfightContributionScore,
+                      visionControlScore: player.visionControlScore,
+                      totalScore: player.totalScore
+                  }))
+              });
+              await newMatch.save();
+              response.push(newMatch);
+          };
+        } catch (error) {
+            if (error.response && error.response.status === 404) {
+              console.log(`Match not found: ${matchId}`);
+            } else {
+              console.error(`Error processing match ${matchId}:`, error.message);
+            }
+            // Continue to the next match
             continue;
-          }
-
-          const hasInvalidPlayer = [...Object.values(matchJson[100]), ...Object.values(matchJson[200])].some(
-            player => player.riotIdGameName === null || player.riotIdGameName === undefined ||
-                      player.riotTagLine === null || player.riotTagLine === undefined
-          );
-
-          if (hasInvalidPlayer) {
-            console.log('Invalid player data found, ending request');
-            return res.status(205).json({ message: 'No more matches to display' });
-          }
-
-          const winningTeam = matchData.info.teams.find(team => team.win === true).teamId;
-          const newMatch = new Match({
-              matchId: matchId,
-              gameCreation: matchJson.gameCreation,
-              gameDuration: matchJson.gameDuration,
-              winningTeam: winningTeam,
-              blueTeam: Object.values(matchJson[100]).map(player => ({
-                  puuid: player.puuid,
-                  riotGameName: player.riotIdGameName,
-                  riotTagLine: player.riotTagLine,
-                  summonerName: player.summonerName,
-                  profileIcon: player.profileIcon,
-                  championName: player.championName,
-                  individualPosition: player.individualPosition,
-                  kda: player.kda,
-                  laneDominanceScore: player.laneDominanceScore,
-                  farmingEfficiencyScore: player.farmingEfficiencyScore,
-                  objectiveControlScore: player.objectiveControlScore,
-                  combatEffectivenessScore: player.combatEffectivenessScore,
-                  teamfightContributionScore: player.teamfightContributionScore,
-                  visionControlScore: player.visionControlScore,
-                  totalScore: player.totalScore
-              })),
-              redTeam: Object.values(matchJson[200]).map(player => ({
-                  puuid: player.puuid,
-                  riotGameName: player.riotIdGameName,
-                  riotTagLine: player.riotTagLine,
-                  summonerName: player.summonerName,
-                  profileIcon: player.profileIcon,
-                  championName: player.championName,
-                  individualPosition: player.individualPosition,
-                  kda: player.kda,
-                  laneDominanceScore: player.laneDominanceScore,
-                  farmingEfficiencyScore: player.farmingEfficiencyScore,
-                  objectiveControlScore: player.objectiveControlScore,
-                  combatEffectivenessScore: player.combatEffectivenessScore,
-                  teamfightContributionScore: player.teamfightContributionScore,
-                  visionControlScore: player.visionControlScore,
-                  totalScore: player.totalScore
-              }))
-          });
-          await newMatch.save();
-          response.push(newMatch);
-      };
+      }
       return res.status(200).json(response);
 
     } catch (error) {
