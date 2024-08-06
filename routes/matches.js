@@ -100,7 +100,6 @@ router.post('/', async (req, res) => {
               });
               await newMatch.save();
               response.push(newMatch);
-          };
         } catch (error) {
             if (error.response && error.response.status === 404) {
               console.log(`Match not found: ${matchId}`);
