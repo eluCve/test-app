@@ -108,7 +108,8 @@ router.post('/', async (req, res) => {
             }
             // Continue to the next match
             continue;
-      }
+          }
+        }
       return res.status(200).json(response);
 
     } catch (error) {
