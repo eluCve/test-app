@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', async function() {
         console.log(error);
     });
 
-    let nextLoad = 10;
+    let nextLoad = 20;
 
     loadMore.addEventListener('click', function() {
         loader.style.display = 'flex';
